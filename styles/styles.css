@@ -5771,6 +5771,9 @@ figcaption {
 #registroForm > div.contenedor-inputs {
   text-align: start;
 }
+::placeholder {
+  text-align: start;
+}
 /* ------------------------- */
 /* ANIMACIONES */
 /* ------------------------- */
