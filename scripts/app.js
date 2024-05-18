@@ -16,3 +16,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+/* formulario */
+var btnAbrirPopup = document.getElementById("btn-abrir-popup"),
+  overlay = document.getElementById("overlay"),
+  popup = document.getElementById("popup"),
+  btnCerrarPopup = document.getElementById("btn-cerrar-popup");
+
+btnAbrirPopup.addEventListener("click", function () {
+  overlay.classList.add("active");
+  popup.classList.add("active");
+});
+
+btnCerrarPopup.addEventListener("click", function (e) {
+  e.preventDefault();
+  overlay.classList.remove("active");
+  popup.classList.remove("active");
+});
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  "use strict";
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll(".needs-validation");
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();

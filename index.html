@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Dev Team Evento</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="./styles/styles.css" rel="stylesheet" type="text/css" />
@@ -41,7 +42,7 @@
 
             <div class="logo d-flex justify-content-center justify-content-md-start">
                 <a href="/" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
-                    <img src="assets/logos.png" loading="lazy" alt="Logo" class="navbar-logo" />
+                    <img src="assets/logo2.jpeg" loading="lazy" alt="Logo" class="navbar-logo" />
                 </a>
             </div>
             <div class="navegacion d-flex  mt-5 mt-md-0">
@@ -51,9 +52,11 @@
                     <a href="#info" class="navbar-link w-nav-link">Información</a>
                     <a href="#faq" class="navbar-link w-nav-link">Faq</a>
                 </nav>
+
+
             </div>
-            <div class="botonHeader d-flex align-items-center">
-                <a href="#tickets" class="button w-button">COMPRAR ENTRADA</a>
+            <div class="registro botonHeader d-flex align-items-center">
+                <a id="btn-abrir-popup" href="#tickets" class="button w-button">COMPRAR ENTRADA</a>
             </div>
 
         </header>
@@ -147,6 +150,66 @@
                 </div>
                 <div class="blurred-circle"></div>
             </header>
+
+            <!-- FORMULARIO -->
+            <div class="contenedor">
+                <div class="overlay" id="overlay">
+                    <div class="popup" id="popup">
+                        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                        <h3>Registro de Usuario</h3>
+
+                        <div class="row justify-content-center">
+                            <form id="registroForm" class="col-md-8 needs-validation" novalidate>
+                                <div class="contenedor-inputs">
+                                    <div class="">
+                                        <label for="nombre" class="form-label fw-bold">Nombre:</label>
+                                        <input type="text" class="form-control" name="nombre" id="nombre"
+                                            placeholder="Tu Nombre" required>
+                                        <span class="invalid-feedback">Debe colocar un Nombre</span>
+                                        <span class="valid-feedback">Correcto!</span>
+                                    </div>
+
+                                    <div class="">
+                                        <label for="apellido" class="form-label fw-bold">Apellido:</label>
+                                        <input type="text" class="form-control" name="apellido" id="apellido"
+                                            placeholder="Tu apellido" required>
+                                        <span class="invalid-feedback">Debe colocar un Apellido</span>
+                                        <span class="valid-feedback">Correcto!</span>
+                                    </div>
+
+                                    <div class="">
+                                        <label for="email" class="form-label fw-bold">Email:</label>
+                                        <input required minlength="4" type="email" class="form-control" name="email"
+                                            id="email" placeholder="Tu email">
+                                        <span class="invalid-feedback">Debe colocar un Email</span>
+                                        <span class="valid-feedback">Correcto!</span>
+                                    </div>
+
+                                    <div class="">
+                                        <label for="telefono" class="form-label fw-bold">Teléfono:</label>
+                                        <input required type="tel" minlength="4" class="form-control" name="telefono"
+                                            id="telefono" placeholder="Tu telefono">
+                                        <span class="invalid-feedback">Debe colocar un teléfono</span>
+                                        <span class="valid-feedback">Correcto!</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid d-md-flex justify-content-md-center">
+                                    <input class="btn px-5 text-uppercase button w-button" type="submit"
+                                        value="Enviar Formulario">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 
+<span class="invalid-feedback">Debe colocar un teléfono</span>
+                                        <span class="valid-feedback">Correcto!</span>
+
+             -->
             <section id="conferencistas" class="section-home-speakers p-1">
                 <div class="padding-global">
                     <div class="container-large">
@@ -879,6 +942,9 @@
     </div>
 
     <script src="scripts/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
