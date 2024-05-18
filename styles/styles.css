@@ -5768,7 +5768,9 @@ figcaption {
   display: flex !important;
   margin-bottom: 1rem !important;
 }
-
+#registroForm > div.contenedor-inputs {
+  text-align: start;
+}
 /* ------------------------- */
 /* ANIMACIONES */
 /* ------------------------- */
