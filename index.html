@@ -16,50 +16,62 @@
             }
         }
     </style>
-    <style>.speaker-collection-item .speaker-image-wrapper {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .speaker-collection-item .speaker-image {
-        width: 100%;
-        height: auto;
-        transition: filter 0.5s ease; /* Aclarar la imagen */
-    }
-    
-    .speaker-collection-item .speaker-content-wrapper {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-        color: #fff;
-        opacity: 1; /* Mostrar la información por defecto */
-        transition: opacity 0.5s ease, background-color 0.5s ease; /* Transición más lenta */
-    }
-    
-    .speaker-collection-item .speaker-info {
-        margin: 0;
-        text-align: center;
-    }
-    
-    .speaker-collection-item .speaker-bio-content {
-        display: none; /* Ocultar la biografía inicialmente */
-        opacity: 0; /* Inicialmente oculta */
-        transition: opacity 0.5s ease, visibility 0.5s ease; /* Transición más lenta */
-        visibility: hidden; /* Ocultar la biografía */
-    }
-    
-    .speaker-collection-item:hover .speaker-content-wrapper {
-        background-color: rgba(0, 0, 0, 0.5); /* Cambiar el color de fondo al hacer hover */
-    }
-    
-    .speaker-collection-item:hover .speaker-content-wrapper .speaker-bio-content {
-        display: block; /* Mostrar la biografía al hacer hover */
-        opacity: 1; /* Mostrar la biografía al hacer hover */
-        visibility: visible; /* Mostrar la biografía */
-    }
+    <style>
+        .speaker-collection-item .speaker-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .speaker-collection-item .speaker-image {
+            width: 100%;
+            height: auto;
+            transition: filter 0.5s ease;
+            /* Aclarar la imagen */
+        }
+
+        .speaker-collection-item .speaker-content-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #fff;
+            opacity: 1;
+            /* Mostrar la información por defecto */
+            transition: opacity 0.5s ease, background-color 0.5s ease;
+            /* Transición más lenta */
+        }
+
+        .speaker-collection-item .speaker-info {
+            margin: 0;
+            text-align: center;
+        }
+
+        .speaker-collection-item .speaker-bio-content {
+            display: none;
+            /* Ocultar la biografía inicialmente */
+            opacity: 0;
+            /* Inicialmente oculta */
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            /* Transición más lenta */
+            visibility: hidden;
+            /* Ocultar la biografía */
+        }
+
+        .speaker-collection-item:hover .speaker-content-wrapper {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Cambiar el color de fondo al hacer hover */
+        }
+
+        .speaker-collection-item:hover .speaker-content-wrapper .speaker-bio-content {
+            display: block;
+            /* Mostrar la biografía al hacer hover */
+            opacity: 1;
+            /* Mostrar la biografía al hacer hover */
+            visibility: visible;
+            /* Mostrar la biografía */
+        }
     </style>
     <script type="text/javascript">
         !function (o, c) {
@@ -185,7 +197,7 @@
 
                                 <div class="d-grid align-items-center justify-content-center">
 
-                                    <img class="img-fluid" src="assets/evento.png" alt="">
+                                    <img class="img-fluid" src="assets/evento.png" alt="img evento">
 
                                 </div>
 
@@ -285,7 +297,7 @@
                                             <div class="speaker-content-wrapper">
                                                 <div class="heading-style-h4">Dr. Heber Roberto León Salazar</div>
                                                 <div class="text-size-medium">Titulo</div>
-                                                <p class ="speaker-bio-content" >Biografía del conferencista...</p>
+                                                <p class="speaker-bio-content">Biografía del conferencista...</p>
                                                 <div class="redes-c">
 
                                                 </div>
@@ -307,7 +319,15 @@
                                             <div class="speaker-content-wrapper">
                                                 <div class="heading-style-h4">Dr. Manuel Lujan</div>
                                                 <div class="text-size-medium">Titulo</div>
-                                                <div class ="speaker-bio-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus augue ac orci commodo pellentesque. Donec aliquet, nisi at pellentesque interdum, nisi velit ornare sapien, nec mattis tortor eros a nulla. Suspendisse nec justo bibendum, pellentesque urna eget, bibendum erat. Vivamus aliquam feugiat lorem vitae egestas. Aliquam varius diam ac enim fringilla, vel cursus diam fermentum. Phasellus gravida porta mauris. Nam sollicitudin odio nunc, varius ornare odio tempor eu. Sed dignissim viverra ex a malesuada.</div>
+                                                <div class="speaker-bio-content">Lorem ipsum dolor sit amet, consectetur
+                                                    adipiscing elit. Nunc luctus augue ac orci commodo pellentesque.
+                                                    Donec aliquet, nisi at pellentesque interdum, nisi velit ornare
+                                                    sapien, nec mattis tortor eros a nulla. Suspendisse nec justo
+                                                    bibendum, pellentesque urna eget, bibendum erat. Vivamus aliquam
+                                                    feugiat lorem vitae egestas. Aliquam varius diam ac enim fringilla,
+                                                    vel cursus diam fermentum. Phasellus gravida porta mauris. Nam
+                                                    sollicitudin odio nunc, varius ornare odio tempor eu. Sed dignissim
+                                                    viverra ex a malesuada.</div>
                                                 <div class="redes-c">
 
                                                 </div>
