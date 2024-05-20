@@ -3725,6 +3725,7 @@ figcaption {
 }
 
 .speaker-social-wrapper {
+  display: grid;
   grid-column-gap: 0.875rem;
   grid-row-gap: 0.875rem;
   grid-template-rows: auto;
@@ -3734,7 +3735,6 @@ figcaption {
   align-self: flex-start;
   padding-top: 2rem;
   padding-right: 2rem;
-  display: grid;
   position: absolute;
   top: 0%;
   bottom: auto;
