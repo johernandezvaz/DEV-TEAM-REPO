@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const answer = question.querySelector(".faq-answer");
 
     questionText.addEventListener("click", function () {
-      answer.classList.add("show");
+      answer.classList.add("showAnswer");
       // Si la respuesta está visible, programa su ocultación después de 4 segundos
-      if (answer.classList.contains("show")) {
+      if (answer.classList.contains("showAnswer")) {
         setTimeout(function () {
-          answer.classList.remove("show");
+          answer.classList.remove("showAnswer");
         }, 3000);
       }
     });

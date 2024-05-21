@@ -3973,7 +3973,7 @@ figcaption {
   transition: display 3ms;
 }
 
-.show {
+.showAnswer {
   display: block;
 }
 
