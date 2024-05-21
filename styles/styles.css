@@ -5,9 +5,14 @@ html {
 }
 
 body {
+  padding-top: 0;
   margin: 0;
 }
-
+@media (min-width: 992px) {
+  body {
+    padding-top: 150px;
+  }
+}
 article,
 aside,
 details,
@@ -3934,6 +3939,9 @@ figcaption {
   left: 0%;
   right: 0%;
 }
+.speaker-item {
+  max-height: 495px;
+}
 
 .faq-accordion {
   color: white;
@@ -4439,7 +4447,7 @@ figcaption {
   }
 
   .home-header-component {
-    min-height: auto;
+    min-height: 75vh;
     grid-row-gap: 4rem;
     grid-template-columns: 1fr;
     grid-auto-flow: row;
@@ -5586,7 +5594,14 @@ figcaption {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3rem 0 3rem 0;
+  margin: 0 0 3rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
 }
 
 .botonHeader {
@@ -5681,6 +5696,7 @@ figcaption {
   justify-content: center;
   display: flex;
   visibility: hidden;
+  z-index: 1;
 }
 
 .overlay.active {
@@ -5715,6 +5731,7 @@ figcaption {
 }
 
 .popup h3 {
+  font-family: Clashdisplay, sans-serif;
   font-size: 36px;
   font-weight: 600;
   margin-bottom: 10px;
@@ -5722,6 +5739,7 @@ figcaption {
 }
 
 .popup h4 {
+  font-family: Clashdisplay, sans-serif;
   font-size: 26px;
   font-weight: 300;
   margin-bottom: 40px;
@@ -5729,16 +5747,19 @@ figcaption {
 }
 
 .popup form .contenedor-inputs {
+  font-family: Clashdisplay, sans-serif;
   opacity: 0;
+  font-size: 18px;
 }
 
 .popup form .contenedor-inputs input {
+  font-family: Clashdisplay, sans-serif;
   width: 100%;
   margin-bottom: 20px;
   height: 52px;
   font-size: 18px;
   line-height: 52px;
-  text-align: center;
+  text-align: start;
   border: 1px solid #bbbbbb;
 }
 
@@ -5822,5 +5843,14 @@ figcaption {
   }
   to {
     opacity: 1;
+  }
+}
+
+.organizadoresImg {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .organizadoresImg {
+    width: 60%;
   }
 }

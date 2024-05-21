@@ -18,14 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* formulario */
-var btnAbrirPopup = document.getElementById("btn-abrir-popup"),
-  overlay = document.getElementById("overlay"),
-  popup = document.getElementById("popup"),
+var btnsAbrirPopup = document.querySelectorAll(".btn-abrir-popup"),
+  overlay = document.querySelector(".overlay"),
+  popup = document.querySelector(".popup"),
   btnCerrarPopup = document.getElementById("btn-cerrar-popup");
 
-btnAbrirPopup.addEventListener("click", function () {
-  overlay.classList.add("active");
-  popup.classList.add("active");
+btnsAbrirPopup.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    overlay.classList.add("active");
+    popup.classList.add("active");
+  });
 });
 
 btnCerrarPopup.addEventListener("click", function (e) {

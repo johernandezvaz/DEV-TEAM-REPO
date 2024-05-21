@@ -95,28 +95,49 @@
     <div class="page-wrapper">
 
 
-        <header class="header">
-
-            <div class="logo d-flex justify-content-center justify-content-md-start">
-                <a href="/" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
-                    <img src="assets/logo2.jpeg" loading="lazy" alt="Logo" class="navbar-logo" />
-                </a>
+        <header class="header navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid ps-5 pe-2">
+                <div class="logo d-flex justify-content-center justify-content-md-start">
+                    <a href="/" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
+                        <img src="assets/logo2.jpeg" loading="lazy" alt="Logo" class="navbar-logo" />
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navegacion d-flex mt-5 mt-md-0 ms-auto justify-content-center">
+                        <nav id="nav-up" class="nav-footer navbar-nav">
+                            <a href="#conferencistas"
+                                class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
+                            <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
+                            <a href="#info" class="navbar-link w-nav-link nav-item nav-link fs-5">Información</a>
+                            <a href="#faq" class="navbar-link w-nav-link text-uppercase nav-item nav-link fs-5">FAQS</a>
+                        </nav>
+                    </div>
+                    <div class="registro botonHeader d-flex justify-content-center align-items-center ms-auto">
+                        <a href="#tickets" class="button w-button btn-abrir-popup">Comprar Entrada</a>
+                    </div>
+                </div>
             </div>
-            <div class="navegacion d-flex  mt-5 mt-md-0">
-                <nav id="nav-up" class="nav-footer">
-                    <a href="#conferencistas" class="navbar-link w-nav-link">Conferencistas</a>
-                    <a href="#agenda" class="navbar-link w-nav-link">Itinerario</a>
-                    <a href="#info" class="navbar-link w-nav-link">Información</a>
-                    <a href="#faq" class="navbar-link w-nav-link">Faq</a>
-                </nav>
-
-
-            </div>
-            <div class="registro botonHeader d-flex align-items-center">
-                <a id="btn-abrir-popup" href="#tickets" class="button w-button">COMPRAR ENTRADA</a>
-            </div>
-
         </header>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var navbarCollapse = document.getElementById('navbarNav');
+                var body = document.body;
+
+                navbarCollapse.addEventListener('hidden.bs.collapse', function () {
+                    body.style.paddingTop = '100px'; // Ajusta este valor al alto de tu header
+                });
+
+                navbarCollapse.addEventListener('shown.bs.collapse', function () {
+                    body.style.paddingTop = '350px'; // 80px (header) + 476px (expanded menu)
+                });
+            });
+        </script>
+
 
 
 
@@ -124,7 +145,7 @@
             <header class="section-home-header">
                 <div class="padding-global">
                     <div class="container-large">
-                        <div class="padding-section-large">
+                        <div>
                             <div data-w-id="ef0eeb61-4441-00c1-68d2-849b4bae3bc4" class="home-header-component">
                                 <div class="margin-bottom margin-xhuge">
                                     <div class="text-align-center">
@@ -147,7 +168,8 @@
                                                 </div>
                                             </div>
                                             <div class="margin-top margin-medium">
-                                                <a href="#tickets" class="button w-button">COMPRAR ENTRADA</a>
+                                                <a href="#tickets" class="button w-button btn-abrir-popup">COMPRAR
+                                                    ENTRADA</a>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +233,7 @@
             <!-- FORMULARIO -->
             <div class="contenedor">
                 <div class="overlay" id="overlay">
-                    <div class="popup" id="popup">
+                    <div class="popup mx-2" id="popup">
                         <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                         <h3>Registro de Usuario</h3>
 
@@ -315,7 +337,7 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="w-100 speaker-image-wrapper">
-                                                <img src="assets/Captura.JPG" loading="lazy" alt="Dr. Oscar Vizcarra"
+                                                <img src="assets/drOscar.png" loading="lazy" alt="Dr. Oscar Vizcarra"
                                                     sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 44vw, (max-width: 1439px) 30vw, 405.3359375px"
                                                     class="img-fluid speaker-image" />
                                             </div>
@@ -743,7 +765,10 @@
                             </div>
 
                             <div class="organizadores">
-                                <img src="assets/logos.png" alt="logo">
+                                <div class="organizadoresImg">
+                                    <img src="assets/logos.png" alt="logo">
+                                </div>
+
                             </div>
 
 
@@ -817,7 +842,7 @@
                                 <div class="text-align-center">
                                     <div data-w-id="678ae3bb-48b3-37e9-bd1f-986d326412da" class="max-width-large">
                                         <div class="margin-bottom margin-small">
-                                            <h2>FAQs</h2>
+                                            <h2>FAQS</h2>
                                         </div>
                                         <p class="text-size-medium">Lorem ipsum dolor sit amet, consectetur adipiscing
                                             elit. Suspendisse varius enim in eros elementum tristique. </p>
@@ -939,8 +964,7 @@
                 <div class="padding-global">
                     <div class="container-large">
                         <div class="padding-section-large">
-                            <div data-w-id="929ec34f-f383-d947-e9e9-70005d88a0cf"
-                                class="w-layout-grid home-cta-component">
+                            <div class="w-layout-grid home-cta-component">
                                 <div class="home-cta-item">
                                     <div class="max-width-large">
                                         <div class="margin-bottom margin-small">
@@ -952,7 +976,8 @@
                                             oportunidades increíbles que no querrás dejar pasar.</p>
                                     </div>
                                     <div class="margin-top margin-medium">
-                                        <a href="#tickets" class="button is-secondary w-button">COMPRAR ENTRADA</a>
+                                        <a href="#tickets" class="button is-secondary w-button btn-abrir-popup">COMPRAR
+                                            ENTRADA</a>
                                     </div>
                                     <div class="home-cta-background-wrapper">
                                         <div class="home-cta-overlay"></div>
