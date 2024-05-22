@@ -71,13 +71,16 @@
             document.addEventListener('DOMContentLoaded', function () {
                 var navbarCollapse = document.getElementById('navbarNav');
                 var body = document.body;
+                let formularioCont = document.querySelector('.overlay')
 
                 navbarCollapse.addEventListener('hidden.bs.collapse', function () {
                     body.style.paddingTop = '100px'; // Ajusta este valor al alto de tu header
+                    formularioCont.style.paddingTop = "0px";
                 });
 
                 navbarCollapse.addEventListener('shown.bs.collapse', function () {
                     body.style.paddingTop = '350px'; // 80px (header) + 476px (expanded menu)
+                    formularioCont.style.paddingTop = "340px";
                 });
             });
         </script>

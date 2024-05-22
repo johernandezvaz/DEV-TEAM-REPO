@@ -759,7 +759,7 @@ label {
 }
 
 .navbar-logo {
-  height: 7rem;
+  height: 5rem;
 }
 
 .navbar-link {
@@ -1520,11 +1520,10 @@ label {
   z-index: 1000;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
+  padding: 2px 20px;
 }
 
 .botonHeader {
-  margin-top: 2rem;
   display: none;
 }
 @media (min-width: 1080px) {
@@ -1620,6 +1619,11 @@ label {
 
 .overlay.active {
   visibility: visible;
+}
+@media (max-width: 990px) {
+  .overlay.active {
+    padding-top: 340px;
+  }
 }
 
 .popup {
