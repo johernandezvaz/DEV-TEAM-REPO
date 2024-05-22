@@ -16,63 +16,7 @@
             }
         }
     </style>
-    <style>
-        .speaker-collection-item .speaker-image-wrapper {
-            position: relative;
-            overflow: hidden;
-        }
 
-        .speaker-collection-item .speaker-image {
-            width: 100%;
-            height: auto;
-            transition: filter 0.5s ease;
-            /* Aclarar la imagen */
-        }
-
-        .speaker-collection-item .speaker-content-wrapper {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            color: #fff;
-            opacity: 1;
-            /* Mostrar la información por defecto */
-            transition: opacity 0.5s ease, background-color 0.5s ease;
-            /* Transición más lenta */
-        }
-
-        .speaker-collection-item .speaker-info {
-            margin: 0;
-            text-align: center;
-        }
-
-        .speaker-collection-item .speaker-bio-content {
-            display: none;
-            /* Ocultar la biografía inicialmente */
-            opacity: 0;
-            /* Inicialmente oculta */
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-            /* Transición más lenta */
-            visibility: hidden;
-            /* Ocultar la biografía */
-        }
-
-        .speaker-collection-item:hover .speaker-content-wrapper {
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Cambiar el color de fondo al hacer hover */
-        }
-
-        .speaker-collection-item:hover .speaker-content-wrapper .speaker-bio-content {
-            display: block;
-            /* Mostrar la biografía al hacer hover */
-            opacity: 1;
-            /* Mostrar la biografía al hacer hover */
-            visibility: visible;
-            /* Mostrar la biografía */
-        }
-    </style>
     <script type="text/javascript">
         !function (o, c) {
             var n = c.documentElement
@@ -113,7 +57,7 @@
                                 class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
                             <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
                             <a href="#info" class="navbar-link w-nav-link nav-item nav-link fs-5">Información</a>
-                            <a href="#faq" class="navbar-link w-nav-link text-uppercase nav-item nav-link fs-5">FAQS</a>
+                            <a href="#faq" class="navbar-link w-nav-link text-uppercase nav-item nav-link fs-5">FAQs</a>
                         </nav>
                     </div>
                     <div class="registro botonHeader d-flex justify-content-center align-items-center ms-auto">
@@ -193,7 +137,7 @@
                                                 <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/644805aee2568633cd4a077a_check-circle-duotone.svg"
                                                     loading="lazy" alt="Check Icon" class="icon-1x1-small" />
                                                 <div class="highlight-content">
-                                                    <p class="text-size-medium text-uppercase">conferencias exclusivas
+                                                    <p class="text-size-medium text-uppercase">Conferencias exclusivas
                                                     </p>
                                                 </div>
                                             </div>
@@ -202,7 +146,7 @@
                                                 <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/644805aee2568633cd4a077a_check-circle-duotone.svg"
                                                     loading="lazy" alt="Check Icon" class="icon-1x1-small" />
                                                 <div class="highlight-content">
-                                                    <p class="text-size-medium text-uppercase">refrigerios</p>
+                                                    <p class="text-size-medium text-uppercase">Aperitivos</p>
                                                 </div>
                                             </div>
                                             <div id="w-node-_065f8c8e-1d97-0abf-4335-7ba6a507108b-3863c98b"
@@ -243,7 +187,7 @@
                                     <div class="">
                                         <label for="nombre" class="form-label fw-bold text-align-start">Nombre:</label>
                                         <input type="text" class="form-control" name="nombre" id="nombre"
-                                            placeholder="Tu Nombre" required>
+                                            placeholder="Ej: Pedro" required>
                                         <span class="invalid-feedback">Debe colocar un Nombre</span>
                                         <span class="valid-feedback">Correcto!</span>
                                     </div>
@@ -252,7 +196,7 @@
                                         <label for="apellido"
                                             class="form-label fw-bold text-align-start">Apellido:</label>
                                         <input type="text" class="form-control" name="apellido" id="apellido"
-                                            placeholder="Tu apellido" required>
+                                            placeholder="Ej: Lopez" required>
                                         <span class="invalid-feedback">Debe colocar un Apellido</span>
                                         <span class="valid-feedback">Correcto!</span>
                                     </div>
@@ -260,7 +204,7 @@
                                     <div class="">
                                         <label for="email" class="form-label fw-bold text-align-start">Email:</label>
                                         <input required minlength="4" type="email" class="form-control" name="email"
-                                            id="email" placeholder="Tu email">
+                                            id="email" placeholder="Ej: email@domain.com">
                                         <span class="invalid-feedback">Debe colocar un Email</span>
                                         <span class="valid-feedback">Correcto!</span>
                                     </div>
@@ -269,7 +213,7 @@
                                         <label for="telefono"
                                             class="form-label fw-bold text-align-start">Teléfono:</label>
                                         <input required type="tel" minlength="4" class="form-control" name="telefono"
-                                            id="telefono" placeholder="Tu telefono">
+                                            id="telefono" placeholder="Ej: +52 (123) 4567890">
                                         <span class="invalid-feedback">Debe colocar un teléfono</span>
                                         <span class="valid-feedback">Correcto!</span>
                                     </div>
@@ -336,7 +280,7 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="assets/drOscar.png" loading="lazy" alt="Dr Oscar"
+                                                <img src="assets/drOscar2.png" loading="lazy" alt="Dr Oscar"
                                                     class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
@@ -830,17 +774,18 @@
                         <div>
                             <div class="margin-bottom margin-large">
                                 <div class="text-align-center">
-                                    <div data-w-id="678ae3bb-48b3-37e9-bd1f-986d326412da" class="max-width-large">
+                                    <div class="max-width-large">
                                         <div class="margin-bottom margin-small">
-                                            <h2>FAQS</h2>
+                                            <h2>FAQs</h2>
                                         </div>
                                         <p class="text-size-medium">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. Suspendisse varius enim in eros elementum tristique. </p>
+                                            elit. Suspendisse varius eni
+                                            m in eros elementum tristique. </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div role="list" class="faq-collection-list w-dyn-items">
+                            <div role="list" class="faq-collection-list w-dyn-items mx-5">
                                 <div role="listitem" class="faq-collection-item w-dyn-item">
                                     <div class="faq-accordion">
                                         <div class="faq-question">
@@ -1005,18 +950,18 @@
                                 </div>
                                 <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8c96-547d8c7d"
                                     class="w-layout-grid footer-social-list">
-                                    <a data-w-id="7bb6a5d1-d920-daa7-a18a-a375547d8c97" href="https://facebook.com"
-                                        target="_blank" class="footer-social-link w-inline-block">
+                                    <a data-w-id="7bb6a5d1-d920-daa7-a18a-a375547d8c97" href="#" target="_blank"
+                                        class="footer-social-link w-inline-block">
                                         <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/6448da0157947a068ca9dad2_facebook-logo-duotone.svg"
                                             loading="lazy" alt="Facebook Icon" class="icon-1x1-small" />
                                     </a>
-                                    <a data-w-id="7bb6a5d1-d920-daa7-a18a-a375547d8c99" href="https://instagram.com"
-                                        target="_blank" class="footer-social-link w-inline-block">
+                                    <a data-w-id="7bb6a5d1-d920-daa7-a18a-a375547d8c99" href="#" target="_blank"
+                                        class="footer-social-link w-inline-block">
                                         <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/6448da01a6a5ea3f6c6c2e2a_instagram-logo-duotone.svg"
                                             loading="lazy" alt="Instagram Icon" class="icon-1x1-small" />
                                     </a>
-                                    <a data-w-id="7bb6a5d1-d920-daa7-a18a-a375547d8c9b" href="https://linkedin.com"
-                                        target="_blank" class="footer-social-link w-inline-block">
+                                    <a data-w-id="7bb6a5d1-d920-daa7-a18a-a375547d8c9b" href="#" target="_blank"
+                                        class="footer-social-link w-inline-block">
                                         <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/6448da0154c51662c8461b93_linkedin-logo-duotone.svg"
                                             loading="lazy" alt="Linkedin Icon" class="icon-1x1-small" />
                                     </a>
@@ -1025,7 +970,7 @@
                                         <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/6448da01e0806a1865576908_twitter-logo-duotone.svg"
                                             loading="lazy" alt="Twitter Icon" class="icon-1x1-small" />
                                     </a>
-                                    <a data-w-id="7bb6a5d1-d920-daa7-a18a-a375547d8c9f" href="https://youtube.com"
+                                    <a data-w-id="7bb6a5d1-d920-daa7-a18a-a375547d8c9f" href="#"
                                         class="footer-social-link w-inline-block">
                                         <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/6448da01e0806ad500576907_youtube-logo-duotone.svg"
                                             loading="lazy" alt="Youtube Icon" class="icon-1x1-small" />

@@ -1,19 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
   const questions = document.querySelectorAll(".faq-accordion");
+  let activeAnswer = null;
 
   questions.forEach((question) => {
     const questionText = question.querySelector(".faq-question");
     const answer = question.querySelector(".faq-answer");
 
-    questionText.addEventListener("click", function () {
-      answer.classList.add("showAnswer");
-      // Si la respuesta está visible, programa su ocultación después de 4 segundos
-      if (answer.classList.contains("showAnswer")) {
-        setTimeout(function () {
-          answer.classList.remove("showAnswer");
-        }, 3000);
+    questionText.addEventListener("click", function (e) {
+      e.stopPropagation();
+      // Si hay una respuesta activa y no es la actual, ciérrala
+      if (activeAnswer && activeAnswer !== answer) {
+        activeAnswer.classList.remove("showAnswer");
       }
+      // Alterna la clase showAnswer para la respuesta actual
+      answer.classList.toggle("showAnswer");
+      // Establece la respuesta actual como activa si está visible
+      activeAnswer = answer.classList.contains("showAnswer") ? answer : null;
     });
+  });
+
+  // Evento de clic en el documento para cerrar la respuesta activa
+  document.addEventListener("click", function () {
+    if (activeAnswer) {
+      activeAnswer.classList.remove("showAnswer");
+      activeAnswer = null;
+    }
   });
 });
 
