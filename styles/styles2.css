@@ -1258,6 +1258,7 @@ label {
 
   .speaker-collection-list {
     grid-template-columns: 1fr;
+    margin: 0 40px;
   }
 
   .faq-question {
@@ -1538,6 +1539,15 @@ label {
   }
 }
 
+/* @media (max-width: 991px) {
+  .botonHeader {
+    display: none !important;
+  }
+  .nav-footer {
+    padding-bottom: 2rem;
+  }
+} */
+
 .organizadores {
   display: flex;
   justify-content: center;
@@ -1769,6 +1779,6 @@ label {
 }
 @media (min-width: 768px) {
   .organizadoresImg {
-    width: 60%;
+    width: 55%;
   }
 }
