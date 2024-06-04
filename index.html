@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@pdf-lib/pdf-lib@1.16.0/dist/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <script src="./scripts/stripe-integration/stripe.js" defer></script>
     <link rel="stylesheet" href="./styles/styles2.css">
     <style>
         @media (min-width: 992px) {
@@ -42,7 +47,7 @@
         <header class="header navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid ps-5 pe-2">
                 <div class="logo d-flex justify-content-center justify-content-md-start">
-                    <a href="/" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
+                    <a href="#" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
                         <img src="assets/logo2.jpeg" loading="lazy" alt="Logo" class="navbar-logo" />
                     </a>
                 </div>
@@ -223,9 +228,123 @@
                                 </div>
 
                                 <div class="d-grid d-md-flex justify-content-md-center">
-                                    <input class="btn px-5 text-uppercase button w-button" type="submit"
+                                    <input id = "payment-button" class="btn px-5 text-uppercase button w-button" type="submit"
                                         value="Proceder al pago">
                                 </div>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        emailjs.init('2xAN3Oy3G73w0sGU0'); // Sustituye con tu User ID de EmailJS
+                                        var stripe = Stripe('pk_test_51PMBSuRrcN86aWIF29JaxL64C7L882Anq1vMYs77yztB09Z11sdxINmPle6NKHS4VCz9X15qmIO5aGzbuJiWFjdC00wiDOJYSO'); // Reemplaza con tu clave pública de Stripe
+                                        document.getElementById('registroForm').addEventListener('submit', async function(event) {
+                                            event.preventDefault();
+
+                                            const nombre = document.getElementById('nombre').value;
+                                            const apellido = document.getElementById('apellido').value;
+                                            const email = document.getElementById('email').value;
+                                            const telefono = document.getElementById('telefono').value;
+
+                                            // Crear la sesión de Stripe
+                                            fetch('/create-checkout-session', {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                },
+                                                body: JSON.stringify({
+                                                    // Aquí puedes agregar datos adicionales si lo deseas
+                                                }),
+                                            })
+                                            .then(function(response) {
+                                                return response.json();
+                                            })
+                                            .then(function(data) {
+                                                return stripe.redirectToCheckout({ sessionId: data.id });
+                                            })
+                                            .then(function(result) {
+                                                if (result.error) {
+                                                    alert(result.error.message);
+                                                } else {
+                                                    generateAndSendPDF(nombre, apellido, email, telefono);
+                                                }
+                                            })
+                                            .catch(function(error) {
+                                                console.error('Error:', error);
+                                            });
+                                        });
+                                        async function generateAndSendPDF(nombre, apellido, email, telefono) {
+                                            const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Email: ${email}, Teléfono: ${telefono}`;
+                                            const qrCanvas = document.createElement('canvas');
+                                            await QRCode.toCanvas(qrCanvas, qrData, { scale: 3 });
+
+                                            const pdfDoc = await PDFLib.PDFDocument.create();
+                                            const page = pdfDoc.addPage([500, 500]);
+                                        
+
+                                            const logoUrl = './assets/assets/logos.png'; // Ruta del logo en tu carpeta de assets
+                                            const logoImageBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
+                                            const logoImage = await pdfDoc.embedPng(logoImageBytes);
+                                            const logoDims = logoImage.scale(0.25);
+
+                                            page.drawImage(logoImage, {
+                                                x: 20,
+                                                y: page.getHeight() - logoDims.height - 20,
+                                                width: logoDims.width,
+                                                height: logoDims.height,
+                                            });
+
+                                            page.drawText(`Nombre: ${nombre}`, { x: 20, y: page.getHeight() - logoDims.height - 60, size: 15 });
+                                            page.drawText(`Apellido: ${apellido}`, { x: 20, y: page.getHeight() - logoDims.height - 80, size: 15 });
+                                            page.drawText(`Email: ${email}`, { x: 20, y: page.getHeight() - logoDims.height - 100, size: 15 });
+                                            page.drawText(`Teléfono: ${telefono}`, { x: 20, y: page.getHeight() - logoDims.height - 120, size: 15 });
+
+                                            const qrImage = await pdfDoc.embedPng(qrCanvas.toDataURL('image/png'));
+                                            const qrSize = 150;
+                                            page.drawImage(qrImage, {
+                                                x: (page.getWidth() - qrSize) / 2,
+                                                y: 50,
+                                                width: qrSize,
+                                                height: qrSize,
+                                            });
+                                            
+                                            const pdfBytes = await pdfDoc.save();
+                                            const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+
+                                            if (pdfBlob.size > 5000000) { // 5 MB limit for example
+                                                alert('El PDF generado es demasiado grande para ser enviado por correo.');
+                                                return;
+                                            }
+
+                                            const downloadLink = document.getElementById('downloadLink');
+                                            const pdfUrl = URL.createObjectURL(pdfBlob);
+                                            downloadLink.href = pdfUrl;
+                                            downloadLink.download = 'codigo_qr.pdf';
+                                            downloadLink.style.display = 'block';
+                                            downloadLink.textContent = 'Descargar PDF';
+
+                                            const sendEmailButton = document.getElementById('sendEmailButton');
+                                            sendEmailButton.style.display = 'block';
+
+                                            sendEmailButton.onclick = function() {
+                                                const reader = new FileReader();
+                                                reader.readAsDataURL(pdfBlob);
+                                                reader.onloadend = function() {
+                                                    const base64data = reader.result.split(',')[1];
+                                            
+                                                    emailjs.send('service_9iflnk7', 'template_qvobun8', {
+                                                        to_name: nombre,
+                                                        from_name: 'CONGRESO DENTAL CHIHUAHUENSE (CODEC)',
+                                                        to_email: email,
+                                                        message: 'Aquí está tu código QR en formato PDF.',
+                                                        attachment: base64data
+                                                    }).then(function(response) {
+                                                        alert('Correo enviado exitosamente!', response.status, response.text);
+                                                    }, function(error) {
+                                                        alert('Error al enviar el correo.', error);
+                                                    });
+                                                };
+                                            };
+                                        }
+                                    });
+                                </script>
                             </form>
                         </div>
                     </div>
