@@ -228,122 +228,22 @@
                                 </div>
 
                                 <div class="d-grid d-md-flex justify-content-md-center">
-                                    <input id = "payment-button" class="btn px-5 text-uppercase button w-button" type="submit"
-                                        value="Proceder al pago">
+                                    <button id="payment-button" class="btn px-5 text-uppercase button w-button" type="submit">
+                                        Proceder al pago
+                                    </button>
                                 </div>
                                 <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        emailjs.init('2xAN3Oy3G73w0sGU0'); // Sustituye con tu User ID de EmailJS
-                                        var stripe = Stripe('pk_test_51PMBSuRrcN86aWIF29JaxL64C7L882Anq1vMYs77yztB09Z11sdxINmPle6NKHS4VCz9X15qmIO5aGzbuJiWFjdC00wiDOJYSO'); // Reemplaza con tu clave pública de Stripe
-                                        document.getElementById('registroForm').addEventListener('submit', async function(event) {
-                                            event.preventDefault();
-
-                                            const nombre = document.getElementById('nombre').value;
-                                            const apellido = document.getElementById('apellido').value;
-                                            const email = document.getElementById('email').value;
-                                            const telefono = document.getElementById('telefono').value;
-
-                                            // Crear la sesión de Stripe
-                                            fetch('/create-checkout-session', {
-                                                method: 'POST',
-                                                headers: {
-                                                    'Content-Type': 'application/json',
-                                                },
-                                                body: JSON.stringify({
-                                                    // Aquí puedes agregar datos adicionales si lo deseas
-                                                }),
-                                            })
-                                            .then(function(response) {
-                                                return response.json();
-                                            })
-                                            .then(function(data) {
-                                                return stripe.redirectToCheckout({ sessionId: data.id });
-                                            })
-                                            .then(function(result) {
-                                                if (result.error) {
-                                                    alert(result.error.message);
-                                                } else {
-                                                    generateAndSendPDF(nombre, apellido, email, telefono);
-                                                }
-                                            })
-                                            .catch(function(error) {
-                                                console.error('Error:', error);
-                                            });
-                                        });
-                                        async function generateAndSendPDF(nombre, apellido, email, telefono) {
-                                            const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Email: ${email}, Teléfono: ${telefono}`;
-                                            const qrCanvas = document.createElement('canvas');
-                                            await QRCode.toCanvas(qrCanvas, qrData, { scale: 3 });
-
-                                            const pdfDoc = await PDFLib.PDFDocument.create();
-                                            const page = pdfDoc.addPage([500, 500]);
-                                        
-
-                                            const logoUrl = './assets/assets/logos.png'; // Ruta del logo en tu carpeta de assets
-                                            const logoImageBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
-                                            const logoImage = await pdfDoc.embedPng(logoImageBytes);
-                                            const logoDims = logoImage.scale(0.25);
-
-                                            page.drawImage(logoImage, {
-                                                x: 20,
-                                                y: page.getHeight() - logoDims.height - 20,
-                                                width: logoDims.width,
-                                                height: logoDims.height,
-                                            });
-
-                                            page.drawText(`Nombre: ${nombre}`, { x: 20, y: page.getHeight() - logoDims.height - 60, size: 15 });
-                                            page.drawText(`Apellido: ${apellido}`, { x: 20, y: page.getHeight() - logoDims.height - 80, size: 15 });
-                                            page.drawText(`Email: ${email}`, { x: 20, y: page.getHeight() - logoDims.height - 100, size: 15 });
-                                            page.drawText(`Teléfono: ${telefono}`, { x: 20, y: page.getHeight() - logoDims.height - 120, size: 15 });
-
-                                            const qrImage = await pdfDoc.embedPng(qrCanvas.toDataURL('image/png'));
-                                            const qrSize = 150;
-                                            page.drawImage(qrImage, {
-                                                x: (page.getWidth() - qrSize) / 2,
-                                                y: 50,
-                                                width: qrSize,
-                                                height: qrSize,
-                                            });
-                                            
-                                            const pdfBytes = await pdfDoc.save();
-                                            const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-
-                                            if (pdfBlob.size > 5000000) { // 5 MB limit for example
-                                                alert('El PDF generado es demasiado grande para ser enviado por correo.');
-                                                return;
-                                            }
-
-                                            const downloadLink = document.getElementById('downloadLink');
-                                            const pdfUrl = URL.createObjectURL(pdfBlob);
-                                            downloadLink.href = pdfUrl;
-                                            downloadLink.download = 'codigo_qr.pdf';
-                                            downloadLink.style.display = 'block';
-                                            downloadLink.textContent = 'Descargar PDF';
-
-                                            const sendEmailButton = document.getElementById('sendEmailButton');
-                                            sendEmailButton.style.display = 'block';
-
-                                            sendEmailButton.onclick = function() {
-                                                const reader = new FileReader();
-                                                reader.readAsDataURL(pdfBlob);
-                                                reader.onloadend = function() {
-                                                    const base64data = reader.result.split(',')[1];
-                                            
-                                                    emailjs.send('service_9iflnk7', 'template_qvobun8', {
-                                                        to_name: nombre,
-                                                        from_name: 'CONGRESO DENTAL CHIHUAHUENSE (CODEC)',
-                                                        to_email: email,
-                                                        message: 'Aquí está tu código QR en formato PDF.',
-                                                        attachment: base64data
-                                                    }).then(function(response) {
-                                                        alert('Correo enviado exitosamente!', response.status, response.text);
-                                                    }, function(error) {
-                                                        alert('Error al enviar el correo.', error);
-                                                    });
-                                                };
-                                            };
-                                        }
-                                    });
+                                    const checkout = document.getElementById('payment-button');
+                                    checkout.addEventListener('click', async () => {
+                                        const res = await fetch('/create-checkout-session', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                        })
+                                        const data = await res.json();
+                                        window.location.href = data.url;
+                                    })
                                 </script>
                             </form>
                         </div>
