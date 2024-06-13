@@ -10,9 +10,9 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://js.stripe.com/v3/"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@pdf-lib/pdf-lib@1.16.0/dist/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
-    <script src="./scripts/stripe-integration/stripe.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="stylesheet" href="./styles/styles2.css">
     <style>
         @media (min-width: 992px) {
@@ -182,71 +182,72 @@
                 <div class="blurred-circle"></div>
             </header>
 
-            <!-- FORMULARIO -->
             <div class="contenedor">
                 <div class="overlay" id="overlay">
-                    <div class="popup mx-2" id="popup">
-                        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                        <h3>Registro de Usuario</h3>
-
-                        <div class="row justify-content-center">
-                            <form id="registroForm" class="col-md-8">
-                                <div class="contenedor-inputs">
-                                    <div class="">
-                                        <label for="nombre" class="form-label fw-bold text-align-start">Nombre:</label>
-                                        <input type="text" class="form-control" name="nombre" id="nombre"
-                                            placeholder="Ej: Pedro" required>
-
-                                    </div>
-
-                                    <div class="">
-                                        <label for="apellido"
-                                            class="form-label fw-bold text-align-start">Apellido:</label>
-                                        <input type="text" class="form-control" name="apellido" id="apellido"
-                                            placeholder="Ej: Lopez" required>
-
-                                    </div>
-
-                                    <div class="">
-                                        <label for="email" class="form-label fw-bold text-align-start">Email:</label>
-                                        <input required minlength="4" type="email" class="form-control" name="email"
-                                            id="email" placeholder="Ej: email@domain.com">
-
-                                    </div>
-
-                                    <div class="">
-                                        <label for="telefono"
-                                            class="form-label fw-bold text-align-start">Teléfono:</label>
-                                        <input required type="tel" minlength="4" class="form-control" name="telefono"
-                                            id="telefono" placeholder="Ej: +52 (123) 4567890">
-
-                                    </div>
-                                </div>
-
-                                <div class="d-grid d-md-flex justify-content-md-center">
-                                    <button id="payment-button" class="btn px-5 text-uppercase button w-button"
-                                        type="submit">
-                                        Proceder al pago
-                                    </button>
-                                </div>
-                                <script>
-                                    const checkout = document.getElementById('payment-button');
-                                    checkout.addEventListener('click', async () => {
-                                        const res = await fetch('/create-checkout-session', {
-                                            method: 'POST',
-                                            headers: {
-                                                'Content-Type': 'application/json'
-                                            },
-                                        })
-                                        const data = await res.json();
-                                        window.location.href = data.url;
-                                    })
-                                </script>
-                            </form>
+                  <div class="popup mx-2" id="popup">
+                    <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                    <h3>Registro de Usuario</h3>
+                    <div class="row justify-content-center">
+                      <form id="registroForm" class="col-md-8">
+                        <div class="contenedor-inputs">
+                          <div>
+                            <label for="nombre" class="form-label fw-bold text-align-start">Nombre:</label>
+                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Pedro" required>
+                          </div>
+                          <div>
+                            <label for="apellido" class="form-label fw-bold text-align-start">Apellido:</label>
+                            <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Lopez" required>
+                          </div>
+                          <div>
+                            <label for="email" class="form-label fw-bold text-align-start">Email:</label>
+                            <input required minlength="4" type="email" class="form-control" name="email" id="email" placeholder="Ej: email@domain.com">
+                          </div>
+                          <div>
+                            <label for="telefono" class="form-label fw-bold text-align-start">Teléfono:</label>
+                            <input required type="tel" minlength="4" class="form-control" name="telefono" id="telefono" placeholder="Ej: +52 (123) 4567890">
+                          </div>
                         </div>
+                        <div class="row justify-content-center mt-4">
+                          <div class="col-md-8">
+                            <button id="submit" type="submit">
+                              <div class="spinner hidden" id="spinner"></div>
+                              <span id="button-text">Pagar</span>
+                            </button>
+                            <div id="payment-message" class="hidden"></div>
+                          </div>
+                        </div>
+                      </form>
                     </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
+                      <a href="/" id="close" class="close"><i class="fas fa-times"></i></a>
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="payment-form">
+                        <div id="payment-element">
+                          <!-- Stripe.js injects the Payment Element -->
+                        </div>
+                        <button id="submit-payment">
+                          <div class="spinner hidden" id="spinner"></div>
+                          <span id="button-text">Confirmar Pago</span>
+                        </button>
+                        <div id="payment-message" class="hidden"></div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
 
 
 
@@ -974,12 +975,15 @@
             </div>
             <div class="blurred-circle is-footer"></div>
         </footer>
-    </div>
-
-    <script src="scripts/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-</body>
-
+        </div>
+                </div>  
+                <script src="./scripts/checkout.js"></script>
+                <script src="scripts/app.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+         </body>
+            
 </html>
