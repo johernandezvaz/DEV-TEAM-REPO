@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
   async function initialize() {
     try {
-      const response = await fetch("http://localhost:4242/create-payment-intent", {
+      const response = await fetch("http://localhost:8080/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ items }),
