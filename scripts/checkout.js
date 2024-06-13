@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
   
-  const port = process.env.port || 8080;
+  const port = process.env.PORT || 8080;
   const response = await fetch(`https://localhost:${port}/config`);
   const config = await response.json();
   const stripe = Stripe(config.publicKey);
