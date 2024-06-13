@@ -20,10 +20,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests  # Opcional: Ejecutar pruebas si las tienes
-        run: npm test
-
-      - name: Start server
-        run: npm start  # Asegúrate de que 'npm start' inicie tu servidor
-
-      # Opcional: Puedes agregar pasos adicionales según sea necesario
+      - name: Run server.js
+        run: node scripts/server.js  # Aquí especifica la ruta correcta a tu archivo server.js
