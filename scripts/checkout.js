@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", async function() {
-  const response = await fetch("http://localhost:8080/config");
+  
+  const port = process.env.port || 8080;
+  const response = await fetch(`https://localhost:${port}/config`);
   const config = await response.json();
-  const port = config.port;
   const stripe = Stripe(config.publicKey);
   const items = [{ id: "Boleto" }];
   let elements;
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
   async function initialize() {
     try {
-      const response = await fetch("http://localhost:8080/create-payment-intent", {
+      const response = await fetch(`https://localhost:${port}/create-payment-intent`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ items }),
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: "http://localhost:8080/checkout.html",
+          return_url: `https://localhost:${port}checkout.html`,
         },
         redirect: "if_required"
       });
