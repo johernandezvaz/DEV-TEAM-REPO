@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", async function() {
   const items = [{ id: "Boleto" }];
   let elements;
   let clientSecret;
-  console.log("Hola Mundo");
 
   async function initialize() {
     try {
