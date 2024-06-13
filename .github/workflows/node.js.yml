@@ -22,6 +22,6 @@ jobs:
         working-directory: scripts  # Ajusta la carpeta si es necesario
 
       - name: Run server.js
-        run: node server.js  # Ajusta la ruta si es necesario
+        run: node scripts/server.js  # Ajusta la ruta si es necesario
 
       # Opcional: Puedes agregar pasos adicionales según sea necesario
