@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const questions = document.querySelectorAll(".faq-accordion");
   let activeAnswer = null;
+  let nonActiveAnswer = "";
+  console.log(nonActiveAnswer);
 
   questions.forEach((question) => {
     const questionText = question.querySelector(".faq-question");
