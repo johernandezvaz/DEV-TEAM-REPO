@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", async function() {
   
+
+  port = 8080
   const response = await fetch(`https://localhost:8080/config`);
   const config = await response.json();
   const stripe = Stripe(config.publicKey);
@@ -200,7 +202,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         emailjs.send(config.serviceKey, config.templateKey, {
           to_name: nombre,
-          from_name: 'Tu Nombre',
+          from_name: 'Congreso Dental Chihuahuense (CODEC)',
           to_email: correo,
           message: 'Aquí está tu código QR en formato PDF.',
           file: base64data
