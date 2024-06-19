@@ -1,72 +1,110 @@
 document.addEventListener("DOMContentLoaded", async function() {
-  
+  try {
+    const response = await fetch("http://localhost:4242/config");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const config = await response.json();
+    const stripe = Stripe(config.publicKey);
+    const items = [{ id: "Boleto" }];
+    let elements;
+    let clientSecret;
 
-  port = 8080
-  const response = await fetch(`https://localhost:8080/config`);
-  const config = await response.json();
-  const stripe = Stripe(config.publicKey);
-  const items = [{ id: "Boleto" }];
-  let elements;
-  let clientSecret;
+    async function initialize() {
+      try {
+        const response = await fetch("http://localhost:4242/create-payment-intent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items }),
+        });
 
-  async function initialize() {
-    try {
-      const response = await fetch(`https://localhost:8080/create-payment-intent`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
-      });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-      const data = await response.json();
-      clientSecret = data.clientSecret;
+        const data = await response.json();
+        clientSecret = data.clientSecret;
 
-      if (!clientSecret) {
-        throw new Error("Failed to retrieve clientSecret from the server.");
+        if (!clientSecret) {
+          throw new Error("Failed to retrieve clientSecret from the server.");
+        }
+
+        const appearance = { theme: 'stripe' };
+        elements = stripe.elements({ clientSecret, appearance });
+
+        const paymentElementOptions = { layout: "tabs" };
+        const paymentElement = elements.create("payment", paymentElementOptions);
+
+        paymentElement.mount("#payment-element");
+      } catch (error) {
+        console.error("Error initializing payment elements:", error);
+        showModalPopup("Error initializing payment elements.");
+      }
+    }
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+
+      if (!clientSecret || !elements) {
+        showModalPopup("Payment elements are not initialized correctly.");
+        return;
       }
 
-      const appearance = { theme: 'stripe' };
-      elements = stripe.elements({ clientSecret, appearance });
+      setLoading(true);
 
-      const paymentElementOptions = { layout: "tabs" };
-      const paymentElement = elements.create("payment", paymentElementOptions);
+      try {
+        const { error, paymentIntent } = await stripe.confirmPayment({
+          elements,
+          confirmParams: {
+            return_url: "http://localhost:4242/checkout.html",
+          },
+          redirect: "if_required"
+        });
 
-      paymentElement.mount("#payment-element");
-    } catch (error) {
-      console.error("Error initializing payment elements:", error);
-      showModalPopup("Error initializing payment elements.");
-    }
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!clientSecret || !elements) {
-      showModalPopup("Payment elements are not initialized correctly.");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const { error, paymentIntent } = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          return_url: `https://localhost:8080/checkout.html`,
-        },
-        redirect: "if_required"
-      });
-
-      if (error) {
-        if (error.type === "card_error" || error.type === "validation_error") {
-          showModalPopup(error.message);
+        if (error) {
+          if (error.type === "card_error" || error.type === "validation_error") {
+            showModalPopup(error.message);
+          } else {
+            showModalPopup("An unexpected error occurred.");
+          }
         } else {
-          showModalPopup("An unexpected error occurred.");
+          switch (paymentIntent.status) {
+            case "succeeded":
+              showModalPopup("¡Pago exitoso!\n Verifica tu correo para ver tu boleto y la información relacionada al evento");
+              await handleSuccessfulPayment(config);
+              break;
+            case "processing":
+              showModalPopup("Su pago está siendo procesado.");
+              break;
+            case "requires_payment_method":
+              showModalPopup("Su pago no fue exitoso, por favor intente nuevamente.");
+              break;
+            default:
+              showModalPopup("Algo salió mal.");
+              break;
+          }
         }
-      } else {
+      } catch (error) {
+        console.error("Error confirming payment:", error);
+        showModalPopup("An error occurred while processing the payment.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    async function checkStatus() {
+      const clientSecret = new URLSearchParams(window.location.search).get("payment_intent_client_secret");
+
+      if (!clientSecret) {
+        return;
+      }
+
+      try {
+        const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
+
         switch (paymentIntent.status) {
           case "succeeded":
-            showModalPopup("¡Pago exitoso!\n Verifica tu correo para ver tu boleto y la información relacionada al evento");
-            await handleSuccessfulPayment(config);
+            showModalPopup("¡Pago exitoso!");
             break;
           case "processing":
             showModalPopup("Su pago está siendo procesado.");
@@ -78,44 +116,11 @@ document.addEventListener("DOMContentLoaded", async function() {
             showModalPopup("Algo salió mal.");
             break;
         }
+      } catch (error) {
+        console.error("Error retrieving payment intent:", error);
+        showModalPopup("An error occurred while checking the payment status.");
       }
-    } catch (error) {
-      console.error("Error confirming payment:", error);
-      showModalPopup("An error occurred while processing the payment.");
-    } finally {
-      setLoading(false);
     }
-  }
-
-  async function checkStatus() {
-    const clientSecret = new URLSearchParams(window.location.search).get("payment_intent_client_secret");
-
-    if (!clientSecret) {
-      return;
-    }
-
-    try {
-      const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
-
-      switch (paymentIntent.status) {
-        case "succeeded":
-          showModalPopup("¡Pago exitoso!");
-          break;
-        case "processing":
-          showModalPopup("Su pago está siendo procesado.");
-          break;
-        case "requires_payment_method":
-          showModalPopup("Su pago no fue exitoso, por favor intente nuevamente.");
-          break;
-        default:
-          showModalPopup("Algo salió mal.");
-          break;
-      }
-    } catch (error) {
-      console.error("Error retrieving payment intent:", error);
-      showModalPopup("An error occurred while checking the payment status.");
-    }
-  }
 
   async function handleSuccessfulPayment(config) {
     emailjs.init(config.emailjsKey); // Sustituye con tu User ID de EmailJS
@@ -123,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;
     const correo = document.getElementById('email').value;
-    const telefono = document.getElementById('telefono').value;
+    const telefono = document.getElementById('phone').value;
     const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}`;
 
     const supabaseUrl = config.supabaseUrl;
@@ -249,7 +254,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const submitButton = document.querySelector("#submit-payment");
     const spinner = document.querySelector("#spinner");
     const buttonText = document.querySelector("#button-text");
-  
+
     if (submitButton && spinner && buttonText) {
       if (isLoading) {
         submitButton.disabled = true;
@@ -264,7 +269,6 @@ document.addEventListener("DOMContentLoaded", async function() {
       console.error("Elements for loading state not found");
     }
   }
-  
 
   $('#submit').on('click', function(event) {
     event.preventDefault();
@@ -277,4 +281,8 @@ document.addEventListener("DOMContentLoaded", async function() {
     initialize();
     checkStatus();
   });
+} catch (error) {
+  console.error("Error fetching configuration:", error);
+  showModalPopup("Error fetching configuration. Please check the server and try again.");
+}
 });
