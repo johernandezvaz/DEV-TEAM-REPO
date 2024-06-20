@@ -1963,3 +1963,8 @@ button:disabled {
     min-width: initial;
   }
 }
+
+.modal-content {
+  margin: 0 auto;
+  min-width: fit-content;
+}
