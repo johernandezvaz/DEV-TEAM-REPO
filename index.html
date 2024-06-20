@@ -108,8 +108,8 @@
                                             <div class="margin-bottom margin-xsmall">
                                                 <div class="subheading">Congreso Dental Chihuahuense </div>
                                             </div>
-                                            <div class="margin-bottom margin-small">
-                                                <h1>CODEC</h1>
+                                            <div class="margin-bottom margin-small my-5">
+                                                <h1 class="my-3">CODEC</h1>
                                             </div>
                                             <div class="header-infos-wrapper">
                                                 <div class="header-infos-item">
@@ -212,10 +212,12 @@
                                             id="email" placeholder="Ej: email@domain.com">
                                     </div>
                                     <div>
-                                        <label for="telefono" class="form-label fw-bold text-align-start">Teléfono:</label>
-                                        <input type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
+                                        <label for="telefono"
+                                            class="form-label fw-bold text-align-start">Teléfono:</label>
+                                        <input type="tel" id="phone" class="form-control" name="telefono"
+                                            placeholder="Ej: +52 (123) 456-7890">
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row justify-content-center mt-4">
                                     <div class="col-md-8">
@@ -227,13 +229,13 @@
                                     </div>
                                 </div>
                                 <script>
-                                    document.addEventListener("DOMContentLoaded", function() {
+                                    document.addEventListener("DOMContentLoaded", function () {
                                         const input = document.querySelector("#phone");
                                         window.intlTelInput(input, {
                                             initialCountry: "mx",
                                             strictMode: true,
                                             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // just for formatting/placeholders etc
-});
+                                        });
                                     });
                                 </script>
                             </form>
@@ -250,8 +252,6 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
                             <a href="/" id="close" class="close"><i class="fas fa-times"></i></a>
-                            <span aria-hidden="true">&times;</span>
-                            </button>
                         </div>
                         <div class="modal-body">
                             <form id="payment-form">

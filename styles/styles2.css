@@ -1828,16 +1828,15 @@ label {
   visibility: visible;
 }
 
-
-
 form {
-  width: 30vw;
+  width: 20vw;
   min-width: 500px;
   align-self: center;
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
   padding: 40px;
+  margin: 0 auto;
 }
 
 .hidden {
@@ -1855,10 +1854,12 @@ form {
 #payment-element {
   margin-bottom: 24px;
 }
-
+.modal-content {
+  min-width: 550px;
+}
 /* Buttons and links */
 button {
-  background: #4D869C;
+  background: #4d869c;
   color: #ffffff;
   border-radius: 4px;
   border: 0;
@@ -1918,7 +1919,7 @@ button:disabled {
 .spinner:after {
   width: 10.4px;
   height: 10.2px;
-  background: #4D869C;
+  background: #4d869c;
   border-radius: 0 10.2px 10.2px 0;
   top: -0.1px;
   left: 10.2px;
