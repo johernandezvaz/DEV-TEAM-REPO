@@ -27,11 +27,10 @@ app.get("/config", (req, res) => {
 });
 
 app.post("/create-payment-intent", async (req, res) => {
-  const { items } = req.body;
 
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: calculateOrderAmount(items),
+      amount: 2000,
       currency: "mxn",
       payment_method_types: ['card', 'oxxo'],
     });
