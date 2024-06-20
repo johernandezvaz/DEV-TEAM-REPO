@@ -870,12 +870,18 @@ label {
 }
 
 .speaker-collection-list {
-  grid-column-gap: 2rem;
-  grid-row-gap: 2rem;
+  grid-column-gap: 0.7rem;
+  grid-row-gap: 0.7rem;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
+}
+
+@media (max-width: 530px) {
+  .text-bio {
+    font-size: 0.8rem;
+  }
 }
 
 .speaker-content-wrapper {
@@ -1855,6 +1861,7 @@ form {
   margin-bottom: 24px;
 }
 .modal-content {
+  margin: 0 auto;
   min-width: fit-content;
 }
 /* Buttons and links */
