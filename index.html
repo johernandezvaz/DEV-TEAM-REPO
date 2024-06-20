@@ -13,6 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
     <link rel="stylesheet" href="./styles/styles2.css">
     <style>
         @media (min-width: 992px) {
@@ -209,11 +211,10 @@
                                             id="email" placeholder="Ej: email@domain.com">
                                     </div>
                                     <div>
-                                        <label for="telefono"
-                                            class="form-label fw-bold text-align-start">Teléfono:</label>
-                                        <input required type="tel" minlength="4" class="form-control" name="telefono"
-                                            id="telefono" placeholder="Ej: +52 (123) 4567890">
+                                        <label for="telefono" class="form-label fw-bold text-align-start">Teléfono:</label>
+                                        <input type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
                                     </div>
+                                    
                                 </div>
                                 <div class="row justify-content-center mt-4">
                                     <div class="col-md-8">
@@ -224,6 +225,16 @@
                                         <div id="payment-message" class="hidden"></div>
                                     </div>
                                 </div>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        const input = document.querySelector("#phone");
+                                        window.intlTelInput(input, {
+                                            initialCountry: "us",
+                                            strictMode: true,
+                                            utilsScript: "/intl-tel-input/js/utils.js?1716383386062" // just for formatting/placeholders etc
+});
+                                    });
+                                </script>
                             </form>
                         </div>
                     </div>

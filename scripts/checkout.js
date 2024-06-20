@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
   try {
-    const response = await fetch("http://localhost:4242/config");
+    const response = await fetch("https://codec-x7w2.onrender.com:4242/config");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     async function initialize() {
       try {
-        const response = await fetch("http://localhost:4242/create-payment-intent", {
+        const response = await fetch("https://codec-x7w2.onrender.com:4242/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ items }),
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         const { error, paymentIntent } = await stripe.confirmPayment({
           elements,
           confirmParams: {
-            return_url: "http://localhost:4242/checkout.html",
+            return_url: "https://codec-x7w2.onrender.com:4242/checkout.html",
           },
           redirect: "if_required"
         });
