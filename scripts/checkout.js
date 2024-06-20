@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         paymentElement.mount("#payment-element");
       } catch (error) {
-        console.error("Error initializing payment elements:", error);
         showModalPopup("Error initializing payment elements.");
       }
     }
@@ -85,7 +84,6 @@ document.addEventListener("DOMContentLoaded", async function() {
           }
         }
       } catch (error) {
-        console.error("Error confirming payment:", error);
         showModalPopup("An error occurred while processing the payment.");
       } finally {
         setLoading(false);
@@ -117,111 +115,107 @@ document.addEventListener("DOMContentLoaded", async function() {
             break;
         }
       } catch (error) {
-        console.error("Error retrieving payment intent:", error);
         showModalPopup("An error occurred while checking the payment status.");
       }
     }
 
-  async function handleSuccessfulPayment(config) {
-    emailjs.init(config.emailjsKey); // Sustituye con tu User ID de EmailJS
-
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
-    const correo = document.getElementById('email').value;
-    const telefono = document.getElementById('phone').value;
-    const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}`;
-
-    const supabaseUrl = config.supabaseUrl;
-    const supabaseKey = config.supabaseKey;
-    const sb = supabase.createClient(supabaseUrl, supabaseKey);
-
-    const { data, error } = await sb
-      .from('participantes')
-      .insert([{ nombre, apellido, email: correo, telefono }])
-      .select('id')
-      .single();
-
-    if (error) {
-      console.error('Error al insertar datos:', error);
-      alert('Error al guardar los datos en la base de datos.');
-      return;
-    }
-
-    const participanteId = data.id;
-
-    const { error: ingresoError } = await sb
-      .from('ingreso_participantes')
-      .insert([{ id_participante: participanteId, ingreso: false }]);
-
-    if (ingresoError) {
-      console.error('Error al insertar datos en ingreso_participantes:', ingresoError);
-      alert('Error al guardar los datos en la tabla de ingreso.');
-      return;
-    }
-
-    try {
-      const qrCanvas = document.createElement('canvas');
-      await QRCode.toCanvas(qrCanvas, qrData, { scale: 3 });
-
-      const pdfDoc = await PDFLib.PDFDocument.create();
-      const page = pdfDoc.addPage([500, 500]);
-
-      const logoUrl = '../assets/logos.png';
-      const logoImageBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
-      const logoImage = await pdfDoc.embedPng(logoImageBytes);
-      const logoDims = logoImage.scale(0.25);
-
-      page.drawImage(logoImage, {
-        x: 20,
-        y: page.getHeight() - logoDims.height - 20,
-        width: logoDims.width,
-        height: logoDims.height,
-      });
-
-      page.drawText(`Nombre: ${nombre}`, { x: 20, y: page.getHeight() - logoDims.height - 60, size: 15 });
-      page.drawText(`Apellido: ${apellido}`, { x: 20, y: page.getHeight() - logoDims.height - 80, size: 15 });
-      page.drawText(`Correo: ${correo}`, { x: 20, y: page.getHeight() - logoDims.height - 100, size: 15 });
-      page.drawText(`Teléfono: ${telefono}`, { x: 20, y: page.getHeight() - logoDims.height - 120, size: 15 });
-
-      const qrImage = await pdfDoc.embedPng(qrCanvas.toDataURL('image/png'));
-      const qrSize = 150;
-      page.drawImage(qrImage, {
-        x: (page.getWidth() - qrSize) / 2,
-        y: 50,
-        width: qrSize,
-        height: qrSize,
-      });
-
-      const pdfBytes = await pdfDoc.save();
-      const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-
-      if (pdfBlob.size > 5000000) {
-        alert('El PDF generado es demasiado grande para ser enviado por correo.');
+    async function handleSuccessfulPayment(config) {
+      emailjs.init(config.emailjsKey); // Sustituye con tu User ID de EmailJS
+    
+      const nombre = document.getElementById('nombre').value;
+      const apellido = document.getElementById('apellido').value;
+      const correo = document.getElementById('email').value;
+      const telefono = document.getElementById('phone').value;
+      const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}`;
+    
+      const supabaseUrl = config.supabaseUrl;
+      const supabaseKey = config.supabaseKey;
+      const sb = supabase.createClient(supabaseUrl, supabaseKey);
+    
+      const { data, error } = await sb
+        .from('participantes')
+        .insert([{ nombre, apellido, email: correo, telefono }])
+        .select('id')
+        .single();
+    
+      if (error) {
+        alert('Error al guardar los datos en la base de datos.');
         return;
       }
-
-      const reader = new FileReader();
-      reader.readAsDataURL(pdfBlob);
-      reader.onloadend = function() {
-        const base64data = reader.result.split(',')[1];
-
-        emailjs.send(config.serviceKey, config.templateKey, {
-          to_name: nombre,
-          from_name: 'Congreso Dental Chihuahuense (CODEC)',
-          to_email: correo,
-          message: 'Aquí está tu código QR en formato PDF.',
-          file: base64data
-        }).then(function(response) {
-          showModalPopup('Correo enviado exitosamente!');
-        }, function(error) {
-          showModalPopup('Error al enviar el correo.');
+    
+      const participanteId = data.id;
+    
+      const { error: ingresoError } = await sb
+        .from('ingreso_participantes')
+        .insert([{ id_participante: participanteId, ingreso: false }]);
+    
+      if (ingresoError) {
+        alert('Error al guardar los datos en la tabla de ingreso.');
+        return;
+      }
+    
+      try {
+        const qrCanvas = document.createElement('canvas');
+        await QRCode.toCanvas(qrCanvas, qrData, { scale: 3 });
+    
+        const pdfDoc = await PDFLib.PDFDocument.create();
+        const page = pdfDoc.addPage([500, 500]);
+    
+        const logoUrl = '../assets/logos.png';
+        const logoImageBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
+        const logoImage = await pdfDoc.embedPng(logoImageBytes);
+        const logoDims = logoImage.scale(0.25);
+    
+        page.drawImage(logoImage, {
+          x: 20,
+          y: page.getHeight() - logoDims.height - 20,
+          width: logoDims.width,
+          height: logoDims.height,
         });
-      };
-    } catch (error) {
-      console.error("Error durante el manejo del pago exitoso:", error);
-      showModalPopup('Error al manejar el pago exitoso.');
+    
+        page.drawText(`Nombre: ${nombre}`, { x: 20, y: page.getHeight() - logoDims.height - 60, size: 15 });
+        page.drawText(`Apellido: ${apellido}`, { x: 20, y: page.getHeight() - logoDims.height - 80, size: 15 });
+        page.drawText(`Correo: ${correo}`, { x: 20, y: page.getHeight() - logoDims.height - 100, size: 15 });
+        page.drawText(`Teléfono: ${telefono}`, { x: 20, y: page.getHeight() - logoDims.height - 120, size: 15 });
+    
+        const qrImage = await pdfDoc.embedPng(qrCanvas.toDataURL('image/png'));
+        const qrSize = 150;
+        page.drawImage(qrImage, {
+          x: (page.getWidth() - qrSize) / 2,
+          y: 50,
+          width: qrSize,
+          height: qrSize,
+        });
+    
+        const pdfBytes = await pdfDoc.save();
+        const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+    
+        if (pdfBlob.size > 5000000) {
+          alert('El PDF generado es demasiado grande para ser enviado por correo.');
+          return;
+        }
+    
+        const reader = new FileReader();
+        reader.readAsDataURL(pdfBlob);
+        reader.onloadend = function() {
+          const base64data = reader.result.split(',')[1];
+    
+          emailjs.send(config.serviceKey, config.templateKey, {
+            to_name: nombre,
+            from_name: 'Congreso Dental Chihuahuense (CODEC)',
+            to_email: correo,
+            message: 'Aquí está tu código QR en formato PDF.',
+            file: base64data
+          }).then(function(response) {
+            showModalPopup('Correo enviado exitosamente!');
+          }, function(error) {
+            showModalPopup('Error al enviar el correo.');
+          });
+        };
+      } catch (error) {
+        showModalPopup('Error al manejar el pago exitoso.');
+      }
     }
-  }
 
   function showModalPopup(messageText) {
     const modalContent = `
@@ -266,7 +260,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         buttonText.classList.remove("hidden");
       }
     } else {
-      console.error("Elements for loading state not found");
     }
   }
 
@@ -282,7 +275,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     checkStatus();
   });
 } catch (error) {
-  console.error("Error fetching configuration:", error);
   showModalPopup("Error fetching configuration. Please check the server and try again.");
 }
 });

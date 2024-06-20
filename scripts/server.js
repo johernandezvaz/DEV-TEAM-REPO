@@ -10,9 +10,6 @@ app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 
-const calculateOrderAmount = (items) => {
-  return 1400;
-};
 
 app.get("/config", (req, res) => {
   res.send({
