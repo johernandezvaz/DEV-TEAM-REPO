@@ -1855,7 +1855,7 @@ form {
   margin-bottom: 24px;
 }
 .modal-content {
-  min-width: 550px;
+  min-width: fit-content;
 }
 /* Buttons and links */
 button {
