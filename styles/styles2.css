@@ -1965,6 +1965,7 @@ button:disabled {
 }
 
 .modal-content {
-  margin: 0 auto;
   min-width: fit-content;
+  left: 50%;
+  transform: translateX(-50%);
 }
