@@ -578,10 +578,16 @@ label {
 
 .header-infos-item {
   text-transform: uppercase;
-  border-right: 1px solid #1b2021;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+  .header-infos-item {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .header-infos-item.no-border {
@@ -1968,4 +1974,24 @@ button:disabled {
   min-width: fit-content;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.codec-titulo {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .codec-titulo {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+}
+.header-titulo-mov {
+  margin-top: 5rem;
+}
+@media (min-width: 1024px) {
+  .header-titulo-mov {
+    margin-top: 2.5rem;
+  }
 }
