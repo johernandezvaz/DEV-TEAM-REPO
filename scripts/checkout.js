@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       const telefono = document.getElementById('phone').value;
 
 
-      if(nombre = "" && apellido == "" && correo == "" && telefono == ""){
+      if(isNaN(nombre) || isNaN(apellido) || isNaN(correo) || isNaN(telefono)){
         alert("Debes rellenar todos los campos");
       }else{
 
