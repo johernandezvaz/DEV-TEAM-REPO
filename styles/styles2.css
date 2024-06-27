@@ -1631,11 +1631,7 @@ label {
 
 .overlay.active {
   visibility: visible;
-}
-@media (max-width: 990px) {
-  .overlay.active {
-    padding-top: 340px;
-  }
+  z-index: 1000;
 }
 
 .popup {
@@ -1847,7 +1843,8 @@ form {
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
-  padding: 40px;
+  padding: 30px 40px 10px 40px;
+
   margin: 0 auto;
 }
 
@@ -1997,20 +1994,20 @@ button:disabled {
 }
 
 .custom-radio .custom-control-label::before,
-        .custom-radio .custom-control-label::after {
-            top: 0.25rem;
-            width: 1rem;
-            height: 1rem;
-        }
-        .custom-radio .custom-control-input:checked~.custom-control-label::before {
-            border-color: #007bff;
-            background-color: #007bff;
-        }
-        .custom-radio .custom-control-input:focus~.custom-control-label::before {
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-        .radio-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.custom-radio .custom-control-label::after {
+  top: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #007bff;
+  background-color: #007bff;
+}
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
