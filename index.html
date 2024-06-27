@@ -101,7 +101,7 @@
         /* END CHECKBOX STYLE */
 
 
-        
+        |   
     </style>
 </head>
 
@@ -258,43 +258,29 @@
                             <form id="registroForm" class="col-md-8">
                                 <div class="contenedor-inputs">
                                     <div>
-                                        <label for="nombre"
-                                            class="form-label fw-bold text-align-start fs-6">Nombre:</label>
-                                        <input type="text" class="form-control" name="nombre" id="nombre"
-                                            placeholder="Ej: Pedro" required>
+                                        <label for="nombre" class="form-label fw-bold text-align-start fs-6">Nombre:</label>
+                                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Pedro" required>
                                     </div>
                                     <div>
-                                        <label for="apellido"
-                                            class="form-label fw-bold text-align-start fs-6">Apellido:</label>
-                                        <input type="text" class="form-control" name="apellido" id="apellido"
-                                            placeholder="Ej: Lopez" required>
+                                        <label for="apellido" class="form-label fw-bold text-align-start fs-6">Apellido:</label>
+                                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Lopez" required>
                                     </div>
                                     <div>
-                                        <label for="email"
-                                            class="form-label fw-bold text-align-start fs-6">Email:</label>
-                                        <input required minlength="4" type="email" class="form-control" name="email"
-                                            id="email" placeholder="Ej: email@domain.com">
+                                        <label for="email" class="form-label fw-bold text-align-start fs-6">Email:</label>
+                                        <input required minlength="4" type="email" class="form-control" name="email" id="email" placeholder="Ej: email@domain.com">
                                     </div>
                                     <div>
-                                        <label for="telefono"
-                                            class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
-                                        <input required type="tel" id="phone" class="form-control" name="telefono"
-                                            placeholder="Ej: +52 (123) 456-7890">
+                                        <label for="telefono" class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
+                                        <input required type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
                                     </div>
                                     <div>
-                                        <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al
-                                            evento
-                                            rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya
-                                            que de no confirmar se le negará el acceso durante esa sección del evento.
-                                            Si no sabe en qué consiste, puede consultar el
-                                            <a class="" href="#agenda">Itinierario.</a>
-                                        </p>
+                                        <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al evento rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no confirmar se le negará el acceso durante esa sección del evento. Si no sabe en qué consiste, puede consultar el <a class="" href="#agenda">Itinierario.</a></p>
                                         <label class="radio mt-2">
-                                            <input name="radio" type="radio" checked>
+                                            <input name="asistencia_rompehielos" type="radio" value="si" checked>
                                             <span class="fs-6">Si</span>
                                         </label>
                                         <label class="radio">
-                                            <input name="radio" type="radio">
+                                            <input name="asistencia_rompehielos" type="radio" value="no">
                                             <span class="fs-6">No</span>
                                         </label>
                                     </div>
@@ -314,12 +300,11 @@
                                         window.intlTelInput(input, {
                                             initialCountry: "mx",
                                             strictMode: true,
-                                            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // just for formatting/placeholders etc
+                                            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
                                         });
                                     });
                                 </script>
-                            </form>
-
+                            </form>                            
                         </div>
                     </div>
                 </div>

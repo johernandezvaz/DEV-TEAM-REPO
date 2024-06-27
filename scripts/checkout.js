@@ -140,7 +140,8 @@ document.addEventListener("DOMContentLoaded", async function() {
         const apellido = document.getElementById('apellido').value;
         const correo = document.getElementById('email').value;
         const telefono = document.getElementById('phone').value;
-        const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}`;
+        const asistenciaRompehielos = document.querySelector('input[name="asistencia_rompehielos"]:checked').value;
+        const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}, Asistira al Evento RompeHielos: ${asistenciaRompehielos}`;
       
         const supabaseUrl = config.supabaseUrl;
         const supabaseKey = config.supabaseKey;
@@ -148,7 +149,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       
         const { data, error } = await sb
           .from('participantes')
-          .insert([{ nombre, apellido, email: correo, telefono }])
+          .insert([{ nombre, apellido, email: correo, telefono, asistencia_rompehielos: asistenciaRompehielos }])
           .select('id')
           .single();
       
@@ -191,6 +192,7 @@ document.addEventListener("DOMContentLoaded", async function() {
           page.drawText(`Apellido: ${apellido}`, { x: 20, y: page.getHeight() - logoDims.height - 80, size: 15 });
           page.drawText(`Correo: ${correo}`, { x: 20, y: page.getHeight() - logoDims.height - 100, size: 15 });
           page.drawText(`Teléfono: ${telefono}`, { x: 20, y: page.getHeight() - logoDims.height - 120, size: 15 });
+          page.drawText(`Asistira al Evento Rompe Hielos: ${asistenciaRompehielos}`, { x: 20, y: page.getHeight() - logoDims.height - 140, size: 15 })
       
           const qrImage = await pdfDoc.embedPng(qrCanvas.toDataURL('image/png'));
           const qrSize = 150;
@@ -279,8 +281,20 @@ document.addEventListener("DOMContentLoaded", async function() {
   
     $('#submit').on('click', function(event) {
       event.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const apellido = document.getElementById('apellido').value;
+      const correo = document.getElementById('email').value;
+      const telefono = document.getElementById('phone').value;
+      const asistenciaRompehielos = document.querySelector('input[name="asistencia_rompehielos"]:checked').value;
+
+      if (!nombre || !apellido || !correo || !telefono || !asistenciaRompehielos) {
+          alert("Debes rellenar todos los campos");
+          return;
+      }
+
       $('#paymentModal').modal('show');
-    });
+  });;
   
     document.querySelector("#payment-form").addEventListener("submit", handleSubmit);
   
