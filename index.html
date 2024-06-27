@@ -41,6 +41,70 @@
             -moz-osx-font-smoothing: grayscale;
         }
     </style>
+
+    <style>
+        .radio{
+            display: block;
+            cursor: pointer; 
+            user-select:none;
+            text-align: left;
+            &+.radio{
+                margin-top: 12px;
+            }
+            input{
+                display: none;
+                &+span{
+                    display: inline-block; 
+                    position: relative;
+                    padding-left: 30px;
+                    content: '';
+                    &:before{
+                        display: block; 
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        border-radius: 50%;
+                        margin-right: 5px;
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                    }
+                    &:after{
+                        content: '';
+                        display: block; 
+                        width: 10px;
+                        height: 10px;
+                        background: #222;
+                        position: absolute;
+                        border-radius: 50%;
+                        top: 3px;
+                        left: 3px;
+                        opacity: 0;
+                        transform: scale(0,0); 
+                        transition: all .2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+                    }
+                }
+                &:checked+span:after{
+                    opacity: 1;
+                    transform: scale(1,1);
+                }
+  }
+}
+/* END CHECKBOX STYLE */
+
+
+html{
+  min-height: 100%; 
+  background: #fff;
+  box-sizing: border-box;  
+  *,
+  *:before,
+  *:after{
+    box-sizing: border-box;
+  }  
+}
+    </style>
 </head>
 
 <body>
@@ -197,27 +261,31 @@
                                 <div class="contenedor-inputs">
                                     <div>
                                         <label for="nombre" class="form-label fw-bold text-align-start">Nombre:</label>
-                                        <input type="text" class="form-control" name="nombre" id="nombre"
-                                            placeholder="Ej: Pedro" required>
+                                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Pedro" required>
                                     </div>
                                     <div>
-                                        <label for="apellido"
-                                            class="form-label fw-bold text-align-start">Apellido:</label>
-                                        <input type="text" class="form-control" name="apellido" id="apellido"
-                                            placeholder="Ej: Lopez" required>
+                                        <label for="apellido" class="form-label fw-bold text-align-start">Apellido:</label>
+                                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Lopez" required>
                                     </div>
                                     <div>
                                         <label for="email" class="form-label fw-bold text-align-start">Email:</label>
-                                        <input required minlength="4" type="email" class="form-control" name="email"
-                                            id="email" placeholder="Ej: email@domain.com">
+                                        <input required minlength="4" type="email" class="form-control" name="email" id="email" placeholder="Ej: email@domain.com">
                                     </div>
                                     <div>
-                                        <label for="telefono"
-                                            class="form-label fw-bold text-align-start">Teléfono:</label>
-                                        <input required type="tel" id="phone" class="form-control" name="telefono"
-                                            placeholder="Ej: +52 (123) 456-7890">
+                                        <label for="telefono" class="form-label fw-bold text-align-start">Teléfono:</label>
+                                        <input required type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
                                     </div>
-
+                                    <div>
+                                        <p class="form-label mt-2 text-align-start">¿Confirma su asistencia al evento rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no confirmar se le negará el acceso durante esa sección del evento. De no saber en que consiste, puede consultar el <a href="#agenda">Itinierario.</a></p>
+                                        <label class="radio mt-2">
+                                            <input name="radio" type="radio" checked>
+                                            <span>Si</span>
+                                          </label>
+                                          <label class="radio">
+                                            <input name="radio" type="radio">
+                                            <span>No</span>
+                                          </label>
+                                    </div>
                                 </div>
                                 <div class="row justify-content-center mt-4">
                                     <div class="col-md-8">
@@ -239,6 +307,7 @@
                                     });
                                 </script>
                             </form>
+                            
                         </div>
                     </div>
                 </div>

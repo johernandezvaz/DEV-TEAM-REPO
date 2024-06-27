@@ -1995,3 +1995,22 @@ button:disabled {
     margin-top: 2.5rem;
   }
 }
+
+.custom-radio .custom-control-label::before,
+        .custom-radio .custom-control-label::after {
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+        }
+        .custom-radio .custom-control-input:checked~.custom-control-label::before {
+            border-color: #007bff;
+            background-color: #007bff;
+        }
+        .custom-radio .custom-control-input:focus~.custom-control-label::before {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
