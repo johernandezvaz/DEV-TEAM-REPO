@@ -467,7 +467,7 @@ label {
 }
 
 .home-header-component {
-  min-height: 60vh;
+  min-height: 92vh;
   flex-direction: column;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
@@ -1040,7 +1040,7 @@ label {
   }
 
   .home-header-component {
-    min-height: 75vh;
+    min-height: 95vh;
     grid-row-gap: 4rem;
     grid-template-columns: 1fr;
     grid-auto-flow: row;
