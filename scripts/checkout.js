@@ -220,7 +220,6 @@ document.addEventListener("DOMContentLoaded", async function() {
               to_name: nombre,
               from_name: 'Congreso Dental Chihuahuense (CODEC)',
               to_email: correo,
-              message: 'Aquí está tu código QR en formato PDF.',
               file: base64data
             }).then(function(response) {
               showModalPopup('Correo enviado exitosamente!');
