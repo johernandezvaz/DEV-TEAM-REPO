@@ -62,13 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputApellido = document.querySelector("#apellido");
   const inputEmail = document.querySelector("#email");
   const inputPhone = document.querySelector("#phone");
+  const formulario = document.querySelector("#registroForm");
+  const btnSubmit = document.querySelector(
+    '#registroForm button[type="submit"]'
+  );
 
   //eventos
 
-  inputNombre.addEventListener("blur", validar);
-  inputApellido.addEventListener("blur", validar);
-  inputEmail.addEventListener("blur", validar);
-  inputPhone.addEventListener("blur", validar);
+  inputNombre.addEventListener("input", validar);
+  inputApellido.addEventListener("input", validar);
+  inputEmail.addEventListener("input", validar);
+  inputPhone.addEventListener("input", validar);
 
   function validar(e) {
     if (e.target.value.trim() === "") {
@@ -85,14 +89,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       email[e.target.name] = "";
-
+      comprobarEmail();
       return;
     }
 
     if (e.target.id === "email" && !validarEmail(e.target.value)) {
       mostrarAlerta("El email no es válido", e.target.parentElement);
       email[e.target.name] = "";
-
+      comprobarEmail();
       return;
     }
 
@@ -101,7 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Asignar los valores
     email[e.target.name] = e.target.value.trim().toLowerCase();
 
-    // Comprobar el objeto de email
+    /// Comprobar el objeto de email
+    comprobarEmail();
   }
 
   function validarEmail(email) {
@@ -134,5 +139,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Inyectar el error al formulario
     referencia.appendChild(error);
+  }
+
+  function comprobarEmail() {
+    if (Object.values(email).includes("")) {
+      btnSubmit.disabled = true;
+      return;
+    }
+    btnSubmit.disabled = false;
   }
 });
