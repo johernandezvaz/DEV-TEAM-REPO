@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* FORMULARIO */
-
   var btnsAbrirPopup = document.querySelectorAll(".btn-abrir-popup"),
     overlay = document.querySelector(".overlay"),
     popup = document.querySelector(".popup"),
@@ -68,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   //eventos
-
   inputNombre.addEventListener("input", validar);
   inputApellido.addEventListener("input", validar);
   inputEmail.addEventListener("input", validar);
@@ -109,20 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
     comprobarEmail();
   }
 
-  function validarEmail(email) {
-    const regex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-    const resultado = regex.test(email);
-    return resultado;
-  }
-
-  function limpiarAlerta(referencia) {
-    // Comprueba si ya existe una alerta
-    const alerta = referencia.querySelector(".bg-danger");
-    if (alerta) {
-      alerta.remove();
-    }
-  }
-
   function mostrarAlerta(mensaje, referencia) {
     limpiarAlerta(referencia);
 
@@ -139,6 +123,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Inyectar el error al formulario
     referencia.appendChild(error);
+  }
+
+  function limpiarAlerta(referencia) {
+    // Comprueba si ya existe una alerta
+    const alerta = referencia.querySelector(".bg-danger");
+    if (alerta) {
+      alerta.remove();
+    }
+  }
+
+  function validarEmail(email) {
+    const regex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    const resultado = regex.test(email);
+    return resultado;
   }
 
   function comprobarEmail() {
