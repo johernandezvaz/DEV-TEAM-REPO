@@ -75,15 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function validar(e) {
     if (e.target.value.trim() === "") {
       if (e.target.id == "phone") {
-        mostrarAlerta(
-          `El Campo telefono es obligatorio`,
-          e.target.parentElement
-        );
+        mostrarAlerta(`* Este campo es obligatorio`, e.target.parentElement);
       } else {
-        mostrarAlerta(
-          `El Campo ${e.target.id} es obligatorio`,
-          e.target.parentElement
-        );
+        mostrarAlerta(`* Este campo es obligatorio`, e.target.parentElement);
       }
 
       email[e.target.name] = "";
@@ -92,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (e.target.id === "email" && !validarEmail(e.target.value)) {
-      mostrarAlerta("El email no es válido", e.target.parentElement);
+      mostrarAlerta("* El email no es válido", e.target.parentElement);
       email[e.target.name] = "";
       comprobarEmail();
       return;
@@ -113,13 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Generar alerta en HTML
     const error = document.createElement("P");
     error.textContent = mensaje;
-    error.classList.add(
-      "bg-danger",
-      "text-white",
-      "p-1",
-      "text-center",
-      "my-1"
-    );
+    error.classList.add("p-1", "text-start", "my-1", "alerta-form");
 
     // Inyectar el error al formulario
     referencia.appendChild(error);
@@ -127,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function limpiarAlerta(referencia) {
     // Comprueba si ya existe una alerta
-    const alerta = referencia.querySelector(".bg-danger");
+    const alerta = referencia.querySelector(".alerta-form");
     if (alerta) {
       alerta.remove();
     }

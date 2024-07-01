@@ -4,13 +4,10 @@ html {
   font-family: sans-serif;
 }
 
-body {
-  padding-top: 0;
-  margin: 0;
-}
 @media (min-width: 992px) {
   body {
-    padding-top: 150px;
+    padding-top: 0px;
+    margin: 0;
   }
 }
 
@@ -467,7 +464,7 @@ label {
 }
 
 .home-header-component {
-  min-height: 92vh;
+  min-height: 100vh;
   flex-direction: column;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
@@ -475,6 +472,8 @@ label {
   justify-content: center;
   align-items: center;
   display: flex;
+  margin-top: 42px;
+  margin-bottom: 20px;
 }
 
 .image {
@@ -2032,4 +2031,9 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.alerta-form {
+  color: red;
+  text-align: start;
 }
