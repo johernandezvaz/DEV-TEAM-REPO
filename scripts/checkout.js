@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", async function() {
           const qrImage = await pdfDoc.embedPng(qrCanvas.toDataURL('image/png'));
           const qrSize = 150;
           page.drawImage(qrImage, {
-            x: (page.getWidth() - qrSize) / 2,
+            x: 50,
             y: 50,
             width: qrSize,
             height: qrSize,
