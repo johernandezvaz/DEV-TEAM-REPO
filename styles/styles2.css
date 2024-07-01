@@ -1725,6 +1725,7 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-height: 52px;
 }
 
 /* validacion bootrstrap */

@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.classList.remove("active");
     popup.classList.remove("active");
   });
-
+  /* VALIDACION DE FORMULARIO */
   // validacion input
   const email = {
     nombre: "",
@@ -65,21 +65,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnSubmit = document.querySelector(
     '#registroForm button[type="submit"]'
   );
+  const asistenciaError = document.querySelector("#asistencia-error");
+  const asistenciaRadios = document.getElementsByName("asistencia_rompehielos");
 
-  //eventos
+  // Eventos
   inputNombre.addEventListener("input", validar);
   inputApellido.addEventListener("input", validar);
   inputEmail.addEventListener("input", validar);
   inputPhone.addEventListener("input", validar);
+  formulario.addEventListener("submit", validarAsistencia);
+
+  // Validación de radio buttons de asistencia
+  asistenciaRadios.forEach((radio) =>
+    radio.addEventListener("change", validarAsistencia)
+  );
 
   function validar(e) {
     if (e.target.value.trim() === "") {
-      if (e.target.id == "phone") {
-        mostrarAlerta(`* Este campo es obligatorio`, e.target.parentElement);
-      } else {
-        mostrarAlerta(`* Este campo es obligatorio`, e.target.parentElement);
-      }
-
+      mostrarAlerta(`* Este campo es obligatorio`, e.target.parentElement);
       email[e.target.name] = "";
       comprobarEmail();
       return;
@@ -97,7 +100,31 @@ document.addEventListener("DOMContentLoaded", function () {
     // Asignar los valores
     email[e.target.name] = e.target.value.trim().toLowerCase();
 
-    /// Comprobar el objeto de email
+    // Comprobar el objeto de email
+    validarAsistencia(e);
+    comprobarEmail();
+  }
+
+  function validarAsistencia(e) {
+    let seleccionado = false;
+
+    for (let i = 0; i < asistenciaRadios.length; i++) {
+      if (asistenciaRadios[i].checked) {
+        seleccionado = true;
+        break;
+      }
+    }
+
+    if (!seleccionado) {
+      mostrarAlerta(
+        "* Por favor, confirme su asistencia al evento rompehielos.",
+        asistenciaError
+      );
+      e.preventDefault(); // Evita el envío del formulario
+    } else {
+      limpiarAlerta(asistenciaError);
+    }
+
     comprobarEmail();
   }
 
@@ -128,10 +155,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function comprobarEmail() {
-    if (Object.values(email).includes("")) {
+    if (Object.values(email).includes("") || !asistenciaRadiosSeleccionado()) {
       btnSubmit.disabled = true;
       return;
     }
     btnSubmit.disabled = false;
+  }
+
+  function asistenciaRadiosSeleccionado() {
+    for (let i = 0; i < asistenciaRadios.length; i++) {
+      if (asistenciaRadios[i].checked) {
+        return true;
+      }
+    }
+    return false;
   }
 });
