@@ -1802,7 +1802,7 @@ label {
     width: 55%;
   }
 }
-/* seccion conferencistas */
+/* Sección conferencistas */
 .speaker-collection-item .speaker-image-wrapper {
   position: relative;
   overflow: hidden;
@@ -1825,20 +1825,18 @@ label {
   color: #fff;
   opacity: 1;
   transition: opacity 2s ease, background-color 2s ease;
-  /* Transiciones más lentas */
 }
 
 .speaker-collection-item .heading-style-h4,
 .speaker-collection-item .text-size-medium {
   transition: opacity 2s ease;
-  /* Transición más lenta para los textos */
 }
 
 .speaker-collection-item .speaker-bio-content {
-  display: none;
+  max-height: 0;
   opacity: 0;
-  transition: opacity 2s ease, visibility 2s ease;
-  visibility: hidden;
+  overflow: hidden;
+  transition: max-height 2s ease, opacity 2s ease;
   /* Ocultar la biografía */
 }
 
@@ -1847,9 +1845,8 @@ label {
 }
 
 .speaker-collection-item:hover .speaker-content-wrapper .speaker-bio-content {
-  display: block;
+  max-height: 500px;
   opacity: 1;
-  visibility: visible;
 }
 
 form {
