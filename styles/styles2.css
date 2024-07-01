@@ -4,13 +4,10 @@ html {
   font-family: sans-serif;
 }
 
-body {
-  padding-top: 0;
-  margin: 0;
-}
 @media (min-width: 992px) {
   body {
-    padding-top: 150px;
+    padding-top: 0px;
+    margin: 0;
   }
 }
 
@@ -467,7 +464,7 @@ label {
 }
 
 .home-header-component {
-  min-height: 60vh;
+  min-height: 100vh;
   flex-direction: column;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
@@ -475,6 +472,8 @@ label {
   justify-content: center;
   align-items: center;
   display: flex;
+  margin-top: 42px;
+  margin-bottom: 20px;
 }
 
 .image {
@@ -1040,7 +1039,7 @@ label {
   }
 
   .home-header-component {
-    min-height: 75vh;
+    min-height: 95vh;
     grid-row-gap: 4rem;
     grid-template-columns: 1fr;
     grid-auto-flow: row;
@@ -1639,13 +1638,18 @@ label {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   font-family: "Montserrat", sans-serif;
-  padding: 20px;
+  padding: 10px 20px;
   text-align: center;
   width: 600px;
-
   transition: 0.3s ease all;
   transform: scale(0.7);
   opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .popup {
+    padding: 20px;
+  }
 }
 
 .popup .btn-cerrar-popup {
@@ -1686,7 +1690,7 @@ label {
 .popup form .contenedor-inputs input {
   font-family: Clashdisplay, sans-serif;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   height: 52px;
   font-size: 18px;
   line-height: 52px;
@@ -1712,6 +1716,17 @@ label {
   background: rgba(94, 125, 227, 0.9);
 }
 
+.iti {
+  width: 100%;
+}
+
+.iti__selected-flag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* validacion bootrstrap */
 .is-invalid ~ .invalid-feedback,
 .is-invalid ~ .invalid-tooltip,
@@ -1730,6 +1745,7 @@ label {
 /* ------------------------- */
 /* ANIMACIONES */
 /* ------------------------- */
+
 .popup.active {
   transform: scale(1);
   opacity: 1;
@@ -1843,9 +1859,14 @@ form {
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
-  padding: 30px 40px 10px 40px;
-
+  padding: 10px;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  form {
+    padding: 30px 40px 10px 40px;
+  }
 }
 
 .hidden {
@@ -2010,4 +2031,9 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.alerta-form {
+  color: red;
+  text-align: start;
 }

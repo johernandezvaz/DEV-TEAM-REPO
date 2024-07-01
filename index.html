@@ -101,7 +101,7 @@
         /* END CHECKBOX STYLE */
 
 
-        |   
+        |
     </style>
 </head>
 
@@ -254,25 +254,37 @@
                             <form id="registroForm" class="col-md-8">
                                 <div class="contenedor-inputs">
                                     <div>
-                                        <label for="nombre" class="form-label fw-bold text-align-start fs-6">Nombre:</label>
-                                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Pedro" required>
+                                        <label for="nombre" class="form-label fw-bold text-align-start fs-6">Nombre ( *
+                                            ):</label>
+                                        <input type="text" class="form-control" name="nombre" id="nombre"
+                                            placeholder="Ej: Pedro" required>
                                     </div>
                                     <div>
-                                        <label for="apellido" class="form-label fw-bold text-align-start fs-6">Apellido:</label>
-                                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Lopez" required>
+                                        <label for="apellido" class="form-label fw-bold text-align-start fs-6">Apellido
+                                            ( * ):</label>
+                                        <input type="text" class="form-control" name="apellido" id="apellido"
+                                            placeholder="Ej: Lopez" required>
                                     </div>
                                     <div>
-                                        <label for="email" class="form-label fw-bold text-align-start fs-6">Email:</label>
-                                        <input required minlength="4" type="email" class="form-control" name="email" id="email" placeholder="Ej: email@domain.com">
+                                        <label for="email" class="form-label fw-bold text-align-start fs-6">Email ( *
+                                            ):</label>
+                                        <input required minlength="4" type="email" class="form-control" name="email"
+                                            id="email" placeholder="Ej: email@domain.com">
                                     </div>
                                     <div>
-                                        <label for="telefono" class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
-                                        <input required type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
+                                        <label for="telefono"
+                                            class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
+                                        <input required type="tel" id="phone" class="form-control" name="telefono"
+                                            placeholder="Ej: +52 (123) 456-7890">
                                     </div>
                                     <div>
-                                        <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al evento rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no confirmar se le negará el acceso durante esa sección del evento. Si no sabe en qué consiste, puede consultar el <a class="" href="#agenda">Itinierario.</a></p>
+                                        <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al
+                                            evento rompehielos dentro del itinerario? Es muy importante saber si
+                                            asistirá, ya que de no confirmar se le negará el acceso durante esa sección
+                                            del evento. Si no sabe en qué consiste, puede consultar el <a class=""
+                                                href="#agenda">Itinierario.</a></p>
                                         <label class="radio mt-2">
-                                            <input name="asistencia_rompehielos" type="radio" value="si" checked>
+                                            <input name="asistencia_rompehielos" type="radio" value="si">
                                             <span class="fs-6">Si</span>
                                         </label>
                                         <label class="radio">
@@ -283,7 +295,7 @@
                                 </div>
                                 <div class="row justify-content-center mt-4">
                                     <div class="col-md-8">
-                                        <button id="submit" type="submit">
+                                        <button id="submit" type="submit" disabled>
                                             <div class="spinner hidden" id="spinner"></div>
                                             <span id="button-text">Pagar</span>
                                         </button>
@@ -300,7 +312,7 @@
                                         });
                                     });
                                 </script>
-                            </form>                            
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -334,9 +346,6 @@
                 </div>
             </div>
 
-
-
-
             <section id="conferencistas" class="section-home-speakers p-1">
                 <div class="padding-global">
                     <div class="container-large">
@@ -356,8 +365,8 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="./assets/Manuel-Lujan.jpg" loading="lazy" alt="Dr. Manuel Lujan"
-                                                    class="speaker-image img-fluid" />
+                                                <img src="./assets/Manuel-Lujan.jpg" loading="lazy"
+                                                    alt="Dr. Manuel Lujan" class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
                                                 <div class="heading-style-h4">Dr. Manuel Lujan</div>
@@ -1156,10 +1165,10 @@
                             </div>
                         </div>
                         <div class="footer-bottom-wrapper">
-                            <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca2-547d8c7d" class="footer-credit">Todos
-                                los derechos reservados</div>
+                            <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca2-547d8c7d" class="footer-credit">
+                                Powered by : </div>
                             <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca4-547d8c7d" class="text-size-small">
-                                Diseñado por:
+                                VEXA
                             </div>
 
 
