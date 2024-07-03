@@ -1726,6 +1726,11 @@ label {
   justify-content: center;
   align-items: center;
   max-height: 52px;
+  border-right: solid #ced4da 2px;
+  padding: 0 8px;
+}
+.iti__arrow {
+  display: none;
 }
 
 /* validacion bootrstrap */
