@@ -890,8 +890,8 @@ label {
 }
 
 .speaker-content-wrapper {
+  transition: transform 1s ease-in-out, background-color 1s ease-in-out;
   color: #fff;
-  background-image: linear-gradient(rgba(27, 32, 33, 0), #1b2021);
   border-bottom-right-radius: 0.6rem;
   border-bottom-left-radius: 0.6rem;
   padding: 2rem;
@@ -900,6 +900,7 @@ label {
   bottom: 0%;
   left: 0%;
   right: 0%;
+  overflow: hidden;
 }
 .speaker-item {
   max-height: 495px;
@@ -1802,7 +1803,8 @@ label {
     width: 55%;
   }
 }
-/* seccion conferencistas */
+
+
 .speaker-collection-item .speaker-image-wrapper {
   position: relative;
   overflow: hidden;
@@ -1811,8 +1813,7 @@ label {
 .speaker-collection-item .speaker-image {
   width: 100%;
   height: auto;
-  transition: filter 2s ease;
-  /* Transición para aclarar la imagen */
+  transition: filter 4s ease;
 }
 
 .speaker-collection-item .speaker-content-wrapper {
@@ -1824,33 +1825,45 @@ label {
   box-sizing: border-box;
   color: #fff;
   opacity: 1;
-  transition: opacity 2s ease, background-color 2s ease;
-  /* Transiciones más lentas */
+  background-color: transparent; /* Fondo transparente por defecto */
+  transition: transform 1s ease-in-out, background-color 1s ease-in-out;
+  transform: translateY(calc(100% - 160px)); /* Ajuste para que se vea en el fondo del bloque */
 }
 
 .speaker-collection-item .heading-style-h4,
 .speaker-collection-item .text-size-medium {
-  transition: opacity 2s ease;
-  /* Transición más lenta para los textos */
+  transition: opacity 4s ease;
 }
 
 .speaker-collection-item .speaker-bio-content {
-  display: none;
   opacity: 0;
-  transition: opacity 2s ease, visibility 2s ease;
   visibility: hidden;
-  /* Ocultar la biografía */
+  transition: opacity 0s, visibility 0s;
+  transition-delay: 0s;
+  overflow: hidden;
 }
 
 .speaker-collection-item:hover .speaker-content-wrapper {
-  background-color: rgba(0, 0, 0, 0.5);
+  transition: transform 1s ease-in-out, background-color 0.5s ease-in-out;
+  transform: translateY(0); /* Mueve el contenido a su posición original al hacer hover */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro en hover */
 }
 
-.speaker-collection-item:hover .speaker-content-wrapper .speaker-bio-content {
-  display: block;
+.speaker-collection-item:hover .speaker-bio-content {
   opacity: 1;
   visibility: visible;
+  transition: opacity 1s ease, visibility 1s ease;
+  transition-delay: 0.5s; /* Delay para permitir la transición */
 }
+
+.speaker-collection-item:not(:hover) .speaker-bio-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 1s ease-in-out, background-color 0.5s ease-in-out;
+  transform: translateY(calc(100% - 160px)); /* Mueve el contenido a su posición original al hacer hover */
+  /* transition-delay: 0s; Sin delay para desaparecer inmediatamente */
+}
+
 
 form {
   width: 20vw;
