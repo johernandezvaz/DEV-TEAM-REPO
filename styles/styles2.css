@@ -1726,6 +1726,12 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-height: 52px;
+  border-right: solid #ced4da 2px;
+  padding: 0 8px;
+}
+.iti__arrow {
+  display: none;
 }
 
 /* validacion bootrstrap */
@@ -1803,8 +1809,12 @@ label {
     width: 55%;
   }
 }
+<<<<<<< HEAD
 
 
+=======
+/* Sección conferencistas */
+>>>>>>> d25fab2ca6d0299f255df5e57fa6f89de8c4397e
 .speaker-collection-item .speaker-image-wrapper {
   position: relative;
   overflow: hidden;
@@ -1825,13 +1835,18 @@ label {
   box-sizing: border-box;
   color: #fff;
   opacity: 1;
+<<<<<<< HEAD
   background-color: transparent; /* Fondo transparente por defecto */
   transition: transform 1s ease-in-out, background-color 1s ease-in-out;
   transform: translateY(calc(100% - 160px)); /* Ajuste para que se vea en el fondo del bloque */
+=======
+  transition: opacity 2s ease, background-color 2s ease;
+>>>>>>> d25fab2ca6d0299f255df5e57fa6f89de8c4397e
 }
 
 .speaker-collection-item .heading-style-h4,
 .speaker-collection-item .text-size-medium {
+<<<<<<< HEAD
   transition: opacity 4s ease;
 }
 
@@ -1841,6 +1856,17 @@ label {
   transition: opacity 0s, visibility 0s;
   transition-delay: 0s;
   overflow: hidden;
+=======
+  transition: opacity 2s ease;
+}
+
+.speaker-collection-item .speaker-bio-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 2s ease, opacity 2s ease;
+  /* Ocultar la biografía */
+>>>>>>> d25fab2ca6d0299f255df5e57fa6f89de8c4397e
 }
 
 .speaker-collection-item:hover .speaker-content-wrapper {
@@ -1849,11 +1875,17 @@ label {
   background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro en hover */
 }
 
+<<<<<<< HEAD
 .speaker-collection-item:hover .speaker-bio-content {
   opacity: 1;
   visibility: visible;
   transition: opacity 1s ease, visibility 1s ease;
   transition-delay: 0.5s; /* Delay para permitir la transición */
+=======
+.speaker-collection-item:hover .speaker-content-wrapper .speaker-bio-content {
+  max-height: 500px;
+  opacity: 1;
+>>>>>>> d25fab2ca6d0299f255df5e57fa6f89de8c4397e
 }
 
 .speaker-collection-item:not(:hover) .speaker-bio-content {
