@@ -1917,6 +1917,9 @@ button:disabled {
   cursor: default;
 }
 
+.navbar-toggler {
+  box-shadow: none;
+}
 /* spinner/processing state, errors */
 .spinner,
 .spinner:before,
