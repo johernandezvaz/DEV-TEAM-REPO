@@ -2053,3 +2053,30 @@ button:disabled {
     padding-left: 4.5rem;
   }
 }
+
+
+
+
+/* Centrar el botón de hamburguesa cuando la pantalla es menor o igual a 991px */
+@media (max-width: 991px) {
+  .navbar-toggler {
+      position: right;
+      right: 50%;
+      transform: translateX(50%) translateY(-110%);
+  }
+
+  .logo {
+    position: relative;
+    left: 0%;
+    transform: translateY(50%);
+}
+
+  .navbar-toggler-icon {
+      float: none;
+      margin: 0 auto;
+  }
+  
+  .navbar-collapse{
+    padding-bottom: 20px;
+  }
+}
