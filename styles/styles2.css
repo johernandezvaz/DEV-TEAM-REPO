@@ -2043,3 +2043,10 @@ button:disabled {
   color: red;
   text-align: start;
 }
+
+@media (min-width: 1200px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 4.5rem;
+    padding-left: 4.5rem;
+  }
+}

@@ -101,7 +101,7 @@
         /* END CHECKBOX STYLE */
 
 
-        |   
+        |
     </style>
 </head>
 
@@ -141,16 +141,20 @@
             document.addEventListener('DOMContentLoaded', function () {
                 var navbarCollapse = document.getElementById('navbarNav');
                 var body = document.body;
-                let formularioCont = document.querySelector('.overlay')
+                let formularioCont = document.querySelector('.overlay');
+                let homeHeader = document.querySelector(".home-header-component");
 
                 navbarCollapse.addEventListener('hidden.bs.collapse', function () {
-                    body.style.paddingTop = '80px'; // Ajusta este valor al alto de tu header
+                    body.style.paddingTop = '0px'; // Ajusta este valor al alto de tu header
                     formularioCont.style.paddingTop = "70px";
+                    homeHeader.style.marginTop = "0px";
+
                 });
 
                 navbarCollapse.addEventListener('shown.bs.collapse', function () {
-                    body.style.paddingTop = '310px'; // 80px (header) + 476px (expanded menu)
-                    formularioCont.style.paddingTop = "80px";
+                    body.style.paddingTop = '120px'; // 80px (header) + 476px (expanded menu)
+                    formularioCont.style.paddingTop = "81px";
+                    homeHeader.style.marginTop = "42px";
                 });
             });
         </script>
@@ -254,23 +258,35 @@
                             <form id="registroForm" class="col-md-8">
                                 <div class="contenedor-inputs">
                                     <div>
-                                        <label for="nombre" class="form-label fw-bold text-align-start fs-6">Nombre(*):</label>
-                                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Pedro" required>
+                                        <label for="nombre"
+                                            class="form-label fw-bold text-align-start fs-6">Nombre(*):</label>
+                                        <input type="text" class="form-control" name="nombre" id="nombre"
+                                            placeholder="Ej: Pedro" required>
                                     </div>
                                     <div>
-                                        <label for="apellido" class="form-label fw-bold text-align-start fs-6">Apellido:</label>
-                                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Lopez" required>
+                                        <label for="apellido"
+                                            class="form-label fw-bold text-align-start fs-6">Apellido:</label>
+                                        <input type="text" class="form-control" name="apellido" id="apellido"
+                                            placeholder="Ej: Lopez" required>
                                     </div>
                                     <div>
-                                        <label for="email" class="form-label fw-bold text-align-start fs-6">Email:</label>
-                                        <input required minlength="4" type="email" class="form-control" name="email" id="email" placeholder="Ej: email@domain.com">
+                                        <label for="email"
+                                            class="form-label fw-bold text-align-start fs-6">Email:</label>
+                                        <input required minlength="4" type="email" class="form-control" name="email"
+                                            id="email" placeholder="Ej: email@domain.com">
                                     </div>
                                     <div>
-                                        <label for="telefono" class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
-                                        <input required type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
+                                        <label for="telefono"
+                                            class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
+                                        <input required type="tel" id="phone" class="form-control" name="telefono"
+                                            placeholder="Ej: +52 (123) 456-7890">
                                     </div>
                                     <div>
-                                        <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al evento rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no confirmar se le negará el acceso durante esa sección del evento. Si no sabe en qué consiste, puede consultar el <a class="" href="#agenda">Itinierario.</a></p>
+                                        <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al
+                                            evento rompehielos dentro del itinerario? Es muy importante saber si
+                                            asistirá, ya que de no confirmar se le negará el acceso durante esa sección
+                                            del evento. Si no sabe en qué consiste, puede consultar el <a class=""
+                                                href="#agenda">Itinierario.</a></p>
                                         <label class="radio mt-2">
                                             <input name="asistencia_rompehielos" type="radio" value="si" checked>
                                             <span class="fs-6">Si</span>
@@ -301,7 +317,7 @@
                                         });
                                     });
                                 </script>
-                            </form>                                    
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -357,8 +373,8 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="./assets/Manuel-Lujan.jpg" loading="lazy" alt="Dr. Manuel Lujan"
-                                                    class="speaker-image img-fluid" />
+                                                <img src="./assets/Manuel-Lujan.jpg" loading="lazy"
+                                                    alt="Dr. Manuel Lujan" class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
                                                 <div class="heading-style-h4">Dr. Manuel Lujan</div>
@@ -1123,7 +1139,7 @@
                                     <nav id="nav-up" class="nav-footer">
                                         <a href="#conferencistas" class="navbar-link w-nav-link">Conferencistas</a>
                                         <a href="#agenda" class="navbar-link w-nav-link">Itinerario</a>
-                                        <a href="#info" class="navbar-link w-nav-link">Información</a>
+                                        <a href="#location" class="navbar-link w-nav-link">Información</a>
                                         <a href="#faq" class="navbar-link w-nav-link">FAQs</a>
 
                                     </nav>
