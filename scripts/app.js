@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let activeAnswer = null;
   let nonActiveAnswer = "";
   console.log(nonActiveAnswer);
+  console.log("Push nuevo");
 
   questions.forEach((question) => {
     const questionText = question.querySelector(".faq-question");
