@@ -2054,29 +2054,63 @@ button:disabled {
   }
 }
 
-
-
-
 /* Centrar el botón de hamburguesa cuando la pantalla es menor o igual a 991px */
 @media (max-width: 991px) {
   .navbar-toggler {
-      position: right;
-      right: 50%;
-      transform: translateX(50%) translateY(-110%);
+    position: right;
+    right: 50%;
+    transform: translateX(50%) translateY(-110%);
   }
 
   .logo {
     position: relative;
     left: 0%;
     transform: translateY(50%);
-}
+  }
 
   .navbar-toggler-icon {
-      float: none;
-      margin: 0 auto;
+    float: none;
+    margin: 0 auto;
   }
-  
-  .navbar-collapse{
+
+  .navbar-collapse {
     padding-bottom: 20px;
   }
+}
+
+/* cuenta regresiva */
+.countdown-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.time-circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: conic-gradient(#4d869c 0deg 0deg, #e6e6e6 0deg);
+  border-radius: 50%;
+}
+
+.inside-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.inside-circle .label {
+  font-size: 0.5em;
+  color: #888;
 }
