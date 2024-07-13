@@ -48,8 +48,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         const apellido = document.getElementById('apellido').value.trim();
         const correo = document.getElementById('email').value.trim();
         const telefono = document.getElementById('phone').value.trim();
+        const asistira = document.querySelector('input[name="asistencia_rompehielos"]:checked')?.value;
+
   
-        if (!nombre || !apellido || !correo || !telefono) {
+        if (!nombre || !apellido || !correo || !telefono || !asistira) {
           showModalPopup("Por favor, complete todos los campos antes de continuar.");
           return;
         }
@@ -136,7 +138,8 @@ document.addEventListener("DOMContentLoaded", async function() {
         const apellido = document.getElementById('apellido').value;
         const correo = document.getElementById('email').value;
         const telefono = document.getElementById('phone').value;
-        const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}`;
+        const asistira = document.querySelector('input[name="asistencia_rompehielos"]:checked')?.value;
+        const qrData = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono},  Asistencia Rompe Hielos ${asistira}`;
       
         const supabaseUrl = config.supabaseUrl;
         const supabaseKey = config.supabaseKey;
@@ -144,7 +147,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       
         const { data, error } = await sb
           .from('participantes')
-          .insert([{ nombre, apellido, email: correo, telefono }])
+          .insert([{ nombre, apellido, email: correo, telefono, asistencia_rompehielos: asistira }])
           .select('id')
           .single();
       
@@ -171,10 +174,10 @@ document.addEventListener("DOMContentLoaded", async function() {
           const pdfDoc = await PDFLib.PDFDocument.create();
           const page = pdfDoc.addPage([500, 500]);
       
-          const logoUrl = '../assets/logos.png';
+          const logoUrl = '../assets/zeyco_logo.png';
           const logoImageBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
           const logoImage = await pdfDoc.embedPng(logoImageBytes);
-          const logoDims = logoImage.scale(0.25);
+          const logoDims = logoImage.scale(0.5);
       
           page.drawImage(logoImage, {
             x: 20,
@@ -187,6 +190,7 @@ document.addEventListener("DOMContentLoaded", async function() {
           page.drawText(`Apellido: ${apellido}`, { x: 20, y: page.getHeight() - logoDims.height - 80, size: 15 });
           page.drawText(`Correo: ${correo}`, { x: 20, y: page.getHeight() - logoDims.height - 100, size: 15 });
           page.drawText(`Teléfono: ${telefono}`, { x: 20, y: page.getHeight() - logoDims.height - 120, size: 15 });
+          page.drawText(`Evento Rompe Hielos: ${asistira}`, { x: 20, y: page.getHeight() - logoDims.height - 140, size: 15 });
       
           const qrImage = await pdfDoc.embedPng(qrCanvas.toDataURL('image/png'));
           const qrSize = 150;
