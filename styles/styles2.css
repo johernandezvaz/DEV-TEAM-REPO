@@ -1244,6 +1244,11 @@ label {
     height: 100%;
   }
 
+  .img-drReyna {
+    min-height: 495px;
+    object-fit: cover;
+  }
+
   .footer-link-list {
     grid-column-gap: 0px;
     grid-row-gap: 1.5rem;
