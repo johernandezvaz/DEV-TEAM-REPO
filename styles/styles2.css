@@ -2119,3 +2119,7 @@ button:disabled {
   font-size: 0.5em;
   color: #888;
 }
+
+.speaker-image {
+  filter: grayscale(100%);
+}
