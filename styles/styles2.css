@@ -280,8 +280,6 @@ a:hover {
   color: #4d869c;
 }
 
-
-
 label {
   margin-bottom: 0.25rem;
   font-weight: 500;
@@ -373,8 +371,6 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
-
-
 
 .heading-style-h4 {
   font-size: 2rem;
@@ -1535,8 +1531,6 @@ label {
   }
 }
 
-
-
 .logo-footer {
   display: flex;
   justify-content: center;
@@ -1782,9 +1776,6 @@ label {
     opacity: 1;
   }
 }
-
-
-
 
 @media (min-width: 768px) {
   .organizadoresImg {
@@ -2040,12 +2031,6 @@ button:disabled {
 
 /* Centrar el botón de hamburguesa cuando la pantalla es menor o igual a 991px */
 @media (max-width: 991px) {
-  .navbar-toggler {
-    position: right;
-    right: 50%;
-    transform: translateX(50%) translateY(-110%);
-  }
-
   .logo {
     position: relative;
     left: 0%;
