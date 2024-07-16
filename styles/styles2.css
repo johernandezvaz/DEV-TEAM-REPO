@@ -1809,7 +1809,6 @@ label {
 .organizadoresImg {
   width: 100%;
   align-items: center;
-  transform: translateX(30%);
 }
 @media (min-width: 768px) {
   .organizadoresImg {
@@ -2125,4 +2124,10 @@ button:disabled {
 
 .speaker-image {
   filter: grayscale(100%);
+}
+
+
+.disclaimer{
+  overflow: hidden;
+  text-align: center;
 }
