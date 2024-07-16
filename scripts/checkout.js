@@ -172,9 +172,9 @@ document.addEventListener("DOMContentLoaded", async function() {
           await QRCode.toCanvas(qrCanvas, qrData, { scale: 3 });
       
           const pdfDoc = await PDFLib.PDFDocument.create();
-          const page = pdfDoc.addPage([500, 500]);
-      
-          const logoUrl = '../assets/zeyco_logo.png';
+          const page = pdfDoc.addPage([1004, 650]);
+
+            const logoUrl = '../assets/logos.png';
           const logoImageBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
           const logoImage = await pdfDoc.embedPng(logoImageBytes);
           const logoDims = logoImage.scale(0.5);
@@ -184,19 +184,19 @@ document.addEventListener("DOMContentLoaded", async function() {
             y: page.getHeight() - logoDims.height - 20,
             width: logoDims.width,
             height: logoDims.height,
-          });
+        });
       
-          page.drawText(`Nombre: ${nombre}`, { x: 20, y: page.getHeight() - logoDims.height - 60, size: 15 });
-          page.drawText(`Apellido: ${apellido}`, { x: 20, y: page.getHeight() - logoDims.height - 80, size: 15 });
-          page.drawText(`Correo: ${correo}`, { x: 20, y: page.getHeight() - logoDims.height - 100, size: 15 });
-          page.drawText(`Teléfono: ${telefono}`, { x: 20, y: page.getHeight() - logoDims.height - 120, size: 15 });
-          page.drawText(`Evento Rompe Hielos: ${asistira}`, { x: 20, y: page.getHeight() - logoDims.height - 140, size: 15 });
+          page.drawText(`Nombre: ${nombre}`, { x: 20, y: page.getHeight() - logoDims.height - 60, size: 30 });
+          page.drawText(`Apellido: ${apellido}`, { x: 20, y: page.getHeight() - logoDims.height - 100, size: 30 });
+          page.drawText(`Correo: ${correo}`, { x: 20, y: page.getHeight() - logoDims.height - 140, size: 30 });
+          page.drawText(`Teléfono: ${telefono}`, { x: 20, y: page.getHeight() - logoDims.height - 180, size: 30 });
+          page.drawText(`Evento Rompe Hielos: ${asistira}`, { x: 20, y: page.getHeight() - logoDims.height - 220, size: 30 });
       
           const qrImage = await pdfDoc.embedPng(qrCanvas.toDataURL('image/png'));
-          const qrSize = 150;
+          const qrSize = 250;
           page.drawImage(qrImage, {
-            x: (page.getWidth() - qrSize) / 2,
-            y: 50,
+            x: (page.getWidth() - qrSize) - 50,
+            y: page.getHeight() - logoDims.height - 220,
             width: qrSize,
             height: qrSize,
           });

@@ -377,13 +377,7 @@ label {
   margin-right: auto;
 }
 
-.text-size-small {
-  font-size: 0.875rem;
-  text-align: center;
-  margin-left: auto;
-  max-width: 500px;
-  margin-right: auto;
-}
+
 
 .heading-style-h4 {
   font-size: 2rem;
@@ -1544,10 +1538,7 @@ label {
   }
 }
 
-.organizadores {
-  display: flex;
-  justify-content: center;
-}
+
 
 .logo-footer {
   display: flex;
