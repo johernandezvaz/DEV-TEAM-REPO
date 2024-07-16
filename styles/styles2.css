@@ -2113,3 +2113,51 @@ button:disabled {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (min-width: 992px) {
+  .navegacionF {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1068px) {
+  .nav-footer {
+    display: flex;
+  }
+}
+
+@media (min-width: 992px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo,
+  .menuhamburger {
+    width: 20% !important;
+    text-align: center; /* Centrar el logo horizontalmente */
+  }
+
+  .navegacion {
+    width: 70%;
+    display: flex;
+    justify-content: center; /* Centrar los enlaces horizontalmente */
+  }
+
+  .registro {
+    width: 10%;
+    text-align: right; /* Alinear el botón a la derecha */
+  }
+}
+
+#nav-up > a:nth-child(1) {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#navbarNav > div.navegacion.d-flex.mt-5.mt-md-0.ms-auto.justify-content-center {
+  margin-left: 0 !important;
+}
