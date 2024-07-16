@@ -1795,10 +1795,9 @@ label {
   }
 }
 
-.organizadoresImg {
-  width: 100%;
-  align-items: center;
-}
+
+
+
 @media (min-width: 768px) {
   .organizadoresImg {
     width: 55%;
