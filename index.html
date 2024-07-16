@@ -110,17 +110,22 @@
 
 
         <header class="header navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid ps-5 pe-2 navegacionF">
-                <div class="logo d-flex justify-content-center justify-content-md-center mx-auto">
-                    <a href="#" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
-                        <img src="./assets/¿.png" loading="lazy" alt="Logo" class="navbar-logo" />
-                    </a>
+            <div class="ps-5 pe-2 navegacionF w-100 d-flex align-center">
+                <div class="menuhamburger w-100 d-flex justify-content-center align-items-center">
+                    <div class="logo d-flex justify-content-center justify-content-md-center mx-auto">
+                        <a href="#" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
+                            <img src="./assets/¿.png" loading="lazy" alt="Logo" class="navbar-logo" />
+                        </a>
+                    </div>
+                    <div class="botonNav">
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+
                 </div>
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="navegacion d-flex mt-5 mt-md-0 ms-auto justify-content-center">
                         <nav id="nav-up" class="nav-footer navbar-nav">
@@ -138,8 +143,8 @@
             </div>
         </header>
 
-
-        <script>
+        <!-- codigo para bajar el contenido cuando se despliega el menu hamburguesa -->
+        <!--         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var navbarCollapse = document.getElementById('navbarNav');
                 var body = document.body;
@@ -159,7 +164,7 @@
                     homeHeader.style.marginTop = "42px";
                 });
             });
-        </script>
+        </script> -->
 
 
 
