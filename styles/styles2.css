@@ -379,6 +379,10 @@ label {
 
 .text-size-small {
   font-size: 0.875rem;
+  text-align: center;
+  margin-left: auto;
+  max-width: 500px;
+  margin-right: auto;
 }
 
 .heading-style-h4 {
@@ -819,11 +823,15 @@ label {
   grid-auto-columns: max-content;
   grid-auto-flow: column;
   justify-content: center;
-  display: grid;
+  align-items: center;
 }
 
 .footer-credit {
-  font-size: 0.875rem;
+  text-align: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 .header-highlights-wrapper {
@@ -2130,4 +2138,8 @@ button:disabled {
 .disclaimer{
   overflow: hidden;
   text-align: center;
+}
+
+.vexa-logo{
+  width: 20%;
 }
