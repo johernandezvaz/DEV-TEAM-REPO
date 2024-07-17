@@ -864,7 +864,9 @@ label {
     font-size: 0.8rem;
   }
 }
-
+.text-bio {
+  font-size: 14px;
+}
 .speaker-content-wrapper {
   transition: transform 1s ease-in-out, background-color 1s ease-in-out;
   color: #fff;
@@ -1824,6 +1826,8 @@ label {
 
 .speaker-collection-item:hover .speaker-content-wrapper {
   background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  transition: height 2s ease;
 }
 
 .speaker-collection-item:hover .speaker-content-wrapper .speaker-bio-content {
@@ -2108,6 +2112,24 @@ button:disabled {
 
 /* conferencistas */
 
+@media (max-width: 768px) {
+  .speaker-collection-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .speaker-item {
+    max-height: 600px;
+  }
+
+  .title-dr {
+    padding: 10px 0;
+  }
+
+  .text-bio {
+    font-size: 16px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .speaker-collection-list {
     grid-template-columns: 1fr 1fr;
@@ -2160,4 +2182,24 @@ button:disabled {
 
 #navbarNav > div.navegacion.d-flex.mt-5.mt-md-0.ms-auto.justify-content-center {
   margin-left: 0 !important;
+}
+
+.speaker-bio-content {
+  display: grid;
+}
+
+/* redes conferencistas */
+
+.redes-c {
+  height: fit-content;
+  padding: 1rem 0;
+}
+
+#w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8c96-547d8c7d {
+  gap: 1.5rem;
+}
+
+.title-dr {
+  padding: 5px;
+  font-size: 24px;
 }
