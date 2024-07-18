@@ -374,24 +374,89 @@
                         </div>
                         <div class="modal-body">
                             <form id="payment-form">
+                                <div class="ticket-selection">
+                                  <label class="ticket-option">
+                                    <input type="radio" name="ticket-type" value="general" />
+                                    <div class="ticket-content">
+                                      <span class="ticket-text">General</span>
+                                      <span class="ticket-price">2000 MXN</span>
+                                    </div>
+                                  </label>
+                                  <label class="ticket-option">
+                                    <input type="radio" name="ticket-type" value="instituto" />
+                                    <div class="ticket-content">
+                                      <span class="ticket-text">Instituto</span>
+                                      <span class="ticket-price">1500 MXN</span>
+                                    </div>
+                                  </label>
+                                  <label class="ticket-option">
+                                    <input type="radio" name="ticket-type" value="estudiante" />
+                                    <div class="ticket-content">
+                                      <span class="ticket-text">Estudiante</span>
+                                      <span class="ticket-price">1000 MXN</span>
+                                    </div>
+                                  </label>
+                                </div>
                                 <div id="payment-element">
                                   <!-- Stripe.js injects the Payment Element -->
                                 </div>
-                                <label for="ticket-type">Tipo de Boleto:</label>
-                                <select id="ticket-type">
-                                  <option value="general">General - 2000 MXN</option>
-                                  <option value="instituto">Instituto - 1500 MXN</option>
-                                  <option value="estudiante">Estudiante - 1000 MXN</option>
-                                </select>
                                 <button id="submit-payment">
                                   <div class="spinner hidden" id="spinner"></div>
                                   <span id="button-text">Confirmar Pago</span>
                                 </button>
                                 <div id="payment-message" class="hidden"></div>
-                              </form>                              
+                              </form>                                                          
                         </div>
                     </div>
                 </div>
+                <style>
+                    .ticket-selection {
+                        display: flex;
+                        justify-content: space-around;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .ticket-option {
+                        border: 2px solid #ccc;
+                        border-radius: 10px;
+                        padding: 20px;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: border-color 0.3s;
+                        width: 30%;
+                    }
+                    
+                    .ticket-option:hover {
+                        border-color: #4D869C;
+                    }
+                    
+                    .ticket-option input {
+                        display: none;
+                    }
+                    
+                    .ticket-option .ticket-content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    
+                    .ticket-text {
+                        font-size: 18px;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .ticket-price {
+                        font-size: 16px;
+                        color: #666;
+                    }
+                    
+                    .ticket-option input:checked + .ticket-content {
+                        border-color: #4D869C;
+                        background-color: #4D869C;
+                        color: #fff;
+                    }
+                </style>
             </div>
 
 
@@ -1694,6 +1759,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="./scripts/boletos.js"></script>
 </body>
 
 </html>
