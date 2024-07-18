@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", async function() {
       }
       const config = await response.json();
       const stripe = Stripe(config.publicKey);
-      const items = [{ id: "Boleto" }];
+      const ticketType = document.querySelector('input[name="ticket-type"]:checked').value;
+      const items = [{ ticketType: ticketType }];
       let elements;
       let clientSecret;
   
