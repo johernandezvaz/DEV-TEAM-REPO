@@ -370,19 +370,25 @@
                     transform: translateX(-50%); ">
                         <div class="modal-header">
                             <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
-                            <a href="/" id="close" class="close"><i class="fas fa-times"></i></a>
+                            <a href="" id="close" class="close"><i class="fas fa-times"></i></a>
                         </div>
                         <div class="modal-body">
                             <form id="payment-form">
                                 <div id="payment-element">
-                                    <!-- Stripe.js injects the Payment Element -->
+                                  <!-- Stripe.js injects the Payment Element -->
                                 </div>
+                                <label for="ticket-type">Tipo de Boleto:</label>
+                                <select id="ticket-type">
+                                  <option value="general">General - 2000 MXN</option>
+                                  <option value="instituto">Instituto - 1500 MXN</option>
+                                  <option value="estudiante">Estudiante - 1000 MXN</option>
+                                </select>
                                 <button id="submit-payment">
-                                    <div class="spinner hidden" id="spinner"></div>
-                                    <span id="button-text">Confirmar Pago</span>
+                                  <div class="spinner hidden" id="spinner"></div>
+                                  <span id="button-text">Confirmar Pago</span>
                                 </button>
                                 <div id="payment-message" class="hidden"></div>
-                            </form>
+                              </form>                              
                         </div>
                     </div>
                 </div>

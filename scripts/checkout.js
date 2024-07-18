@@ -43,27 +43,36 @@ document.addEventListener("DOMContentLoaded", async function() {
   
       async function handleSubmit(e) {
         e.preventDefault();
-  
+      
+        const ticketType = document.getElementById('ticket-type').value;
         const nombre = document.getElementById('nombre').value.trim();
         const apellido = document.getElementById('apellido').value.trim();
         const correo = document.getElementById('email').value.trim();
         const telefono = document.getElementById('phone').value.trim();
         const asistira = document.querySelector('input[name="asistencia_rompehielos"]:checked')?.value;
-
-  
-        if (!nombre || !apellido || !correo || !telefono || !asistira) {
+      
+        if (!nombre || !apellido || !correo || !telefono || !asistira || !ticketType) {
           showModalPopup("Por favor, complete todos los campos antes de continuar.");
           return;
         }
-  
-        if (!clientSecret || !elements) {
-          showModalPopup("Payment elements are not initialized correctly.");
-          return;
-        }
-  
-        setLoading(true);
-  
+      
         try {
+          const response = await fetch("/create-payment-intent", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ ticketType }),
+          });
+      
+          const { clientSecret } = await response.json();
+          
+          if (!clientSecret) {
+            showModalPopup("Error al crear el Payment Intent.");
+            return;
+          }
+      
+          // Initialize Stripe.js with the client secret
           const { error, paymentIntent } = await stripe.confirmPayment({
             elements,
             confirmParams: {
@@ -71,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             },
             redirect: "if_required"
           });
-  
+      
           if (error) {
             if (error.type === "card_error" || error.type === "validation_error") {
               showModalPopup(error.message);
@@ -101,6 +110,7 @@ document.addEventListener("DOMContentLoaded", async function() {
           setLoading(false);
         }
       }
+      
   
       async function checkStatus() {
         const clientSecret = new URLSearchParams(window.location.search).get("payment_intent_client_secret");
