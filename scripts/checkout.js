@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       }
       const config = await response.json();
       const stripe = Stripe(config.publicKey);
-      const ticketType = document.querySelector('input[name="ticket-type"]:checked').value;
-      const items = [{ ticketType: ticketType }];
+      const items = [{ id: "Boleto" }];
       let elements;
       let clientSecret;
   
@@ -112,35 +111,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
       }
       
-  
-      async function checkStatus() {
-        const clientSecret = new URLSearchParams(window.location.search).get("payment_intent_client_secret");
-  
-        if (!clientSecret) {
-          return;
-        }
-  
-        try {
-          const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
-  
-          switch (paymentIntent.status) {
-            case "succeeded":
-              showModalPopup("¡Pago exitoso!");
-              break;
-            case "processing":
-              showModalPopup("Su pago está siendo procesado.");
-              break;
-            case "requires_payment_method":
-              showModalPopup("Su pago no fue exitoso, por favor intente nuevamente.");
-              break;
-            default:
-              showModalPopup("Algo salió mal.");
-              break;
-          }
-        } catch (error) {
-          showModalPopup("An error occurred while checking the payment status.");
-        }
-      }
   
       async function handleSuccessfulPayment(config) {
         emailjs.init(config.emailjsKey); // Sustituye con tu User ID de EmailJS
