@@ -24,7 +24,7 @@ app.get("/config", (req, res) => {
 });
 
 app.post("/create-payment-intent", async (req, res) => {
-  const { ticketType } = req.body;  // Obtener el tipo de boleto desde el cuerpo de la solicitud
+  const { ticketType } = req.body;
   let amount = 0;
 
   // Asignar el monto basado en el tipo de boleto
@@ -44,7 +44,7 @@ app.post("/create-payment-intent", async (req, res) => {
 
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount * 100,  // Stripe maneja los montos en centavos
+      amount: amount * 100,
       currency: "mxn",
       payment_method_types: ['card', 'oxxo'],
     });
@@ -57,6 +57,7 @@ app.post("/create-payment-intent", async (req, res) => {
     res.status(500).send({ error: "Failed to create PaymentIntent" });
   }
 });
+
 
 
 app.listen(port, () => {
