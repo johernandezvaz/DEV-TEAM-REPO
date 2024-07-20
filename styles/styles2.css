@@ -1788,6 +1788,7 @@ label {
 .speaker-collection-item .speaker-image-wrapper {
   position: relative;
   overflow: hidden;
+  border-radius: 15px; /* Bordes redondeados */
 }
 
 .speaker-collection-item .speaker-image {
@@ -1795,23 +1796,28 @@ label {
   height: auto;
   transition: filter 2s ease;
   /* Transición para aclarar la imagen */
+  border-radius: 15px; /* Bordes redondeados */
 }
 
 .speaker-collection-item .speaker-content-wrapper {
   position: absolute;
-  bottom: 0;
+  top: 0; /* Cambiado de bottom a top */
   left: 0;
   width: 100%;
+  height: 100%; /* Ocupa todo el height de la imagen */
   padding: 5px 10px;
   box-sizing: border-box;
   color: #fff;
-  opacity: 1;
-  transition: opacity 2s ease, background-color 2s ease;
-  /* Transiciones más lentas */
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 3s ease;
+  /* Transición más lenta */
+  border-radius: 15px; /* Bordes redondeados */
 }
 
 .speaker-collection-item .heading-style-h4,
 .speaker-collection-item .text-size-medium {
+  opacity: 0;
   transition: opacity 2s ease;
   /* Transición más lenta para los textos */
 }
@@ -1820,19 +1826,21 @@ label {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 2s ease, opacity 2s ease;
+  transition: max-height 3s ease, opacity 3s ease;
   /* Ocultar la biografía */
 }
 
 .speaker-collection-item:hover .speaker-content-wrapper {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  transition: height 2s ease;
+  opacity: 1;
+}
+
+.speaker-collection-item:hover .speaker-content-wrapper .heading-style-h4,
+.speaker-collection-item:hover .speaker-content-wrapper .text-size-medium {
+  opacity: 1;
 }
 
 .speaker-collection-item:hover .speaker-content-wrapper .speaker-bio-content {
   max-height: 400px; /* Ajusta este valor según el contenido */
-  height: 100%;
   opacity: 1;
 }
 
