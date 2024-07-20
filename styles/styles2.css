@@ -2281,11 +2281,81 @@ button:disabled {
   }
 }
 
+/* seccion organizadoress */
+
+.organizadores2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.organizadoresImg2 {
+  position: relative;
+  text-align: center;
+  width: calc(50% - 10px);
+  /* Ajusta el tamaño de los logos según sea necesario */
+  transition: opacity 0.3s ease;
+}
+
+.organizadoresImg2 img {
+  width: 100%;
+  max-width: 220px;
+}
+
+.organizadores2 .organizadoresImg2:nth-child(3) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  .organizadoresImg2 {
+    width: 100%;
+  }
+}
+
+.organizadores-grid {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+body
+  > div
+  > main
+  > section:nth-child(7)
+  > div
+  > div
+  > div
+  > div.organizadores2
+  > div:nth-child(2)
+  > div
+  > img,
+body
+  > div
+  > main
+  > section:nth-child(7)
+  > div
+  > div
+  > div
+  > div.organizadores2
+  > div:nth-child(1)
+  > div
+  > img {
+  height: 160px;
+}
+
 /* footer */
 
 .section-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.footer-social-list {
+  justify-content: center;
 }
 
 .section01 {
