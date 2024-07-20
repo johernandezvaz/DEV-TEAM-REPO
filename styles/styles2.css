@@ -2137,10 +2137,21 @@ button:disabled {
     font-size: 16px;
   }
 }
-
-@media screen and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 900px) {
   .speaker-collection-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .speaker-item {
+    max-height: 100%;
+  }
+
+  .title-dr {
+    padding: 10px;
+    font-size: 26px;
+  }
+
+  .text-bio {
+    font-size: 18px;
   }
 }
 
