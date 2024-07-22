@@ -2361,3 +2361,216 @@ body
 .section01 {
   padding: 3rem 0.5rem 3rem 0.5rem;
 }
+
+
+.ticket-selection {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.ticket-option {
+  display: flex;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.ticket-option:hover {
+  border-color: #4D869C;
+}
+
+.ticket-option input {
+  display: none;
+}
+
+.ticket-option .ticket-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticket-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.ticket-price {
+  font-size: 16px;
+  color: #666;
+}
+
+.ticket-option.selected {
+  background-color: #4D869C;
+}
+
+.ticket-option.selected .ticket-text,
+.ticket-option.selected .ticket-price {
+  color: #fff;
+}
+
+
+
+
+#registro-section {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#registro-section h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#registroForm .contenedor-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#registroForm .form-label {
+  font-weight: bold;
+  text-align: start;
+  font-size: 1rem;
+}
+
+#registroForm .form-control {
+  border-radius: 5px;
+}
+
+#registroForm .radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#registroForm .radio input {
+  margin-right: 5px;
+}
+
+#registroForm .radio .fs-6 {
+  font-size: 1rem;
+}
+
+#registroForm #submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+#registroForm .spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#registroForm #button-text {
+  margin-left: 10px;
+}
+
+#registroForm #payment-message {
+  margin-top: 10px;
+  color: red;
+}
+
+/* Sección de Pago */
+#pago-section {
+  margin-top: 40px;
+  padding: 20px;  
+  border-radius: 5px;
+}
+
+#pago-section .modal-header {
+  align-items: center;
+}
+
+#pago-section .modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#pago-section .modal-body {
+  margin-top: 20px;
+}
+
+
+
+#pago-section .ticket-option input {
+  margin-right: 10px;
+}
+
+#pago-section .ticket-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+#pago-section #payment-element {
+  margin-top: 20px;
+}
+
+#pago-section #submit-payment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+#pago-section .spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+#pago-section #button-text {
+  margin-left: 10px;
+}
+
+#pago-section #payment-message {
+  margin-top: 10px;
+  color: red;
+}
+
+.modal-header{
+  display: block;
+}
+/* Animación Slide-in */
+.slide-in {
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}

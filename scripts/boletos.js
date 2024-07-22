@@ -1,14 +1,19 @@
-document.querySelectorAll('.ticket-option input').forEach(input => {
-    input.addEventListener('change', (e) => {
-      document.querySelectorAll('.ticket-option').forEach(label => {
-        if (label.querySelector('input').checked) {
-          label.querySelector('.ticket-option').style.backgroundColor = '#4D869C';
-          label.querySelector('.ticket-option').style.color = '#fff';
-        } else {
-          label.querySelector('.ticket-option').style.backgroundColor = '#fff';
-          label.querySelector('.ticket-option').style.color = '#000';
-        }
+document.addEventListener('DOMContentLoaded', function() {
+  const ticketOptions = document.querySelectorAll('.ticket-option');
+
+  ticketOptions.forEach(option => {
+      option.addEventListener('click', function() {
+          // Remove 'selected' class from all options
+          ticketOptions.forEach(opt => opt.classList.remove('selected'));
+
+          // Add 'selected' class to the clicked option
+          this.classList.add('selected');
+
+          // Update the radio button state
+          const input = this.querySelector('input[type="radio"]');
+          if (input) {
+              input.checked = true;
+          }
       });
-    });
   });
-  
+});

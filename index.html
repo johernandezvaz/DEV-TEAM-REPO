@@ -8,14 +8,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+    
     <link rel="stylesheet" href="./styles/styles2.css">
     <style>
         @media (min-width: 992px) {
@@ -137,7 +131,7 @@
                         </nav>
                     </div>
                     <div class=" ml-5 registro botonHeader d-flex justify-content-center align-items-center ms-auto">
-                        <a href="#tickets" class="button w-button btn-abrir-popup">Comprar Entrada</a>
+                        <a href="/payment-form" class="button w-button btn-abrir-popup">Comprar Entrada</a>
                     </div>
                 </div>
             </div>
@@ -409,54 +403,6 @@
                         </div>
                     </div>
                 </div>
-                <style>
-                    .ticket-selection {
-                        display: flex;
-                        justify-content: space-around;
-                        margin-bottom: 20px;
-                    }
-
-                    .ticket-option {
-                        border: 2px solid #ccc;
-                        border-radius: 10px;
-                        padding: 20px;
-                        text-align: center;
-                        cursor: pointer;
-                        transition: border-color 0.3s;
-                        width: 30%;
-                    }
-
-                    .ticket-option:hover {
-                        border-color: #4D869C;
-                    }
-
-                    .ticket-option input {
-                        display: none;
-                    }
-
-                    .ticket-option .ticket-content {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                    }
-
-                    .ticket-text {
-                        font-size: 18px;
-                        font-weight: bold;
-                        margin-bottom: 10px;
-                    }
-
-                    .ticket-price {
-                        font-size: 16px;
-                        color: #666;
-                    }
-
-                    .ticket-option input:checked+.ticket-content {
-                        border-color: #4D869C;
-                        background-color: #4D869C;
-                        color: #fff;
-                    }
-                </style>
             </div>
 
 
@@ -1726,11 +1672,11 @@
             </div>
             <div class="blurred-circle is-footer"></div>
         </footer>
+        </div>
     </div>
-    </div>
-    <script src="scripts/checkout.js"></script>
     <script src="scripts/simplyCountdown.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/checkout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
