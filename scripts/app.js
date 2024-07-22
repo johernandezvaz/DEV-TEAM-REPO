@@ -176,35 +176,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* slider de imagenes */
 
+const slides = document.querySelector(".slides");
+const slideItems = document.querySelectorAll(".slide");
+const totalSlides = slideItems.length;
+const nextButton = document.querySelector(".next-button");
+const prevButton = document.querySelector(".prev-button");
+
 let currentIndex = 0;
-const slides = document.querySelectorAll(".slide");
-const totalSlides = slides.length;
-const slider = document.querySelector(".slides");
 
-document.querySelector(".next-button").addEventListener("click", () => {
-  moveToNextSlide();
-});
-
-document.querySelector(".prev-button").addEventListener("click", () => {
-  moveToPrevSlide();
-});
-
-function updateSlidePosition() {
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-  slider.classList.add("smooth-transition");
+// Function to show a specific slide
+function showSlide(index) {
+  const offset = -index * 100;
+  slides.style.transform = `translateX(${offset}%)`;
 }
 
-function moveToNextSlide() {
-  currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
-  updateSlidePosition();
+// Function to go to the next slide
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  showSlide(currentIndex);
 }
 
-function moveToPrevSlide() {
-  currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
-  updateSlidePosition();
+// Function to go to the previous slide
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  showSlide(currentIndex);
 }
 
-// Add smooth transition class
-slider.addEventListener("transitionend", () => {
-  slider.classList.remove("smooth-transition");
-});
+// Event listeners for navigation buttons
+nextButton.addEventListener("click", nextSlide);
+prevButton.addEventListener("click", prevSlide);
+
+// Auto play the slider
+setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+// Initial display
+showSlide(currentIndex);
