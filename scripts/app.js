@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //Acordition FAQs
   const questions = document.querySelectorAll(".faq-accordion");
   let activeAnswer = null;
-  let nonActiveAnswer = "";
-  console.log(nonActiveAnswer);
-  console.log("Push nuevo");
+  let closeTimeout = null; // Para almacenar el temporizador
 
   questions.forEach((question) => {
     const questionText = question.querySelector(".faq-question");
@@ -12,14 +10,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     questionText.addEventListener("click", function (e) {
       e.stopPropagation();
+
       // Si hay una respuesta activa y no es la actual, ciérrala
       if (activeAnswer && activeAnswer !== answer) {
         activeAnswer.classList.remove("showAnswer");
+        clearTimeout(closeTimeout); // Limpiar el temporizador si se abre otra respuesta
       }
+
       // Alterna la clase showAnswer para la respuesta actual
       answer.classList.toggle("showAnswer");
+
       // Establece la respuesta actual como activa si está visible
-      activeAnswer = answer.classList.contains("showAnswer") ? answer : null;
+      if (answer.classList.contains("showAnswer")) {
+        activeAnswer = answer;
+
+        // Configura el temporizador para cerrar la respuesta después de 4 segundos
+        closeTimeout = setTimeout(() => {
+          if (activeAnswer) {
+            activeAnswer.classList.remove("showAnswer");
+            activeAnswer = null;
+          }
+        }, 3000);
+      } else {
+        activeAnswer = null;
+        clearTimeout(closeTimeout); // Limpiar el temporizador si se cierra la respuesta manualmente
+      }
     });
   });
 
@@ -28,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeAnswer) {
       activeAnswer.classList.remove("showAnswer");
       activeAnswer = null;
+      clearTimeout(closeTimeout); // Limpiar el temporizador cuando se cierra manualmente
     }
   });
 

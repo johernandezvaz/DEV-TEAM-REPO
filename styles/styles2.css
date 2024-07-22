@@ -886,13 +886,16 @@ label {
 .faq-answer {
   padding-left: 2rem;
   padding-right: 2rem;
+  max-height: 0; /* Inicialmente oculto */
   overflow: hidden;
-  display: none;
-  transition: display 3ms;
+  opacity: 0; /* Inicialmente transparente */
+  transition: max-height 1s ease, opacity 1s ease; /* Transición suave */
+  display: block; /* Asegura que el contenido sea bloqueado para aplicar la transición */
 }
 
 .showAnswer {
-  display: block;
+  max-height: 200px; /* Ajusta según el tamaño máximo esperado */
+  opacity: 1; /* Visible */
 }
 
 .faq-collection-list {
