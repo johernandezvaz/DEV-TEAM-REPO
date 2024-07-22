@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.classList.remove("active");
     popup.classList.remove("active");
   });
+
   /* VALIDACION DE FORMULARIO */
   // validacion input
   const email = {
@@ -173,48 +174,37 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/*
-CUENTA REGRESIVA 
- */
+/* slider de imagenes */
 
-simplyCountdown("#cuenta-regresiva", {
-  year: 2024,
-  month: 10,
-  day: 3,
-  hours: 9, // Default is 0 [0-23] integer
-  minutes: 0, // Default is 0 [0-59] integer
-  seconds: 0, // Default is 0 [0-59] integer
-  words: {
-    //words displayed into the countdown
-    days: { singular: " ", plural: " " },
-    hours: { singular: " ", plural: " " },
-    minutes: { singular: " ", plural: " " },
-    seconds: { singular: " ", plural: " " },
-  },
-  plural: true, //use plurals
-  inline: false, //set to true to get an inline basic countdown like : 24 days, 4 hours, 2 minutes, 5 seconds
-  inlineClass: "simply-countdown-inline", //inline css span class in case of inline = true
-  // in case of inline set to false
-  enableUtc: false,
-  onEnd: function () {
-    // your code
-    return;
-  },
-  refresh: 1000, //default refresh every 1s
-  sectionClass: "simply-section", //section css class
-  amountClass: "simply-amount", // amount css class
-  wordClass: "simply-word", // word css class
-  zeroPad: false,
-  countUp: false, // enable count up if set to true
+let currentIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const totalSlides = slides.length;
+const slider = document.querySelector(".slides");
+
+document.querySelector(".next-button").addEventListener("click", () => {
+  moveToNextSlide();
 });
 
-// Also, you can init with already existing Javascript Object.
-let myElement = document.querySelector(".my-countdown");
-simplyCountdown(myElement, {
-  /* options */
+document.querySelector(".prev-button").addEventListener("click", () => {
+  moveToPrevSlide();
 });
 
-let multipleElements = document.querySelectorAll(".my-countdown");
-simplyCountdown(multipleElements, {
-  /* options */
+function updateSlidePosition() {
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  slider.classList.add("smooth-transition");
+}
+
+function moveToNextSlide() {
+  currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+  updateSlidePosition();
+}
+
+function moveToPrevSlide() {
+  currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+  updateSlidePosition();
+}
+
+// Add smooth transition class
+slider.addEventListener("transitionend", () => {
+  slider.classList.remove("smooth-transition");
 });
