@@ -60,12 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  btnCerrarPopup.addEventListener("click", function (e) {
-    e.preventDefault();
-    overlay.classList.remove("active");
-    popup.classList.remove("active");
-  });
-
   /* VALIDACION DE FORMULARIO */
   // validacion input
   const email = {
