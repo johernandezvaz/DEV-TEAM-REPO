@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Codecuu | Pago</title>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
@@ -112,129 +112,162 @@
 </head>
 <body>
     <div class="page-wrapper">
-    <header class="header navbar navbar-expand-lg navbar-light bg-light">
-        <div class="ps-5 pe-2 navegacionF w-100 d-flex align-center">
-            <div class="menuhamburger w-100 d-flex justify-content-center align-items-center">
-                <div class="logo d-flex justify-content-center justify-content-md-center mx-auto">
-                    <a href="#" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
-                        <img src="./assets/¿.png" loading="lazy" alt="Logo" class="navbar-logo" />
-                    </a>
-                </div>
-                <div class="botonNav">
-                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navegacion d-flex mt-5 mt-md-0 ms-auto justify-content-center">
-                    <nav id="nav-up" class="nav-footer navbar-nav">
-                        <a href="#conferencistas"
-                            class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
-                        <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
-                        <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Información</a>
-                        <a href="#faq" class="navbar-link w-nav-link nav-item nav-link fs-5">FAQs</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="container mt-5">
-        <section id="registro-section">
-            <h3>Registro de Usuario</h3>
-            <div class="row justify-content-center">
-                <form id="registroForm" class="col-md-8">
-                    <div class="contenedor-inputs">
-                        <div>
-                            <label for="nombre" class="form-label fw-bold text-align-start fs-6">Nombre(*):</label>
-                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Pedro" required>
-                        </div>
-                        <div>
-                            <label for="apellido" class="form-label fw-bold text-align-start fs-6">Apellido:</label>
-                            <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Lopez" required>
-                        </div>
-                        <div>
-                            <label for="email" class="form-label fw-bold text-align-start fs-6">Email:</label>
-                            <input required minlength="4" type="email" class="form-control" name="email" id="email" placeholder="Ej: email@domain.com">
-                        </div>
-                        <div>
-                            <label for="telefono" class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
-                            <input required type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
-                        </div>
-                        <div>
-                            <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al evento rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no confirmar se le negará el acceso durante esa sección del evento. Si no sabe en qué consiste, puede consultar el <a class="" href="#agenda">Itinierario.</a></p>
-                            <label class="radio mt-2">
-                                <input name="asistencia_rompehielos" type="radio" value="si" checked>
-                                <span class="fs-6">Si</span>
-                            </label>
-                            <label class="radio">
-                                <input name="asistencia_rompehielos" type="radio" value="no">
-                                <span class="fs-6">No</span>
-                            </label>
-                            <div id="asistencia-error"></div>
-                        </div>
+        <header class="header navbar navbar-expand-lg navbar-light bg-light">
+            <div class="ps-5 pe-2 navegacionF w-100 d-flex align-center">
+                <div class="menuhamburger w-100 d-flex justify-content-center align-items-center">
+                    <div class="logo d-flex justify-content-center justify-content-md-center mx-auto">
+                        <a href="#" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
+                            <img src="./assets/¿.png" loading="lazy" alt="Logo" class="navbar-logo" />
+                        </a>
                     </div>
-                    <div class="row justify-content-center mt-4">
-                        <div class="col-md-8">
-                            <button type="button" id="submit" onclick="validarYMostrarPago();">
-                                <div class="spinner hidden" id="spinner"></div>
-                                <span id="button-text">Pagar</span>
-                            </button>
-                            <div id="payment-message" class="hidden"></div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <section id="pago-section" class="hidden">
-            <div class="modal-content" style="min-width: fit-content;">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
-                </div>
-                <div class="modal-body">
-                    <form id="payment-form">
-                        <div class="ticket-selection">
-                            <label class="ticket-option">
-                                <input type="radio" name="ticket-type" value="general" />
-                                <div class="ticket-content">
-                                    <span class="ticket-text">General</span>
-                                    <span class="ticket-price">2000 MXN</span>
-                                </div>
-                            </label>
-                            <label class="ticket-option">
-                                <input type="radio" name="ticket-type" value="instituto" />
-                                <div class="ticket-content">
-                                    <span class="ticket-text">Instituto</span>
-                                    <span class="ticket-price">1500 MXN</span>
-                                </div>
-                            </label>
-                            <label class="ticket-option">
-                                <input type="radio" name="ticket-type" value="estudiante" />
-                                <div class="ticket-content">
-                                    <span class="ticket-text">Estudiante</span>
-                                    <span class="ticket-price">1000 MXN</span>
-                                </div>
-                            </label>
-                        </div>
-                        <div id="payment-element">
-                            <!-- Stripe.js injects the Payment Element -->
-                        </div>
-                        <button id="submit-payment">
-                            <div class="spinner hidden" id="spinner"></div>
-                            <span id="button-text">Confirmar Pago</span>
+                    <div class="botonNav">
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div id="payment-message" class="hidden"></div>
+                    </div>
+
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navegacion d-flex mt-5 mt-md-0 ms-auto justify-content-center">
+                        <nav id="nav-up" class="nav-footer navbar-nav">
+                            <a href="#conferencistas"
+                                class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
+                            <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
+                            <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Información</a>
+                            <a href="#faq" class="navbar-link w-nav-link nav-item nav-link fs-5">FAQs</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="pagos">
+            <section id="registro-section" class="section active">
+                <h3>Registro de Usuario</h3>
+                <div class="row justify-content-center">
+                    <form id="registroForm" class="col-md-8">
+                        <div class="contenedor-inputs">
+                            <div>
+                                <label for="nombre" class="form-label fw-bold text-align-start fs-6">Nombre(*):</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Pedro" required>
+                            </div>
+                            <div>
+                                <label for="apellido" class="form-label fw-bold text-align-start fs-6">Apellido:</label>
+                                <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Lopez" required>
+                            </div>
+                            <div>
+                                <label for="email" class="form-label fw-bold text-align-start fs-6">Email:</label>
+                                <input required minlength="4" type="email" class="form-control" name="email" id="email" placeholder="Ej: email@domain.com">
+                            </div>
+                            <div>
+                                <label for="telefono" class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
+                                <input required type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
+                            </div>
+                            <div>
+                                <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al evento rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no confirmar se le negará el acceso durante esa sección del evento. Si no sabe en qué consiste, puede consultar el <a class="" href="#agenda">Itinierario.</a></p>
+                                <label class="radio mt-2">
+                                    <input name="asistencia_rompehielos" type="radio" value="si" checked>
+                                    <span class="fs-6">Si</span>
+                                </label>
+                                <label class="radio">
+                                    <input name="asistencia_rompehielos" type="radio" value="no">
+                                    <span class="fs-6">No</span>
+                                </label>
+                                <div id="asistencia-error"></div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-4">
+                            <div class="col-md-8">
+                                <button type="submit" id="submit">
+                                    <div class="spinner hidden" id="spinner"></div>
+                                    <span id="button-text">Pagar</span>
+                                </button>
+                                <div id="payment-message" class="hidden"></div>
+                            </div>
+                        </div>
                     </form>
                 </div>
-            </div>
-        </section>
-    </div>
-    </div>
+            </section>
+        
+            <section id="pago-section" class="section hidden">
+                <div class="modal-content" style="min-width: fit-content;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form id="payment-form">
+                            <div class="ticket-selection">
+                                <label class="ticket-option selected">
+                                    <input type="radio" name="ticket-type" value="general" checked/>
+                                    <div class="ticket-content">
+                                        <span class="ticket-text">General</span>
+                                        <span class="ticket-price">2000 MXN</span>
+                                    </div>
+                                </label>
+                                <label class="ticket-option">
+                                    <input type="radio" name="ticket-type" value="instituto" />
+                                    <div class="ticket-content">
+                                        <span class="ticket-text">Instituto</span>
+                                        <span class="ticket-price">1500 MXN</span>
+                                    </div>
+                                </label>
+                                <label class="ticket-option">
+                                    <input type="radio" name="ticket-type" value="estudiante" />
+                                    <div class="ticket-content">
+                                        <span class="ticket-text">Estudiante</span>
+                                        <span class="ticket-price">1000 MXN</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div id="payment-element">
+                                <!-- Stripe.js injects the Payment Element -->
+                            </div>
+                            <button id="submit-payment" type="submit">
+                                <div class="spinner hidden" id="spinner"></div>
+                                <span id="button-text">Confirmar Pago</span>
+                            </button>
+                            <div id="payment-message" class="hidden"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section id="success-section" class="section hidden">
+                <h3>Tu pago ha sido procesado de manera exitosa</h3>
+                <p>Revisa tu correo para más información relacionada al evento. ¡Esperamos verte pronto!</p>
+            </section>
+            <style>
+
+
+
+                .section {
+                    display: none;
+                    padding-top: 100px;
+                }
+                
+                .section.active {
+                    display: block;
+                    left: 0;
+                    animation: slideIn 0.5s forwards;
+                }
+                
+                @keyframes slideIn {
+                    from { transform: translateX(100%); }
+                    to { transform: translateX(0); }
+                }
+                
+                .hidden{
+                    display: none;
+                }
+                
+                .paginas-container {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+            </style>
+        </div>
     <section id="faq" class="section-home-faq">
         <div>
             <div class="container-small">
@@ -371,11 +404,6 @@
                 </div>
             </div>
         </div>
-        <style>
-
-        </style>
-    </div>
-
     </section>
     <footer class="footer-component">
         <div class="padding-global">
@@ -497,6 +525,7 @@
         <div class="blurred-circle is-footer"></div>
     </footer>
 </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
     const input = document.querySelector("#phone");
@@ -535,6 +564,6 @@ function cerrarModal() {
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="./scripts/boletos.js"></script>
-    <script src="./scripts/checkout.js"></script>
+    <script src="./scripts/pago.js"></script>
 </body>
 </html>
