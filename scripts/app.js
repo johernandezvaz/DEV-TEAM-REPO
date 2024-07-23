@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //Acordition FAQs
   const questions = document.querySelectorAll(".faq-accordion");
   let activeAnswer = null;
-  let nonActiveAnswer = "";
-  console.log(nonActiveAnswer);
-  console.log("Push nuevo");
+  let closeTimeout = null; // Para almacenar el temporizador
 
   questions.forEach((question) => {
     const questionText = question.querySelector(".faq-question");
@@ -12,14 +10,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     questionText.addEventListener("click", function (e) {
       e.stopPropagation();
+
       // Si hay una respuesta activa y no es la actual, ciérrala
       if (activeAnswer && activeAnswer !== answer) {
         activeAnswer.classList.remove("showAnswer");
+        clearTimeout(closeTimeout); // Limpiar el temporizador si se abre otra respuesta
       }
+
       // Alterna la clase showAnswer para la respuesta actual
       answer.classList.toggle("showAnswer");
+
       // Establece la respuesta actual como activa si está visible
-      activeAnswer = answer.classList.contains("showAnswer") ? answer : null;
+      if (answer.classList.contains("showAnswer")) {
+        activeAnswer = answer;
+
+        // Configura el temporizador para cerrar la respuesta después de 4 segundos
+        closeTimeout = setTimeout(() => {
+          if (activeAnswer) {
+            activeAnswer.classList.remove("showAnswer");
+            activeAnswer = null;
+          }
+        }, 3000);
+      } else {
+        activeAnswer = null;
+        clearTimeout(closeTimeout); // Limpiar el temporizador si se cierra la respuesta manualmente
+      }
     });
   });
 
@@ -28,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeAnswer) {
       activeAnswer.classList.remove("showAnswer");
       activeAnswer = null;
+      clearTimeout(closeTimeout); // Limpiar el temporizador cuando se cierra manualmente
     }
   });
 
@@ -49,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.classList.remove("active");
     popup.classList.remove("active");
   });
+
   /* VALIDACION DE FORMULARIO */
   // validacion input
   const email = {
@@ -173,48 +190,40 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/*
-CUENTA REGRESIVA 
- */
+/* slider de imagenes */
 
-simplyCountdown("#cuenta-regresiva", {
-  year: 2024,
-  month: 10,
-  day: 3,
-  hours: 9, // Default is 0 [0-23] integer
-  minutes: 0, // Default is 0 [0-59] integer
-  seconds: 0, // Default is 0 [0-59] integer
-  words: {
-    //words displayed into the countdown
-    days: { singular: " ", plural: " " },
-    hours: { singular: " ", plural: " " },
-    minutes: { singular: " ", plural: " " },
-    seconds: { singular: " ", plural: " " },
-  },
-  plural: true, //use plurals
-  inline: false, //set to true to get an inline basic countdown like : 24 days, 4 hours, 2 minutes, 5 seconds
-  inlineClass: "simply-countdown-inline", //inline css span class in case of inline = true
-  // in case of inline set to false
-  enableUtc: false,
-  onEnd: function () {
-    // your code
-    return;
-  },
-  refresh: 1000, //default refresh every 1s
-  sectionClass: "simply-section", //section css class
-  amountClass: "simply-amount", // amount css class
-  wordClass: "simply-word", // word css class
-  zeroPad: false,
-  countUp: false, // enable count up if set to true
-});
+const slides = document.querySelector(".slides");
+const slideItems = document.querySelectorAll(".slide");
+const totalSlides = slideItems.length;
+const nextButton = document.querySelector(".next-button");
+const prevButton = document.querySelector(".prev-button");
 
-// Also, you can init with already existing Javascript Object.
-let myElement = document.querySelector(".my-countdown");
-simplyCountdown(myElement, {
-  /* options */
-});
+let currentIndex = 0;
 
-let multipleElements = document.querySelectorAll(".my-countdown");
-simplyCountdown(multipleElements, {
-  /* options */
-});
+// Function to show a specific slide
+function showSlide(index) {
+  const offset = -index * 100;
+  slides.style.transform = `translateX(${offset}%)`;
+}
+
+// Function to go to the next slide
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  showSlide(currentIndex);
+}
+
+// Function to go to the previous slide
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  showSlide(currentIndex);
+}
+
+// Event listeners for navigation buttons
+nextButton.addEventListener("click", nextSlide);
+prevButton.addEventListener("click", prevSlide);
+
+// Auto play the slider
+setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+// Initial display
+showSlide(currentIndex);

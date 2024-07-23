@@ -886,13 +886,16 @@ label {
 .faq-answer {
   padding-left: 2rem;
   padding-right: 2rem;
+  max-height: 0; /* Inicialmente oculto */
   overflow: hidden;
-  display: none;
-  transition: display 3ms;
+  opacity: 0; /* Inicialmente transparente */
+  transition: max-height 1s ease, opacity 1s ease; /* Transición suave */
+  display: block; /* Asegura que el contenido sea bloqueado para aplicar la transición */
 }
 
 .showAnswer {
-  display: block;
+  max-height: 200px; /* Ajusta según el tamaño máximo esperado */
+  opacity: 1; /* Visible */
 }
 
 .faq-collection-list {
@@ -2362,7 +2365,6 @@ body
   padding: 3rem 0.5rem 3rem 0.5rem;
 }
 
-
 .ticket-selection {
   display: flex;
   justify-content: space-around;
@@ -2381,7 +2383,7 @@ body
 }
 
 .ticket-option:hover {
-  border-color: #4D869C;
+  border-color: #4d869c;
 }
 
 .ticket-option input {
@@ -2406,16 +2408,13 @@ body
 }
 
 .ticket-option.selected {
-  background-color: #4D869C;
+  background-color: #4d869c;
 }
 
 .ticket-option.selected .ticket-text,
 .ticket-option.selected .ticket-price {
   color: #fff;
 }
-
-
-
 
 #registro-section {
   padding: 20px;
@@ -2469,7 +2468,6 @@ body
   transition: background-color 0.3s;
 }
 
-
 #registroForm .spinner {
   width: 20px;
   height: 20px;
@@ -2480,8 +2478,12 @@ body
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #registroForm #button-text {
@@ -2496,7 +2498,7 @@ body
 /* Sección de Pago */
 #pago-section {
   margin-top: 40px;
-  padding: 20px;  
+  padding: 20px;
   border-radius: 5px;
 }
 
@@ -2514,8 +2516,6 @@ body
   margin-top: 20px;
 }
 
-
-
 #pago-section .ticket-option input {
   margin-right: 10px;
 }
@@ -2525,7 +2525,6 @@ body
   justify-content: space-between;
   width: 100%;
 }
-
 
 #pago-section #payment-element {
   margin-top: 20px;
@@ -2562,7 +2561,7 @@ body
   color: red;
 }
 
-.modal-header{
+.modal-header {
   display: block;
 }
 /* Animación Slide-in */
@@ -2571,8 +2570,139 @@ body
 }
 
 @keyframes slideIn {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("background.jpg") no-repeat center center/cover;
+  z-index: -1;
+}
+
+.slider {
+  width: 80%;
+  max-width: 800px;
+  height: 60%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px; /* Add padding to create space around the image */
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  background-color: #f4f4f6;
+  border-radius: 20px; /* Rounded corners */
+  box-sizing: border-box;
+  padding: 30px; /* Add padding inside the image */
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f4f4f6;
+  border: none;
+  color: black;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 18px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.nav-button:hover {
+  color: white;
+  background-color: #4d869c;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+  .nav-button {
+    width: 4rem;
+    height: 4rem;
+  }
+  .prev-button {
+    left: 20px;
+  }
+  .next-button {
+    right: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-button {
+    width: 5rem;
+    height: 5rem;
+  }
+  .prev-button {
+    left: 30px;
+  }
+  .next-button {
+    right: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-button {
+    width: 5rem;
+    height: 5rem;
+  }
+  .prev-button {
+    left: 10%;
+  }
+  .next-button {
+    right: 10%;
+  }
+}
+
+.smooth-transition {
+  transition: transform 0.5s ease-in-out;
 }
 
 
