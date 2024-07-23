@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     <link rel="stylesheet" href="styles/styles_2.css">
     <style>
         @media (min-width: 992px) {
@@ -130,7 +130,7 @@
                         </nav>
                     </div>
                     <div class=" ml-5 registro botonHeader d-flex justify-content-center align-items-center ms-auto">
-                        <a href="payment-form.html" class="button w-button btn-abrir-popup">Comprar Entrada</a>
+                        <a href="#tickets" class="button w-button btn-abrir-popup">Comprar Entrada</a>
                     </div>
                 </div>
             </div>
@@ -158,6 +158,79 @@
                 });
             });
         </script> -->
+
+        <div class="contenedor">
+            <div class="overlay" id="overlay">
+                <div class="popup mx-2" id="popup">
+                    <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                    <h3>Registro de Usuario</h3>
+                    <div class="row justify-content-center">
+                        <form id="registroForm" class="col-md-8">
+                            <div class="contenedor-inputs">
+                                <div>
+                                    <label for="nombre"
+                                        class="form-label fw-bold text-align-start fs-6">Nombre(*):</label>
+                                    <input type="text" class="form-control" name="nombre" id="nombre"
+                                        placeholder="Ej: Pedro" required>
+                                </div>
+                                <div>
+                                    <label for="apellido"
+                                        class="form-label fw-bold text-align-start fs-6">Apellido:</label>
+                                    <input type="text" class="form-control" name="apellido" id="apellido"
+                                        placeholder="Ej: Lopez" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="form-label fw-bold text-align-start fs-6">Email:</label>
+                                    <input required minlength="4" type="email" class="form-control" name="email"
+                                        id="email" placeholder="Ej: email@domain.com">
+                                </div>
+                                <div>
+                                    <label for="telefono"
+                                        class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
+                                    <input required type="tel" id="phone" class="form-control" name="telefono"
+                                        placeholder="Ej: +52 (123) 456-7890">
+                                </div>
+                                <div>
+                                    <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al
+                                        evento rompehielos dentro del itinerario? Es muy importante saber si
+                                        asistirá, ya que de no confirmar se le negará el acceso durante esa sección
+                                        del evento. Si no sabe en qué consiste, puede consultar el <a class=""
+                                            href="#agenda">Itinierario.</a></p>
+                                    <label class="radio mt-2">
+                                        <input name="asistencia_rompehielos" type="radio" value="si">
+                                        <span class="fs-6">Si</span>
+                                    </label>
+                                    <label class="radio">
+                                        <input name="asistencia_rompehielos" type="radio" value="no">
+                                        <span class="fs-6">No</span>
+                                    </label>
+                                    <div id="asistencia-error"></div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-md-8">
+                                    <button disabled id="submit" type="submit">
+                                        <div class="spinner hidden" id="spinner"></div>
+                                        <span id="button-text">Pagar</span>
+                                    </button>
+                                    <div id="payment-message" class="hidden"></div>
+                                </div>
+                            </div>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    const input = document.querySelector("#phone");
+                                    window.intlTelInput(input, {
+                                        initialCountry: "mx",
+                                        strictMode: true,
+                                        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+                                    });
+                                });
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -1519,6 +1592,9 @@
         </footer>
     </div>
     </div>
+    <!-- Incluye el JavaScript de intl-tel-input -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
     <script src="scripts/simplyCountdown.js"></script>
     <script src="scripts/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
