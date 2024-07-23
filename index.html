@@ -125,7 +125,10 @@
                             <a href="#conferencistas"
                                 class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
                             <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
-                            <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Información</a>
+                            <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Ubicación</a>
+                            <a href="#section-home-partner"
+                                class="navbar-link w-nav-link nav-item nav-link fs-5">Nosotros</a>
+
                             <a href="#faq" class="navbar-link w-nav-link nav-item nav-link fs-5">FAQs</a>
                         </nav>
                     </div>
@@ -159,6 +162,8 @@
             });
         </script> -->
 
+
+        <!-- modal de registro de usuario -->
         <div class="contenedor">
             <div class="overlay" id="overlay">
                 <div class="popup mx-2" id="popup">
@@ -236,7 +241,10 @@
 
 
         <main class="main-wrapper">
-            <header class="section-home-header">
+
+
+            <!-- principal -->
+            <section class="section-home-header">
                 <div class="padding-global">
                     <div class="container-large">
                         <div>
@@ -351,9 +359,9 @@
                     </div>
                 </div>
                 <div class="blurred-circle"></div>
-            </header>
+            </section>
 
-
+            <!-- conferencistas -->
             <section id="conferencistas" class="section-home-speakers p-1">
                 <div class="padding-global">
                     <div class="container-large">
@@ -743,7 +751,7 @@
                 </style>
             </section>
 
-
+            <!-- itinerario -->
             <section id="agenda" class="section-home-agenda">
                 <div class="padding-global">
                     <div class="container-large">
@@ -1094,7 +1102,7 @@
                     }
                 </style>
             </section>
-
+            <!-- ubicacion -->
             <section class="section-home-location">
                 <div class="padding-global">
                     <div class="container-large">
@@ -1151,8 +1159,8 @@
                 <div class="blurred-circle is-location"></div>
             </section>
 
-
-            <section class="section-home-partner">
+            <!-- organizadores -->
+            <section class="section-home-partner" id="section-home-partner">
                 <div class="padding-global">
                     <div class="container-large">
                         <div class="padding-section-medium">
@@ -1247,8 +1255,8 @@
                     </div>
                 </div>
             </section>
-
-            <section class="section-home-partner" id="section-home-partner">
+            <!-- Area comercial -->
+            <section class="section-home-partner">
                 <div class="padding-global">
                     <div class="container-large">
                         <div class="padding-section-medium">
@@ -1302,178 +1310,207 @@
                 </div>
             </section>
 
-            <section class="slider-img">
-                <div class="slider-container">
-                    <div class="background-image">
 
-                    </div>
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide">
-                                <img src="assets/dentalid~248.webp" alt="Image 3">
-                            </div>
-                            <div class="slide">
-                                <img src="assets/dentalid~269.webp" alt="Image 4">
-                            </div>
-                            <div class="slide"><img src="assets/dentalid~290.webp" alt="Image 5">
-                            </div>
-                            <div class="slide">
-                                <img src="assets/dentalid~42.webp" alt="Image 6">
-                            </div>
-                            <div class="slide">
-                                <img src="assets/dentalid~75.webp" alt="Image 7">
-                            </div>
-
-                        </div>
-                    </div>
-                    <button class="nav-button prev-button">❮</button>
-                    <button class="nav-button next-button">❯</button>
-                </div>
-            </section>
+            <div class="union-grid">
 
 
-            <section id="faq" class="section-home-faq mt-5">
-                <div>
-                    <div class="container-small">
-                        <div>
-                            <div class="margin-bottom margin-large">
-                                <div class="text-align-center">
-                                    <div class="max-width-large">
-                                        <div class="margin-bottom margin-small">
-                                            <h2>FAQs</h2>
-                                        </div>
-                                        <div class="parrafo text-center">
-                                            <p class="text-size-medium">Aquí encontrarás respuestas a
-                                                las
-                                                inquietudes más
-                                                comunes sobre el evento.
-                                            </p>
-                                            <p class="text-size-medium text-center">Nuestro objetivo es brindarte
-                                                la
-                                                información que
-                                                necesitas de manera clara y rápida. </p>
-                                            <p class="text-size-medium text-center">Si no encuentras lo que buscas, no
-                                                dudes
-                                                en contactarnos para obtener asistencia personalizada.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div role="list" class="faq-collection-list w-dyn-items mx-5">
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Qué incluye el costo de la inscripción al
-                                                Congreso CODEC?</div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>El costo de la inscripción incluye acceso a todas las conferencias y
-                                                    actividades del evento, como la rifa patrocinada por Colgate, la
-                                                    fiesta rompe hielos y la clausura. También cubre los recesos y la
-                                                    comida durante ambos días del congreso.</p>
+                <!-- faqs -->
+                <section id="faq" class="section-home-faq mt-5">
+                    <div>
+                        <div class="container-small">
+                            <div>
+                                <div class="mt-3">
+                                    <div class="text-align-center">
+                                        <div class="max-width-large">
+                                            <div class="margin-bottom margin-small">
+                                                <h2>FAQs</h2>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Puedo obtener un descuento en la inscripción?
-                                            </div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Sí, ofrecemos descuentos para miembros de colegios e instituciones,
-                                                    quienes pagan $1500. Los estudiantes también tienen una tarifa
-                                                    especial de $1000. Asegúrate de presentar una identificación válida
-                                                    al momento del registro para aplicar el descuento correspondiente.
+                                            <div class="parrafo text-center">
+                                                <p class="text-size-medium">Aquí encontrarás respuestas a
+                                                    las
+                                                    inquietudes más
+                                                    comunes sobre el evento.
                                                 </p>
+                                                <p class="text-size-medium text-center">Nuestro objetivo es brindarte
+                                                    la
+                                                    información que
+                                                    necesitas de manera clara y rápida. </p>
+                                                <p class="text-size-medium text-center">Si no encuentras lo que buscas,
+                                                    no
+                                                    dudes
+                                                    en contactarnos para obtener asistencia personalizada.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Cómo y dónde puedo registrarme para el
-                                                Congreso CODEC? </div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Puedes registrarte el primer día del evento de 9:00 a 10:00 am.
-                                                    Asegúrate de llegar temprano para completar tu registro y recibir
-                                                    toda la información necesaria para las actividades del congreso.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6"> ¿Qué sucede si no puedo asistir después de
-                                                haberme registrado?</div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Entendemos que pueden surgir imprevistos. Te pedimos que nos informes
-                                                    lo antes posible si no puedes asistir. Sin embargo, ten en cuenta
-                                                    que todas las compras de boletos son finales y no ofrecemos
-                                                    reembolsos, cambios ni cancelaciones bajo ninguna circunstancia.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Qué temas se tratarán en las conferencias?
-                                            </div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Aunque los temas específicos de cada conferencia están aún
-                                                    por confirmar, los ponentes abordarán temas relevantes y actuales en
-                                                    el campo de la odontología. Mantente atento a las actualizaciones en
-                                                    nuestra página web para obtener más detalles sobre cada
-                                                    presentación.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Qué debo llevar al congreso?</div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Te recomendamos llevar tu identificación, cualquier confirmación de
-                                                    registro que hayas recibido, tarjetas de presentación para
-                                                    networking, una libreta o dispositivo para tomar notas, y ropa
-                                                    cómoda. </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
+                                <div role="list" class="faq-collection-list w-dyn-items mx-5 mt-5">
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Qué incluye el costo de la inscripción al
+                                                    Congreso CODEC?</div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>El costo de la inscripción incluye acceso a todas las
+                                                        conferencias y
+                                                        actividades del evento, como la rifa patrocinada por Colgate, la
+                                                        fiesta rompe hielos y la clausura. También cubre los recesos y
+                                                        la
+                                                        comida durante ambos días del congreso.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Puedo obtener un descuento en la
+                                                    inscripción?
+                                                </div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Sí, ofrecemos descuentos para miembros de colegios e
+                                                        instituciones,
+                                                        quienes pagan $1500. Los estudiantes también tienen una tarifa
+                                                        especial de $1000. Asegúrate de presentar una identificación
+                                                        válida
+                                                        al momento del registro para aplicar el descuento
+                                                        correspondiente.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Cómo y dónde puedo registrarme para el
+                                                    Congreso CODEC? </div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Puedes registrarte el primer día del evento de 9:00 a 10:00 am.
+                                                        Asegúrate de llegar temprano para completar tu registro y
+                                                        recibir
+                                                        toda la información necesaria para las actividades del congreso.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6"> ¿Qué sucede si no puedo asistir después
+                                                    de
+                                                    haberme registrado?</div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Entendemos que pueden surgir imprevistos. Te pedimos que nos
+                                                        informes
+                                                        lo antes posible si no puedes asistir. Sin embargo, ten en
+                                                        cuenta
+                                                        que todas las compras de boletos son finales y no ofrecemos
+                                                        reembolsos, cambios ni cancelaciones bajo ninguna circunstancia.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Qué temas se tratarán en las
+                                                    conferencias?
+                                                </div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Aunque los temas específicos de cada conferencia están aún
+                                                        por confirmar, los ponentes abordarán temas relevantes y
+                                                        actuales en
+                                                        el campo de la odontología. Mantente atento a las
+                                                        actualizaciones en
+                                                        nuestra página web para obtener más detalles sobre cada
+                                                        presentación.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Qué debo llevar al congreso?</div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Te recomendamos llevar tu identificación, cualquier confirmación
+                                                        de
+                                                        registro que hayas recibido, tarjetas de presentación para
+                                                        networking, una libreta o dispositivo para tomar notas, y ropa
+                                                        cómoda. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+
+                <!-- slider de imagenes -->
+                <section class="slider-img">
+                    <div class="slider-container">
+                        <div class="background-image">
+
+                        </div>
+                        <div class="slider">
+                            <div class="slides">
+                                <div class="slide">
+                                    <img src="assets/dentalid~248.webp" alt="Image 3">
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/dentalid~269.webp" alt="Image 4">
+                                </div>
+                                <div class="slide"><img src="assets/dentalid~290.webp" alt="Image 5">
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/dentalid~42.webp" alt="Image 6">
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/dentalid~75.webp" alt="Image 7">
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="nav-button prev-button">❮</button>
+                        <button class="nav-button next-button">❯</button>
+                    </div>
+                </section>
+
+
+
+            </div>
 
         </main>
+
+        <!-- footer -->
         <footer class="footer-component">
             <div class="padding-global">
-                <div class="container-large section-grid">
+                <div class="section-grid">
                     <div class="padding-section-medium section01">
                         <div class="padding-xlarge">
                             <div class="footer-top-wrapper">
@@ -1592,7 +1629,6 @@
         </footer>
     </div>
     </div>
-    <!-- Incluye el JavaScript de intl-tel-input -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
     <script src="scripts/simplyCountdown.js"></script>
