@@ -1838,9 +1838,6 @@ form {
   }
 }
 
-.hidden {
-  display: none;
-}
 
 #payment-message {
   color: rgb(105, 115, 134);
@@ -2793,4 +2790,50 @@ body
   .union-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.pagos {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.pagos.active {
+  display: block;
+  transform: translateY(0);
+}
+
+.pagos.closing {
+  transform: translateY(-100%);
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+
+.close-button {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: white; /* Color negro para la 'X' */
+  transform: translateX(-100%); /* Mover la 'X' */
+
 }
