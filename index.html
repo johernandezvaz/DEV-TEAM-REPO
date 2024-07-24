@@ -107,47 +107,47 @@
 <body>
     <div class="page-wrapper">
         <div class="page-wrapper">
-           
-            
-            
 
 
-        <header class="header navbar navbar-expand-lg navbar-light bg-light">
-            <div class="ps-5 pe-2 navegacionF w-100 d-flex align-center">
-                <div class="menuhamburger w-100 d-flex justify-content-center align-items-center">
-                    <div class="logo d-flex justify-content-center justify-content-md-center mx-auto">
-                        <a href="index.html" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
-                            <img src="./assets/¿.webp" loading="lazy" alt="Logo" class="navbar-logo" />
-                        </a>
+
+
+
+            <header class="header navbar navbar-expand-lg navbar-light bg-light">
+                <div class="ps-5 pe-2 navegacionF w-100 d-flex align-center">
+                    <div class="menuhamburger w-100 d-flex justify-content-center align-items-center">
+                        <div class="logo d-flex justify-content-center justify-content-md-center mx-auto">
+                            <a href="index.html" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
+                                <img src="./assets/¿.webp" loading="lazy" alt="Logo" class="navbar-logo" />
+                            </a>
+                        </div>
+                        <div class="botonNav">
+                            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+
                     </div>
-                    <div class="botonNav">
-                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class="navegacion d-flex mt-5 mt-md-0 ms-auto justify-content-center">
+                            <nav id="nav-up" class="nav-footer navbar-nav">
+                                <a href="#conferencistas"
+                                    class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
+                                <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
+                                <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Ubicación</a>
+                                <a href="#section-home-partner"
+                                    class="navbar-link w-nav-link nav-item nav-link fs-5">Nosotros</a>
 
+                                <a href="#faq" class="navbar-link w-nav-link nav-item nav-link fs-5">FAQs</a>
+                            </nav>
+                        </div>
+                        <div class="ml-5 registro botonHeader d-flex justify-content-center align-items-center ms-auto">
+                            <a href="#" class="button w-button btn-abrir-popup">Comprar Entrada</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="navegacion d-flex mt-5 mt-md-0 ms-auto justify-content-center">
-                        <nav id="nav-up" class="nav-footer navbar-nav">
-                            <a href="#conferencistas"
-                                class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
-                            <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
-                            <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Ubicación</a>
-                            <a href="#section-home-partner"
-                                class="navbar-link w-nav-link nav-item nav-link fs-5">Nosotros</a>
-
-                            <a href="#faq" class="navbar-link w-nav-link nav-item nav-link fs-5">FAQs</a>
-                        </nav>
-                    </div>
-                    <div class="ml-5 registro botonHeader d-flex justify-content-center align-items-center ms-auto">
-                        <a href="#" class="button w-button btn-abrir-popup">Comprar Entrada</a>
-                    </div>                    
-                    </div>                 
-                </div>
-            </div>
+        </div>
         </header>
 
         <div class="pagos">
@@ -159,22 +159,29 @@
                         <div class="contenedor-inputs">
                             <div>
                                 <label for="nombre" class="form-label fw-bold text-align-start fs-6">Nombre(*):</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Pedro" required>
+                                <input type="text" class="form-control" name="nombre" id="nombre"
+                                    placeholder="Ej: Pedro" required>
                             </div>
                             <div>
                                 <label for="apellido" class="form-label fw-bold text-align-start fs-6">Apellido:</label>
-                                <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ej: Lopez" required>
+                                <input type="text" class="form-control" name="apellido" id="apellido"
+                                    placeholder="Ej: Lopez" required>
                             </div>
                             <div>
                                 <label for="email" class="form-label fw-bold text-align-start fs-6">Email:</label>
-                                <input required minlength="4" type="email" class="form-control" name="email" id="email" placeholder="Ej: email@domain.com">
+                                <input required minlength="4" type="email" class="form-control" name="email" id="email"
+                                    placeholder="Ej: email@domain.com">
                             </div>
                             <div>
                                 <label for="telefono" class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
-                                <input required type="tel" id="phone" class="form-control" name="telefono" placeholder="Ej: +52 (123) 456-7890">
+                                <input required type="tel" id="phone" class="form-control" name="telefono"
+                                    placeholder="Ej: +52 (123) 456-7890">
                             </div>
                             <div>
-                                <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al evento rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no confirmar se le negará el acceso durante esa sección del evento. Si no sabe en qué consiste, puede consultar el <a class="" href="#agenda">Itinierario.</a></p>
+                                <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al evento
+                                    rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no
+                                    confirmar se le negará el acceso durante esa sección del evento. Si no sabe en qué
+                                    consiste, puede consultar el <a class="" href="#agenda">Itinierario.</a></p>
                                 <label class="radio mt-2">
                                     <input name="asistencia_rompehielos" type="radio" value="si" checked>
                                     <span class="fs-6">Si</span>
@@ -187,10 +194,11 @@
                             </div>
                         </div>
                         <div>
-                            <label for="boleto" class="form-label fw-bold text-align-start fs-6">Seleccione su boleto:</label>
+                            <label for="boleto" class="form-label fw-bold text-align-start fs-6">Seleccione su
+                                boleto:</label>
                             <div class="ticket-selection">
                                 <label class="ticket-option">
-                                    <input type="radio" name="ticket-type" value="general"/>
+                                    <input type="radio" name="ticket-type" value="general" />
                                     <div class="ticket-content">
                                         <span class="ticket-text">General</span>
                                         <span class="ticket-price">2000 MXN</span>
@@ -221,11 +229,11 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </form>
                 </div>
             </section>
-        
+
             <section id="pago-section" class="section hidden">
                 <div class="modal-content" style="min-width: fit-content;">
                     <div class="modal-header">
@@ -250,12 +258,12 @@
                 <p>Revisa tu correo para más información relacionada al evento. ¡Esperamos verte pronto!</p>
             </section>
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('DOMContentLoaded', function () {
                     const btnAbrirPopup = document.querySelector('.btn-abrir-popup');
                     const pagosDiv = document.querySelector('.pagos');
                     const closeButton = document.querySelector('.close-button');
-                    
-                    btnAbrirPopup.addEventListener('click', function(event) {
+
+                    btnAbrirPopup.addEventListener('click', function (event) {
                         event.preventDefault();
                         pagosDiv.style.visibility = 'visible'; // Hacer visible antes de agregar la clase
                         pagosDiv.style.opacity = '1'; // Opaco antes de agregar la clase
@@ -263,18 +271,18 @@
                             pagosDiv.classList.add('active');
                         }, 10); // Pequeño retraso para permitir la transición
                         document.body.style.overflow = 'hidden'; // Deshabilitar scroll
-        });
-        
-        closeButton.addEventListener('click', function() {
-            pagosDiv.classList.add('closing');
-            setTimeout(() => {
-                pagosDiv.classList.remove('active', 'closing');
-                pagosDiv.style.visibility = 'hidden'; // Ocultar después de quitar las clases
-                pagosDiv.style.opacity = '0'; // Transparente después de quitar las clases
-                document.body.style.overflow = ''; // Habilitar scroll
-            }, 1000); // Tiempo de la transición (0.5s)
-        });
-    });
+                    });
+
+                    closeButton.addEventListener('click', function () {
+                        pagosDiv.classList.add('closing');
+                        setTimeout(() => {
+                            pagosDiv.classList.remove('active', 'closing');
+                            pagosDiv.style.visibility = 'hidden'; // Ocultar después de quitar las clases
+                            pagosDiv.style.opacity = '0'; // Transparente después de quitar las clases
+                            document.body.style.overflow = ''; // Habilitar scroll
+                        }, 1000); // Tiempo de la transición (0.5s)
+                    });
+                });
             </script>
         </div>
 
@@ -569,6 +577,50 @@
 
                                         </div>
                                     </div>
+
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                        <div class="speaker-item">
+                                            <div class="speaker-image-wrapper">
+                                                <img src="./assets/dr-fermin.webp" loading="lazy"
+                                                    alt="Dr. Fermin Ocañas" class="speaker-image img-fluid dr-fermin" />
+                                            </div>
+                                            <div class="speaker-content-wrapper">
+                                                <div class="heading-style-h4 title-dr">Dr. Fermin Ocañas</div>
+                                                <div class="text-size-medium"> Cirujano Dentista</div>
+                                                <div class="speaker-bio-content">
+                                                    <p class="text-bio">Lorem ipsum dolor sit amet consectetur
+                                                        adipisicing elit. Eius dolores ea aspernatur error corrupti
+                                                        voluptatum at quae temporibus? Minus inventore placeat eius
+                                                        beatae eveniet. Commodi expedita officia saepe totam aliquam!
+                                                    </p>
+                                                    <div class="redes-c ">
+                                                        <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8c96-547d8c7d"
+                                                            class="d-flex justify-content-center g-2"
+                                                            class="w-layout-grid footer-social-list">
+                                                            <a href="#" class="footer-social-link w-inline-block"
+                                                                target="_blank">
+                                                                <img src="./assets/facebook-white.webp" loading="lazy"
+                                                                    alt="Facebook Icon" class="icon-1x1-small" />
+                                                            </a>
+                                                            <a href="#" class="footer-social-link w-inline-block"
+                                                                target="_blank">
+                                                                <img src="./assets/instagram-white.webp" loading="lazy"
+                                                                    alt="Instagram Icon" class="icon-1x1-small" />
+                                                            </a>
+                                                            <a href="#" class="footer-social-link w-inline-block"
+                                                                target="_blank">
+                                                                <img src="./assets/linkedin-white.webp" loading="lazy"
+                                                                    alt="LinkedIn Icon" class="icon-1x1-small" />
+                                                            </a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
@@ -627,33 +679,43 @@
                                                     class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
-                                                <div class="heading-style-h4 title-dr">Dr. Heber Roberto León Salazar</div>
+                                                <div class="heading-style-h4 title-dr">Dr. Heber Roberto León Salazar
+                                                </div>
                                                 <div class="text-size-medium">C.D E.P.I CB.</div>
                                                 <div class="speaker-bio-content">
-                                                    <p class="text-bio">Dr. Heber Roberto León Salazar es un destacado odontólogo especializado en Periodoncia, Implantología y Cirugía Bucal. Además de su práctica clínica, se desempeña como Coordinador de la especialidad de Periodoncia en CME Veracruz y como profesor colaborador en el Máster de Periodoncia, Implantología y Cirugía Bucal de la misma institución. También es un instructor especializado en diversas marcas de implantes.</p>
-                                                        <div class="redes-c ">
-                                                    <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8c96-547d8c7d"
-                                    class="w-layout-grid footer-social-list">
-                                    <a href="https://www.facebook.com/profile.php?id=100009749049911"
-                                        class="footer-social-link w-inline-block" target="_blank">
-                                        <img src="./assets/facebook.webp" loading="lazy" alt="Facebook Icon"
-                                            class="icon-1x1-small" />
-                                    </a>
-                                    <a href="https://www.instagram.com/heberroberto.leonsalazar"
-                                        class="footer-social-link w-inline-block" target="_blank">
-                                        <img src="./assets/instagram.webp" loading="lazy" alt="Instagram Icon"
-                                            class="icon-1x1-small" />
-                                    </a>
-                                    <a href="#"
-                                        class="footer-social-link w-inline-block" target="_blank">
-                                        <img src="./assets/linkedin.webp" loading="lazy" alt="LinkedIn Icon"
-                                            class="icon-1x1-small" />
-                                    </a>
-                                </div>
+                                                    <p class="text-bio">Dr. Heber Roberto León Salazar es un destacado
+                                                        odontólogo especializado en Periodoncia, Implantología y Cirugía
+                                                        Bucal. Además de su práctica clínica, se desempeña como
+                                                        Coordinador de la especialidad de Periodoncia en CME Veracruz y
+                                                        como profesor colaborador en el Máster de Periodoncia,
+                                                        Implantología y Cirugía Bucal de la misma institución. También
+                                                        es un instructor especializado en diversas marcas de implantes.
+                                                    </p>
+                                                    <div class="redes-c ">
+                                                        <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8c96-547d8c7d"
+                                                            class="w-layout-grid footer-social-list">
+                                                            <a href="https://www.facebook.com/profile.php?id=100009749049911"
+                                                                class="footer-social-link w-inline-block"
+                                                                target="_blank">
+                                                                <img src="./assets/facebook-white.webp" loading="lazy"
+                                                                    alt="Facebook Icon" class="icon-1x1-small" />
+                                                            </a>
+                                                            <a href="https://www.instagram.com/heberroberto.leonsalazar"
+                                                                class="footer-social-link w-inline-block"
+                                                                target="_blank">
+                                                                <img src="./assets/instagram-white.webp" loading="lazy"
+                                                                    alt="Instagram Icon" class="icon-1x1-small" />
+                                                            </a>
+                                                            <a href="#" class="footer-social-link w-inline-block"
+                                                                target="_blank">
+                                                                <img src="./assets/linkedin-white.webp" loading="lazy"
+                                                                    alt="LinkedIn Icon" class="icon-1x1-small" />
+                                                            </a>
+                                                        </div>
 
+                                                    </div>
                                                 </div>
-                                                </div>
-                                                
+
                                             </div>
 
                                         </div>
@@ -1444,163 +1506,159 @@
 
                 <!-- faqs -->
                 <section id="faq" class="section-home-faq mt-5">
-                    <div>
-                        <div class="container-small">
-                            <div>
-                                <div class="mt-3">
-                                    <div class="text-align-center">
-                                        <div class="max-width-large">
-                                            <div class="margin-bottom margin-small">
-                                                <h2>FAQs</h2>
-                                            </div>
-                                            <div class="parrafo text-center">
-                                                <p class="text-size-medium">Aquí encontrarás respuestas a
-                                                    las
-                                                    inquietudes más
-                                                    comunes sobre el evento.
-                                                </p>
-                                                <p class="text-size-medium text-center">Nuestro objetivo es brindarte
-                                                    la
-                                                    información que
-                                                    necesitas de manera clara y rápida. </p>
-                                                <p class="text-size-medium text-center">Si no encuentras lo que buscas,
-                                                    no
-                                                    dudes
-                                                    en contactarnos para obtener asistencia personalizada.</p>
-                                            </div>
+
+                    <div class="container-small">
+
+                        <div class="mt-3 faqsMovil">
+                            <div class="text-align-center">
+                                <div class="margin-bottom margin-small">
+                                    <h2>FAQs</h2>
+                                </div>
+                                <div class="parrafo text-center px-3">
+                                    <p class="text-size-medium">Aquí encontrarás respuestas a
+                                        las
+                                        inquietudes más
+                                        comunes sobre el evento.
+                                    </p>
+                                    <p class="text-size-medium text-center">Nuestro objetivo es brindarte
+                                        la
+                                        información que
+                                        necesitas de manera clara y rápida. </p>
+                                    <p class="text-size-medium text-center">Si no encuentras lo que buscas,
+                                        no
+                                        dudes
+                                        en contactarnos para obtener asistencia personalizada.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div role="list" class="faq-collection-list w-dyn-items mx-md-5 mt-md-5">
+                            <div role="listitem" class="faq-collection-item w-dyn-item">
+                                <div class="faq-accordion">
+                                    <div class="faq-question">
+                                        <div class="heading-style-h6">¿Qué incluye el costo de la inscripción al
+                                            Congreso CODEC?</div>
+                                        <span class="icono-faq">+</span>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <div class="margin-bottom margin-small answer">
+                                            <p>El costo de la inscripción incluye acceso a todas las
+                                                conferencias y
+                                                actividades del evento, como la rifa patrocinada por Colgate, la
+                                                fiesta rompe hielos y la clausura. También cubre los recesos y
+                                                la
+                                                comida durante ambos días del congreso.</p>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div role="list" class="faq-collection-list w-dyn-items mx-5 mt-5">
-                                    <div role="listitem" class="faq-collection-item w-dyn-item">
-                                        <div class="faq-accordion">
-                                            <div class="faq-question">
-                                                <div class="heading-style-h6">¿Qué incluye el costo de la inscripción al
-                                                    Congreso CODEC?</div>
-                                                <span class="icono-faq">+</span>
-                                            </div>
-                                            <div class="faq-answer">
-                                                <div class="margin-bottom margin-small answer">
-                                                    <p>El costo de la inscripción incluye acceso a todas las
-                                                        conferencias y
-                                                        actividades del evento, como la rifa patrocinada por Colgate, la
-                                                        fiesta rompe hielos y la clausura. También cubre los recesos y
-                                                        la
-                                                        comida durante ambos días del congreso.</p>
-                                                </div>
-                                            </div>
+                            </div>
+                            <div role="listitem" class="faq-collection-item w-dyn-item">
+                                <div class="faq-accordion">
+                                    <div class="faq-question">
+                                        <div class="heading-style-h6">¿Puedo obtener un descuento en la
+                                            inscripción?
                                         </div>
+                                        <span class="icono-faq">+</span>
                                     </div>
-                                    <div role="listitem" class="faq-collection-item w-dyn-item">
-                                        <div class="faq-accordion">
-                                            <div class="faq-question">
-                                                <div class="heading-style-h6">¿Puedo obtener un descuento en la
-                                                    inscripción?
-                                                </div>
-                                                <span class="icono-faq">+</span>
-                                            </div>
-                                            <div class="faq-answer">
-                                                <div class="margin-bottom margin-small answer">
-                                                    <p>Sí, ofrecemos descuentos para miembros de colegios e
-                                                        instituciones,
-                                                        quienes pagan $1500. Los estudiantes también tienen una tarifa
-                                                        especial de $1000. Asegúrate de presentar una identificación
-                                                        válida
-                                                        al momento del registro para aplicar el descuento
-                                                        correspondiente.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div role="listitem" class="faq-collection-item w-dyn-item">
-                                        <div class="faq-accordion">
-                                            <div class="faq-question">
-                                                <div class="heading-style-h6">¿Cómo y dónde puedo registrarme para el
-                                                    Congreso CODEC? </div>
-                                                <span class="icono-faq">+</span>
-                                            </div>
-                                            <div class="faq-answer">
-                                                <div class="margin-bottom margin-small answer">
-                                                    <p>Puedes registrarte el primer día del evento de 9:00 a 10:00 am.
-                                                        Asegúrate de llegar temprano para completar tu registro y
-                                                        recibir
-                                                        toda la información necesaria para las actividades del congreso.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div role="listitem" class="faq-collection-item w-dyn-item">
-                                        <div class="faq-accordion">
-                                            <div class="faq-question">
-                                                <div class="heading-style-h6"> ¿Qué sucede si no puedo asistir después
-                                                    de
-                                                    haberme registrado?</div>
-                                                <span class="icono-faq">+</span>
-                                            </div>
-                                            <div class="faq-answer">
-                                                <div class="margin-bottom margin-small answer">
-                                                    <p>Entendemos que pueden surgir imprevistos. Te pedimos que nos
-                                                        informes
-                                                        lo antes posible si no puedes asistir. Sin embargo, ten en
-                                                        cuenta
-                                                        que todas las compras de boletos son finales y no ofrecemos
-                                                        reembolsos, cambios ni cancelaciones bajo ninguna circunstancia.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div role="listitem" class="faq-collection-item w-dyn-item">
-                                        <div class="faq-accordion">
-                                            <div class="faq-question">
-                                                <div class="heading-style-h6">¿Qué temas se tratarán en las
-                                                    conferencias?
-                                                </div>
-                                                <span class="icono-faq">+</span>
-                                            </div>
-                                            <div class="faq-answer">
-                                                <div class="margin-bottom margin-small answer">
-                                                    <p>Aunque los temas específicos de cada conferencia están aún
-                                                        por confirmar, los ponentes abordarán temas relevantes y
-                                                        actuales en
-                                                        el campo de la odontología. Mantente atento a las
-                                                        actualizaciones en
-                                                        nuestra página web para obtener más detalles sobre cada
-                                                        presentación.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div role="listitem" class="faq-collection-item w-dyn-item">
-                                        <div class="faq-accordion">
-                                            <div class="faq-question">
-                                                <div class="heading-style-h6">¿Qué debo llevar al congreso?</div>
-                                                <span class="icono-faq">+</span>
-                                            </div>
-                                            <div class="faq-answer">
-                                                <div class="margin-bottom margin-small answer">
-                                                    <p>Te recomendamos llevar tu identificación, cualquier confirmación
-                                                        de
-                                                        registro que hayas recibido, tarjetas de presentación para
-                                                        networking, una libreta o dispositivo para tomar notas, y ropa
-                                                        cómoda. </p>
-                                                </div>
-                                            </div>
+                                    <div class="faq-answer">
+                                        <div class="margin-bottom margin-small answer">
+                                            <p>Sí, ofrecemos descuentos para miembros de colegios e
+                                                instituciones,
+                                                quienes pagan $1500. Los estudiantes también tienen una tarifa
+                                                especial de $1000. Asegúrate de presentar una identificación
+                                                válida
+                                                al momento del registro para aplicar el descuento
+                                                correspondiente.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div role="listitem" class="faq-collection-item w-dyn-item">
+                                <div class="faq-accordion">
+                                    <div class="faq-question">
+                                        <div class="heading-style-h6">¿Cómo y dónde puedo registrarme para el
+                                            Congreso CODEC? </div>
+                                        <span class="icono-faq">+</span>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <div class="margin-bottom margin-small answer">
+                                            <p>Puedes registrarte el primer día del evento de 9:00 a 10:00 am.
+                                                Asegúrate de llegar temprano para completar tu registro y
+                                                recibir
+                                                toda la información necesaria para las actividades del congreso.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="listitem" class="faq-collection-item w-dyn-item">
+                                <div class="faq-accordion">
+                                    <div class="faq-question">
+                                        <div class="heading-style-h6"> ¿Qué sucede si no puedo asistir después
+                                            de
+                                            haberme registrado?</div>
+                                        <span class="icono-faq">+</span>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <div class="margin-bottom margin-small answer">
+                                            <p>Entendemos que pueden surgir imprevistos. Te pedimos que nos
+                                                informes
+                                                lo antes posible si no puedes asistir. Sin embargo, ten en
+                                                cuenta
+                                                que todas las compras de boletos son finales y no ofrecemos
+                                                reembolsos, cambios ni cancelaciones bajo ninguna circunstancia.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div role="listitem" class="faq-collection-item w-dyn-item">
+                                <div class="faq-accordion">
+                                    <div class="faq-question">
+                                        <div class="heading-style-h6">¿Qué temas se tratarán en las
+                                            conferencias?
+                                        </div>
+                                        <span class="icono-faq">+</span>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <div class="margin-bottom margin-small answer">
+                                            <p>Aunque los temas específicos de cada conferencia están aún
+                                                por confirmar, los ponentes abordarán temas relevantes y
+                                                actuales en
+                                                el campo de la odontología. Mantente atento a las
+                                                actualizaciones en
+                                                nuestra página web para obtener más detalles sobre cada
+                                                presentación.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="listitem" class="faq-collection-item w-dyn-item">
+                                <div class="faq-accordion">
+                                    <div class="faq-question">
+                                        <div class="heading-style-h6">¿Qué debo llevar al congreso?</div>
+                                        <span class="icono-faq">+</span>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <div class="margin-bottom margin-small answer">
+                                            <p>Te recomendamos llevar tu identificación, cualquier confirmación
+                                                de
+                                                registro que hayas recibido, tarjetas de presentación para
+                                                networking, una libreta o dispositivo para tomar notas, y ropa
+                                                cómoda. </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <!-- slider de imagenes -->
-                <section class="slider-img">
+                <section class="slider-img px-lg-0 px-2">
                     <div class="slider-container">
                         <div class="background-image">
 
