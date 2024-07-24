@@ -14,7 +14,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+>>>>>>> b7a3cfe1e9de02ae97df0dd94f899c708ff94fe4
     <link rel="stylesheet" href="styles/styles_2.css">
     <style>
         @media (min-width: 992px) {
@@ -116,8 +120,8 @@
             <div class="ps-5 pe-2 navegacionF w-100 d-flex align-center">
                 <div class="menuhamburger w-100 d-flex justify-content-center align-items-center">
                     <div class="logo d-flex justify-content-center justify-content-md-center mx-auto">
-                        <a href="#" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
-                            <img src="./assets/¿.png" loading="lazy" alt="Logo" class="navbar-logo" />
+                        <a href="index.html" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
+                            <img src="./assets/¿.webp" loading="lazy" alt="Logo" class="navbar-logo" />
                         </a>
                     </div>
                     <div class="botonNav">
@@ -135,13 +139,22 @@
                             <a href="#conferencistas"
                                 class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
                             <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
-                            <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Información</a>
+                            <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Ubicación</a>
+                            <a href="#section-home-partner"
+                                class="navbar-link w-nav-link nav-item nav-link fs-5">Nosotros</a>
+
                             <a href="#faq" class="navbar-link w-nav-link nav-item nav-link fs-5">FAQs</a>
                         </nav>
                     </div>
+<<<<<<< HEAD
                     <div class="ml-5 registro botonHeader d-flex justify-content-center align-items-center ms-auto">
                         <a href="#" class="button w-button btn-abrir-popup">Comprar Entrada</a>
                     </div>                    
+=======
+                    <div class=" ml-5 registro botonHeader d-flex justify-content-center align-items-center ms-auto">
+                        <a href="#tickets" class="button w-button btn-abrir-popup">Comprar Entrada</a>
+                    </div>
+>>>>>>> b7a3cfe1e9de02ae97df0dd94f899c708ff94fe4
                 </div>
             </div>
         </header>
@@ -330,10 +343,88 @@
         </script> -->
 
 
+        <!-- modal de registro de usuario -->
+        <div class="contenedor">
+            <div class="overlay" id="overlay">
+                <div class="popup mx-2" id="popup">
+                    <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                    <h3>Registro de Usuario</h3>
+                    <div class="row justify-content-center">
+                        <form id="registroForm" class="col-md-8">
+                            <div class="contenedor-inputs">
+                                <div>
+                                    <label for="nombre"
+                                        class="form-label fw-bold text-align-start fs-6">Nombre(*):</label>
+                                    <input type="text" class="form-control" name="nombre" id="nombre"
+                                        placeholder="Ej: Pedro" required>
+                                </div>
+                                <div>
+                                    <label for="apellido"
+                                        class="form-label fw-bold text-align-start fs-6">Apellido:</label>
+                                    <input type="text" class="form-control" name="apellido" id="apellido"
+                                        placeholder="Ej: Lopez" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="form-label fw-bold text-align-start fs-6">Email:</label>
+                                    <input required minlength="4" type="email" class="form-control" name="email"
+                                        id="email" placeholder="Ej: email@domain.com">
+                                </div>
+                                <div>
+                                    <label for="telefono"
+                                        class="form-label fw-bold text-align-start fs-6">Teléfono:</label>
+                                    <input required type="tel" id="phone" class="form-control" name="telefono"
+                                        placeholder="Ej: +52 (123) 456-7890">
+                                </div>
+                                <div>
+                                    <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al
+                                        evento rompehielos dentro del itinerario? Es muy importante saber si
+                                        asistirá, ya que de no confirmar se le negará el acceso durante esa sección
+                                        del evento. Si no sabe en qué consiste, puede consultar el <a class=""
+                                            href="#agenda">Itinierario.</a></p>
+                                    <label class="radio mt-2">
+                                        <input name="asistencia_rompehielos" type="radio" value="si">
+                                        <span class="fs-6">Si</span>
+                                    </label>
+                                    <label class="radio">
+                                        <input name="asistencia_rompehielos" type="radio" value="no">
+                                        <span class="fs-6">No</span>
+                                    </label>
+                                    <div id="asistencia-error"></div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-md-8">
+                                    <button disabled id="submit" type="submit">
+                                        <div class="spinner hidden" id="spinner"></div>
+                                        <span id="button-text">Pagar</span>
+                                    </button>
+                                    <div id="payment-message" class="hidden"></div>
+                                </div>
+                            </div>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    const input = document.querySelector("#phone");
+                                    window.intlTelInput(input, {
+                                        initialCountry: "mx",
+                                        strictMode: true,
+                                        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+                                    });
+                                });
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
 
         <main class="main-wrapper">
-            <header class="section-home-header">
+
+
+            <!-- principal -->
+            <section class="section-home-header">
                 <div class="padding-global">
                     <div class="container-large">
                         <div>
@@ -448,9 +539,9 @@
                     </div>
                 </div>
                 <div class="blurred-circle"></div>
-            </header>
+            </section>
 
-
+            <!-- conferencistas -->
             <section id="conferencistas" class="section-home-speakers p-1">
                 <div class="padding-global">
                     <div class="container-large">
@@ -471,7 +562,7 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="./assets/Manuel-Lujan.jpg" loading="lazy"
+                                                <img src="./assets/Manuel-Lujan.webp" loading="lazy"
                                                     alt="Dr. Manuel Lujan" class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
@@ -496,18 +587,18 @@
                                                             <a href="https://www.facebook.com/dentalidcuu/"
                                                                 class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/facebook-white.png" loading="lazy"
+                                                                <img src="./assets/facebook-white.webp" loading="lazy"
                                                                     alt="Facebook Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="https://www.instagram.com/dentalid.depositodental/?hl=es-la"
                                                                 class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/instagram-white.png" loading="lazy"
+                                                                <img src="./assets/instagram-white.webp" loading="lazy"
                                                                     alt="Instagram Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/linkedin-white.png" loading="lazy"
+                                                                <img src="./assets/linkedin-white.webp" loading="lazy"
                                                                     alt="LinkedIn Icon" class="icon-1x1-small" />
                                                             </a>
                                                         </div>
@@ -522,7 +613,7 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="assets/drOscar2.png" loading="lazy" alt="Dr Oscar"
+                                                <img src="assets/drOscar2.webp" loading="lazy" alt="Dr Oscar"
                                                     class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
@@ -547,18 +638,18 @@
                                                             <a href="https://www.facebook.com/dentalidcuu/"
                                                                 class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/facebook-white.png" loading="lazy"
+                                                                <img src="./assets/facebook-white.webp" loading="lazy"
                                                                     alt="Facebook Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="https://www.instagram.com/dentalid.depositodental/?hl=es-la"
                                                                 class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/instagram-white.png" loading="lazy"
+                                                                <img src="./assets/instagram-white.webp" loading="lazy"
                                                                     alt="Instagram Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/linkedin-white.png" loading="lazy"
+                                                                <img src="./assets/linkedin-white.webp" loading="lazy"
                                                                     alt="LinkedIn Icon" class="icon-1x1-small" />
                                                             </a>
                                                         </div>
@@ -573,7 +664,7 @@
                                     <!-- <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="./assets/placeholder.jpg" loading="lazy" alt="Sarah Lee"
+                                                <img src="./assets/placeholder.webp" loading="lazy" alt="Sarah Lee"
                                                     class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
@@ -597,17 +688,17 @@
                                     class="w-layout-grid footer-social-list">
                                     <a href="https://www.facebook.com/profile.php?id=100009749049911"
                                         class="footer-social-link w-inline-block" target="_blank">
-                                        <img src="./assets/facebook.png" loading="lazy" alt="Facebook Icon"
+                                        <img src="./assets/facebook.webp" loading="lazy" alt="Facebook Icon"
                                             class="icon-1x1-small" />
                                     </a>
                                     <a href="https://www.instagram.com/heberroberto.leonsalazar"
                                         class="footer-social-link w-inline-block" target="_blank">
-                                        <img src="./assets/instagram.png" loading="lazy" alt="Instagram Icon"
+                                        <img src="./assets/instagram.webp" loading="lazy" alt="Instagram Icon"
                                             class="icon-1x1-small" />
                                     </a>
                                     <a href="#"
                                         class="footer-social-link w-inline-block" target="_blank">
-                                        <img src="./assets/linkedin.png" loading="lazy" alt="LinkedIn Icon"
+                                        <img src="./assets/linkedin.webp" loading="lazy" alt="LinkedIn Icon"
                                             class="icon-1x1-small" />
                                     </a>
                                 </div>
@@ -622,7 +713,7 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="./assets/dr-calixto.jpg" loading="lazy"
+                                                <img src="./assets/dr-calixto.webp" loading="lazy"
                                                     alt="Dr. Floriberto Calixto Arellanos"
                                                     class="speaker-image img-fluid" />
                                             </div>
@@ -646,17 +737,17 @@
                                                             class="w-layout-grid footer-social-list">
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/facebook-white.png" loading="lazy"
+                                                                <img src="./assets/facebook-white.webp" loading="lazy"
                                                                     alt="Facebook Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/instagram-white.png" loading="lazy"
+                                                                <img src="./assets/instagram-white.webp" loading="lazy"
                                                                     alt="Instagram Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/linkedin-white.png" loading="lazy"
+                                                                <img src="./assets/linkedin-white.webp" loading="lazy"
                                                                     alt="LinkedIn Icon" class="icon-1x1-small" />
                                                             </a>
                                                         </div>
@@ -672,7 +763,7 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="assets/Dr-Néstor .jpg" loading="lazy" alt="John Smith"
+                                                <img src="assets/Dr-Néstor .webp" loading="lazy" alt="John Smith"
                                                     class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
@@ -698,17 +789,17 @@
                                                             class="w-layout-grid footer-social-list">
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/facebook-white.png" loading="lazy"
+                                                                <img src="./assets/facebook-white.webp" loading="lazy"
                                                                     alt="Facebook Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/instagram-white.png" loading="lazy"
+                                                                <img src="./assets/instagram-white.webp" loading="lazy"
                                                                     alt="Instagram Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/linkedin-white.png" loading="lazy"
+                                                                <img src="./assets/linkedin-white.webp" loading="lazy"
                                                                     alt="LinkedIn Icon" class="icon-1x1-small" />
                                                             </a>
                                                         </div>
@@ -724,7 +815,7 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="assets/dr-leonardo.jpg" loading="lazy" alt="John Smith"
+                                                <img src="assets/dr-leonardo.webp" loading="lazy" alt="John Smith"
                                                     class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
@@ -747,17 +838,17 @@
                                                             class="w-layout-grid footer-social-list">
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/facebook-white.png" loading="lazy"
+                                                                <img src="./assets/facebook-white.webp" loading="lazy"
                                                                     alt="Facebook Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/instagram-white.png" loading="lazy"
+                                                                <img src="./assets/instagram-white.webp" loading="lazy"
                                                                     alt="Instagram Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/linkedin-white.png" loading="lazy"
+                                                                <img src="./assets/linkedin-white.webp" loading="lazy"
                                                                     alt="LinkedIn Icon" class="icon-1x1-small" />
                                                             </a>
                                                         </div>
@@ -773,7 +864,7 @@
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="assets/dr-reyna.jpg" loading="lazy" alt="Dr. Cristian Reyna"
+                                                <img src="assets/dr-reyna.webp" loading="lazy" alt="Dr. Cristian Reyna"
                                                     style="
                                                 object-fit: cover;
                                                 min-height: 495px;
@@ -800,17 +891,17 @@
                                                             class="w-layout-grid footer-social-list">
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/facebook-white.png" loading="lazy"
+                                                                <img src="./assets/facebook-white.webp" loading="lazy"
                                                                     alt="Facebook Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/instagram-white.png" loading="lazy"
+                                                                <img src="./assets/instagram-white.webp" loading="lazy"
                                                                     alt="Instagram Icon" class="icon-1x1-small" />
                                                             </a>
                                                             <a href="#" class="footer-social-link w-inline-block"
                                                                 target="_blank">
-                                                                <img src="./assets/linkedin-white.png" loading="lazy"
+                                                                <img src="./assets/linkedin-white.webp" loading="lazy"
                                                                     alt="LinkedIn Icon" class="icon-1x1-small" />
                                                             </a>
                                                         </div>
@@ -840,7 +931,7 @@
                 </style>
             </section>
 
-
+            <!-- itinerario -->
             <section id="agenda" class="section-home-agenda">
                 <div class="padding-global">
                     <div class="container-large">
@@ -1191,7 +1282,7 @@
                     }
                 </style>
             </section>
-
+            <!-- ubicacion -->
             <section class="section-home-location">
                 <div class="padding-global">
                     <div class="container-large">
@@ -1237,7 +1328,7 @@
                                 </div>
                                 <div id="w-node-b38ebd88-2d3c-574e-8f8f-d4a284f58d05-3863c98b"
                                     data-w-id="b38ebd88-2d3c-574e-8f8f-d4a284f58d05" class="location-image-wrapper">
-                                    <img class="image img-fluid" src="./assets/ubicacion.jpg" alt="Location Image"
+                                    <img class="image img-fluid" src="./assets/ubicacion.webp" alt="Location Image"
                                         sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 92vw, (max-width: 1439px) 44vw, 600px"
                                         data-w-id="b38ebd88-2d3c-574e-8f8f-d4a284f58d06" loading="lazy" />
                                 </div>
@@ -1248,8 +1339,8 @@
                 <div class="blurred-circle is-location"></div>
             </section>
 
-
-            <section class="section-home-partner">
+            <!-- organizadores -->
+            <section class="section-home-partner" id="section-home-partner">
                 <div class="padding-global">
                     <div class="container-large">
                         <div class="padding-section-medium">
@@ -1264,21 +1355,21 @@
                             <div class="organizadores2">
                                 <div class="organizadoresImg2">
                                     <div class="organizadores-grid py-5 py-lg-0">
-                                        <img src="assets/1.-LOGO GAUX.png" alt="logo">
+                                        <img src="assets/logo-gaux.webp" alt="logo">
                                         <div class="redes-c">
                                             <div class="footer-social-list">
                                                 <a href="https://www.facebook.com/profile.php?id=100090832025591&ref=xav_ig_profile_web"
                                                     class="footer-social-link" target="_blank">
-                                                    <img src="./assets/facebook.png" loading="lazy" alt="Facebook Icon"
+                                                    <img src="./assets/facebook.webp" loading="lazy" alt="Facebook Icon"
                                                         class="icon-1x1-small" />
                                                 </a>
                                                 <a href="https://www.instagram.com/gutierrezgaux"
                                                     class="footer-social-link" target="_blank">
-                                                    <img src="./assets/instagram.png" loading="lazy"
+                                                    <img src="./assets/instagram.webp" loading="lazy"
                                                         alt="Instagram Icon" class="icon-1x1-small" />
                                                 </a>
                                                 <a href="#" class="footer-social-link" target="_blank">
-                                                    <img src="./assets/linkedin.png" loading="lazy" alt="LinkedIn Icon"
+                                                    <img src="./assets/linkedin.webp" loading="lazy" alt="LinkedIn Icon"
                                                         class="icon-1x1-small" />
                                                 </a>
                                             </div>
@@ -1289,21 +1380,21 @@
 
                                 <div class="organizadoresImg2">
                                     <div class="organizadores-grid py-5 py-lg-0">
-                                        <img src="assets/Dentalid LOGO.png" alt="logo">
+                                        <img src="assets/Dentalid LOGO.webp" alt="logo">
                                         <div class="redes-c">
                                             <div class="footer-social-list">
                                                 <a href="https://www.facebook.com/dentalidcuu/"
                                                     class="footer-social-link" target="_blank">
-                                                    <img src="./assets/facebook.png" loading="lazy" alt="Facebook Icon"
+                                                    <img src="./assets/facebook.webp" loading="lazy" alt="Facebook Icon"
                                                         class="icon-1x1-small" />
                                                 </a>
                                                 <a href="https://www.instagram.com/dentalid.depositodental/?hl=es-la"
                                                     class="footer-social-link" target="_blank">
-                                                    <img src="./assets/instagram.png" loading="lazy"
+                                                    <img src="./assets/instagram.webp" loading="lazy"
                                                         alt="Instagram Icon" class="icon-1x1-small" />
                                                 </a>
                                                 <a href="#" class="footer-social-link" target="_blank">
-                                                    <img src="./assets/linkedin.png" loading="lazy" alt="LinkedIn Icon"
+                                                    <img src="./assets/linkedin.webp" loading="lazy" alt="LinkedIn Icon"
                                                         class="icon-1x1-small" />
                                                 </a>
                                             </div>
@@ -1313,22 +1404,22 @@
 
                                 <div class="organizadoresImg2">
                                     <div class="organizadores-grid py-5 py-lg-0">
-                                        <img src="assets/zeyco_logo.png" alt="logo">
+                                        <img src="assets/zeyco_logo.webp" alt="logo">
                                         <div class="redes-c">
                                             <div class="footer-social-list">
                                                 <a href="https://www.facebook.com/ZeycoMx/" class="footer-social-link"
                                                     target="_blank">
-                                                    <img src="./assets/facebook.png" loading="lazy" alt="Facebook Icon"
+                                                    <img src="./assets/facebook.webp" loading="lazy" alt="Facebook Icon"
                                                         class="icon-1x1-small" />
                                                 </a>
                                                 <a href="https://www.instagram.com/zeycomx/" class="footer-social-link"
                                                     target="_blank">
-                                                    <img src="./assets/instagram.png" loading="lazy"
+                                                    <img src="./assets/instagram.webp" loading="lazy"
                                                         alt="Instagram Icon" class="icon-1x1-small" />
                                                 </a>
                                                 <a href="https://www.linkedin.com/company/zeyco/"
                                                     class="footer-social-link" target="_blank">
-                                                    <img src="./assets/linkedin.png" loading="lazy" alt="LinkedIn Icon"
+                                                    <img src="./assets/linkedin.webp" loading="lazy" alt="LinkedIn Icon"
                                                         class="icon-1x1-small" />
                                                 </a>
                                             </div>
@@ -1344,8 +1435,8 @@
                     </div>
                 </div>
             </section>
-
-            <section class="section-home-partner" id="section-home-partner">
+            <!-- Area comercial -->
+            <section class="section-home-partner">
                 <div class="padding-global">
                     <div class="container-large">
                         <div class="padding-section-medium">
@@ -1399,175 +1490,213 @@
                 </div>
             </section>
 
-            <section class="slider-img">
-                <div class="slider-container">
-                    <div class="background-image">
 
-                    </div>
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img loading="lazy" src="assets/dentalid~248.webp" alt="Image 3"></div>
-                            <div class="slide"><img loading="lazy" src="assets/dentalid~269.webp" alt="Image 4"></div>
-                            <div class="slide"><img loading="lazy" src="assets/dentalid~290.webp" alt="Image 5"></div>
-                            <div class="slide"><img loading="lazy" src="assets/dentalid~42.webp" alt="Image 6"></div>
-                            <div class="slide"><img loading="lazy" src="assets/dentalid~75.webp" alt="Image 7"></div>
-
-                        </div>
-                    </div>
-                    <button class="nav-button prev-button">❮</button>
-                    <button class="nav-button next-button">❯</button>
-                </div>
-            </section>
+            <div class="union-grid">
 
 
-            <section id="faq" class="section-home-faq mt-5">
-                <div>
-                    <div class="container-small">
-                        <div>
-                            <div class="margin-bottom margin-large">
-                                <div class="text-align-center">
-                                    <div class="max-width-large">
-                                        <div class="margin-bottom margin-small">
-                                            <h2>FAQs</h2>
-                                        </div>
-                                        <div class="parrafo text-center">
-                                            <p class="text-size-medium">Aquí encontrarás respuestas a
-                                                las
-                                                inquietudes más
-                                                comunes sobre el evento.
-                                            </p>
-                                            <p class="text-size-medium text-center">Nuestro objetivo es brindarte
-                                                la
-                                                información que
-                                                necesitas de manera clara y rápida. </p>
-                                            <p class="text-size-medium text-center">Si no encuentras lo que buscas, no
-                                                dudes
-                                                en contactarnos para obtener asistencia personalizada.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div role="list" class="faq-collection-list w-dyn-items mx-5">
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Qué incluye el costo de la inscripción al
-                                                Congreso CODEC?</div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>El costo de la inscripción incluye acceso a todas las conferencias y
-                                                    actividades del evento, como la rifa patrocinada por Colgate, la
-                                                    fiesta rompe hielos y la clausura. También cubre los recesos y la
-                                                    comida durante ambos días del congreso.</p>
+                <!-- faqs -->
+                <section id="faq" class="section-home-faq mt-5">
+                    <div>
+                        <div class="container-small">
+                            <div>
+                                <div class="mt-3">
+                                    <div class="text-align-center">
+                                        <div class="max-width-large">
+                                            <div class="margin-bottom margin-small">
+                                                <h2>FAQs</h2>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Puedo obtener un descuento en la inscripción?
-                                            </div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Sí, ofrecemos descuentos para miembros de colegios e instituciones,
-                                                    quienes pagan $1500. Los estudiantes también tienen una tarifa
-                                                    especial de $1000. Asegúrate de presentar una identificación válida
-                                                    al momento del registro para aplicar el descuento correspondiente.
+                                            <div class="parrafo text-center">
+                                                <p class="text-size-medium">Aquí encontrarás respuestas a
+                                                    las
+                                                    inquietudes más
+                                                    comunes sobre el evento.
                                                 </p>
+                                                <p class="text-size-medium text-center">Nuestro objetivo es brindarte
+                                                    la
+                                                    información que
+                                                    necesitas de manera clara y rápida. </p>
+                                                <p class="text-size-medium text-center">Si no encuentras lo que buscas,
+                                                    no
+                                                    dudes
+                                                    en contactarnos para obtener asistencia personalizada.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Cómo y dónde puedo registrarme para el
-                                                Congreso CODEC? </div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Puedes registrarte el primer día del evento de 9:00 a 10:00 am.
-                                                    Asegúrate de llegar temprano para completar tu registro y recibir
-                                                    toda la información necesaria para las actividades del congreso.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6"> ¿Qué sucede si no puedo asistir después de
-                                                haberme registrado?</div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Entendemos que pueden surgir imprevistos. Te pedimos que nos informes
-                                                    lo antes posible si no puedes asistir. Sin embargo, ten en cuenta
-                                                    que todas las compras de boletos son finales y no ofrecemos
-                                                    reembolsos, cambios ni cancelaciones bajo ninguna circunstancia.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Qué temas se tratarán en las conferencias?
-                                            </div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Aunque los temas específicos de cada conferencia están aún
-                                                    por confirmar, los ponentes abordarán temas relevantes y actuales en
-                                                    el campo de la odontología. Mantente atento a las actualizaciones en
-                                                    nuestra página web para obtener más detalles sobre cada
-                                                    presentación.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="listitem" class="faq-collection-item w-dyn-item">
-                                    <div class="faq-accordion">
-                                        <div class="faq-question">
-                                            <div class="heading-style-h6">¿Qué debo llevar al congreso?</div>
-                                            <span class="icono-faq">+</span>
-                                        </div>
-                                        <div class="faq-answer">
-                                            <div class="margin-bottom margin-small answer">
-                                                <p>Te recomendamos llevar tu identificación, cualquier confirmación de
-                                                    registro que hayas recibido, tarjetas de presentación para
-                                                    networking, una libreta o dispositivo para tomar notas, y ropa
-                                                    cómoda. </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
+                                <div role="list" class="faq-collection-list w-dyn-items mx-5 mt-5">
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Qué incluye el costo de la inscripción al
+                                                    Congreso CODEC?</div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>El costo de la inscripción incluye acceso a todas las
+                                                        conferencias y
+                                                        actividades del evento, como la rifa patrocinada por Colgate, la
+                                                        fiesta rompe hielos y la clausura. También cubre los recesos y
+                                                        la
+                                                        comida durante ambos días del congreso.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Puedo obtener un descuento en la
+                                                    inscripción?
+                                                </div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Sí, ofrecemos descuentos para miembros de colegios e
+                                                        instituciones,
+                                                        quienes pagan $1500. Los estudiantes también tienen una tarifa
+                                                        especial de $1000. Asegúrate de presentar una identificación
+                                                        válida
+                                                        al momento del registro para aplicar el descuento
+                                                        correspondiente.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Cómo y dónde puedo registrarme para el
+                                                    Congreso CODEC? </div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Puedes registrarte el primer día del evento de 9:00 a 10:00 am.
+                                                        Asegúrate de llegar temprano para completar tu registro y
+                                                        recibir
+                                                        toda la información necesaria para las actividades del congreso.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6"> ¿Qué sucede si no puedo asistir después
+                                                    de
+                                                    haberme registrado?</div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Entendemos que pueden surgir imprevistos. Te pedimos que nos
+                                                        informes
+                                                        lo antes posible si no puedes asistir. Sin embargo, ten en
+                                                        cuenta
+                                                        que todas las compras de boletos son finales y no ofrecemos
+                                                        reembolsos, cambios ni cancelaciones bajo ninguna circunstancia.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Qué temas se tratarán en las
+                                                    conferencias?
+                                                </div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Aunque los temas específicos de cada conferencia están aún
+                                                        por confirmar, los ponentes abordarán temas relevantes y
+                                                        actuales en
+                                                        el campo de la odontología. Mantente atento a las
+                                                        actualizaciones en
+                                                        nuestra página web para obtener más detalles sobre cada
+                                                        presentación.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="faq-collection-item w-dyn-item">
+                                        <div class="faq-accordion">
+                                            <div class="faq-question">
+                                                <div class="heading-style-h6">¿Qué debo llevar al congreso?</div>
+                                                <span class="icono-faq">+</span>
+                                            </div>
+                                            <div class="faq-answer">
+                                                <div class="margin-bottom margin-small answer">
+                                                    <p>Te recomendamos llevar tu identificación, cualquier confirmación
+                                                        de
+                                                        registro que hayas recibido, tarjetas de presentación para
+                                                        networking, una libreta o dispositivo para tomar notas, y ropa
+                                                        cómoda. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+
+                <!-- slider de imagenes -->
+                <section class="slider-img">
+                    <div class="slider-container">
+                        <div class="background-image">
+
+                        </div>
+                        <div class="slider">
+                            <div class="slides">
+                                <div class="slide">
+                                    <img src="assets/dentalid~248.webp" alt="Image 3">
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/dentalid~269.webp" alt="Image 4">
+                                </div>
+                                <div class="slide"><img src="assets/dentalid~290.webp" alt="Image 5">
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/dentalid~42.webp" alt="Image 6">
+                                </div>
+                                <div class="slide">
+                                    <img src="assets/dentalid~75.webp" alt="Image 7">
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="nav-button prev-button">❮</button>
+                        <button class="nav-button next-button">❯</button>
+                    </div>
+                </section>
+
+
+
+            </div>
 
         </main>
+
+        <!-- footer -->
         <footer class="footer-component">
             <div class="padding-global">
-                <div class="container-large section-grid">
+                <div class="section-grid">
                     <div class="padding-section-medium section01">
                         <div class="padding-xlarge">
                             <div class="footer-top-wrapper">
                                 <div class="logo-footer">
                                     <a href="" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
-                                        <img src="./assets/.png" loading="lazy" alt="Logo" class="navbar-logo" />
+                                        <img src="./assets/.webp" loading="lazy" alt="Logo" class="navbar-logo" />
                                     </a>
                                 </div>
 
@@ -1656,12 +1785,12 @@
                         class="w-layout-grid footer-social-list">
                         <a href="https://www.facebook.com/dentalidcuu/"
                             class="footer-social-link w-inline-block" target="_blank">
-                            <img src="./assets/facebook.png" loading="lazy" alt="Facebook Icon"
+                            <img src="./assets/facebook.webp" loading="lazy" alt="Facebook Icon"
                                 class="icon-1x1-small" />
                         </a>
                         <a href="https://www.instagram.com/dentalid.depositodental/?hl=es-la"
                             class="footer-social-link w-inline-block" target="_blank">
-                            <img src="./assets/instagram.png" loading="lazy" alt="Instagram Icon"
+                            <img src="./assets/instagram.webp" loading="lazy" alt="Instagram Icon"
                                 class="icon-1x1-small" />
                         </a> -->
                     </div>
@@ -1671,7 +1800,7 @@
                     <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca2-547d8c7d" class="footer-credit">Todos
                         los derechos reservados</div>
                     <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca4-547d8c7d" class="text-size-small">
-                        Diseñado por: <a href=""><img src="./assets/Transparent Logo.png" alt="Logo Vexa"
+                        Diseñado por: <a href=""><img src="./assets/Transparent Logo.webp" alt="Logo Vexa"
                                 class="vexa-logo"></a>
                     </div>
                 </div>
@@ -1680,6 +1809,8 @@
         </footer>
     </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
     <script src="scripts/simplyCountdown.js"></script>
     <script src="scripts/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
