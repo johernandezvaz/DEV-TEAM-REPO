@@ -2346,7 +2346,7 @@ body
   display: grid;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .section-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2863,5 +2863,87 @@ body
 @media (min-width: 120ppx) {
   .dr-fermin {
     min-height: 435px;
+  }
+}
+
+/* footer */
+
+.important {
+  text-align: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.disclaimer {
+  text-align: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-credit {
+  text-align: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.vexa-logo {
+  width: 20%;
+}
+
+.footer-bottom-wrapper2 {
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  grid-template-rows: auto;
+  grid-template-columns: max-content;
+  grid-auto-columns: max-content;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-size-small {
+  font-size: 0.875rem;
+  text-align: center;
+  margin-left: auto;
+  max-width: 500px;
+  margin-right: auto;
+}
+
+@media (min-width: 1280px) {
+  .disclaimer {
+    text-align: left;
+  }
+
+  .footer-link-list {
+    padding-top: 153px;
+  }
+
+  .footer-link-list {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea el contenedor a la derecha */
+  }
+
+  .nav-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Alinea los enlaces al final */
+  }
+
+  .navbar-link {
+    text-align: right;
+    /* Alinea el texto de los enlaces a la derecha */
+    direction: rtl;
+    /* Cambia la dirección del texto */
+  }
+
+  .links-footer {
+    margin: 0;
   }
 }
