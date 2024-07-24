@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         document.querySelector("#registroForm").addEventListener("submit", function (e) {
             e.preventDefault();
-            if (validateRegistroForm()) {
+            if (validateRegistroForm() && validateTicketSelection()) {
                 switchSection("#registro-section", "#pago-section");
                 initializePayment(config);
             }
@@ -143,6 +143,22 @@ async function checkStatus(config) {
     }
 }
 
+
+
+
+async function verifyEmailUniqueness() {
+    const correo = document.getElementById('email').value;
+    const response = await fetch(`https://codec-x7w2.onrender.com/check-email?email=${correo}`);
+    const { exists } = await response.json();
+
+    if (exists) {
+        showMessage("El correo ya existe en la base de datos. No puedes usar el mismo correo para registrarte nuevamente.");
+        return false;
+    }
+    return true;
+}
+
+
 async function handleSuccessfulPayment(config) {
     emailjs.init(config.emailjsKey); // Sustituye con tu User ID de EmailJS
 
@@ -153,8 +169,8 @@ async function handleSuccessfulPayment(config) {
     const asistira = document.querySelector('input[name="asistencia_rompehielos"]:checked')?.value;
     const ticketType = document.querySelector('input[name="ticket-type"]:checked').value;
 
-    const qrDataDiaUno = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}, Asistencia Rompe Hielos: ${asistira}, Día: Uno`;
-    const qrDataDiaDos = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}, Asistencia Rompe Hielos: ${asistira}, Día: Dos`;
+    const qrDataDiaUno = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono},Tipo de boleto: ${ticketType}, Asistencia Rompe Hielos: ${asistira}, Día: Uno`;
+    const qrDataDiaDos = `Nombre: ${nombre}, Apellido: ${apellido}, Correo: ${correo}, Teléfono: ${telefono}, Tipo de boleto: ${ticketType}, Asistencia Rompe Hielos: ${asistira}, Día: Dos`;
 
     const supabaseUrl = config.supabaseUrl;
     const supabaseKey = config.supabaseKey;
@@ -286,7 +302,8 @@ async function handleSuccessfulPayment(config) {
         
         // Redirigir después de 5 segundos
         setTimeout(function () {
-            window.location.href = "https://www.codecuu.com/";
+            pagosDiv.classList.remove('active', 'closing');
+            document.body.style.overflow = ''; // Habilitar scroll
         }, 5000);
         switchSection("#pago-section", "#success-section");
 
@@ -388,5 +405,5 @@ function switchSection(from, to) {
     document.querySelector(from).classList.remove('active');
     document.querySelector(from).classList.add('hidden');
     document.querySelector(to).classList.add('active');
-    document.querySelector(to).classList.remove('hidden');
+    document.querySelector(to).classList.remove('hidden');  
 }
