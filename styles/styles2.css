@@ -2860,7 +2860,7 @@ body
   }
 }
 
-@media (min-width: 120ppx) {
+@media (min-width: 1200px) {
   .dr-fermin {
     min-height: 435px;
   }
@@ -2871,6 +2871,9 @@ body
   .faq-collection-list {
     max-width: 90%;
     margin: 0 5px;
+  }
+  .speaker-collection-item {
+    height: 410px;
   }
 
   .section-home-faq,
@@ -2890,6 +2893,19 @@ body
   #w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca4-547d8c7d > a > img {
     max-width: 35%;
   }
+
+  .redes-c {
+    padding: 3px 0;
+  }
+
+  .title-dr {
+    font-size: 14px;
+  }
+
+  .text-bio {
+    padding: 1px;
+    font-size: 11px;
+  }
 }
 
 @media (min-width: 401px) and (max-width: 490px) {
@@ -2897,6 +2913,10 @@ body
   .faq-collection-list {
     max-width: 90%;
     margin: 0 5px;
+  }
+
+  .speaker-collection-item {
+    height: 410px;
   }
 
   .section-home-faq,
