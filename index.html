@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
-    <link rel="stylesheet" href="styles/styles2.css">
+    <link rel="stylesheet" href="styles/index.css">
     <style>
         @media (min-width: 992px) {
             html.w-mod-js:not(.w-mod-ix) [data-w-id="7790c7f5-e606-0e16-7ece-290f34840e59"] {
@@ -186,38 +186,42 @@
                                 <div id="asistencia-error"></div>
                             </div>
                         </div>
-                        <div class="ticket-selection">
-                            <label class="ticket-option selected">
-                                <input type="radio" name="ticket-type" value="general"/>
-                                <div class="ticket-content">
-                                    <span class="ticket-text">General</span>
-                                    <span class="ticket-price">2000 MXN</span>
+                        <div>
+                            <label for="boleto" class="form-label fw-bold text-align-start fs-6">Seleccione su boleto:</label>
+                            <div class="ticket-selection">
+                                <label class="ticket-option">
+                                    <input type="radio" name="ticket-type" value="general"/>
+                                    <div class="ticket-content">
+                                        <span class="ticket-text">General</span>
+                                        <span class="ticket-price">2000 MXN</span>
+                                    </div>
+                                </label>
+                                <label class="ticket-option">
+                                    <input type="radio" name="ticket-type" value="instituto" />
+                                    <div class="ticket-content">
+                                        <span class="ticket-text">Instituto</span>
+                                        <span class="ticket-price">1500 MXN</span>
+                                    </div>
+                                </label>
+                                <label class="ticket-option">
+                                    <input type="radio" name="ticket-type" value="estudiante" />
+                                    <div class="ticket-content">
+                                        <span class="ticket-text">Estudiante</span>
+                                        <span class="ticket-price">1000 MXN</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-md-8">
+                                    <button type="submit" id="submit">
+                                        <div class="spinner hidden" id="spinner"></div>
+                                        <span id="button-text">Pagar</span>
+                                    </button>
+                                    <div id="payment-message" class="hidden"></div>
                                 </div>
-                            </label>
-                            <label class="ticket-option">
-                                <input type="radio" name="ticket-type" value="instituto" />
-                                <div class="ticket-content">
-                                    <span class="ticket-text">Instituto</span>
-                                    <span class="ticket-price">1500 MXN</span>
-                                </div>
-                            </label>
-                            <label class="ticket-option">
-                                <input type="radio" name="ticket-type" value="estudiante" />
-                                <div class="ticket-content">
-                                    <span class="ticket-text">Estudiante</span>
-                                    <span class="ticket-price">1000 MXN</span>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="row justify-content-center mt-4">
-                            <div class="col-md-8">
-                                <button type="submit" id="submit">
-                                    <div class="spinner hidden" id="spinner"></div>
-                                    <span id="button-text">Pagar</span>
-                                </button>
-                                <div id="payment-message" class="hidden"></div>
                             </div>
                         </div>
+                        
                     </form>
                 </div>
             </section>
@@ -253,18 +257,24 @@
                     
                     btnAbrirPopup.addEventListener('click', function(event) {
                         event.preventDefault();
-                        pagosDiv.classList.add('active');
-                        document.body.style.overflow = 'hidden'; // Deshabilitar scroll
-                    });
-                    
-                    closeButton.addEventListener('click', function() {
-                        pagosDiv.classList.add('closing');
+                        pagosDiv.style.visibility = 'visible'; // Hacer visible antes de agregar la clase
+                        pagosDiv.style.opacity = '1'; // Opaco antes de agregar la clase
                         setTimeout(() => {
-                            pagosDiv.classList.remove('active', 'closing');
-                            document.body.style.overflow = ''; // Habilitar scroll
-                        }, 500); // Tiempo de la transición (0.5s)
-                    });
-                });
+                            pagosDiv.classList.add('active');
+                        }, 10); // Pequeño retraso para permitir la transición
+                        document.body.style.overflow = 'hidden'; // Deshabilitar scroll
+        });
+        
+        closeButton.addEventListener('click', function() {
+            pagosDiv.classList.add('closing');
+            setTimeout(() => {
+                pagosDiv.classList.remove('active', 'closing');
+                pagosDiv.style.visibility = 'hidden'; // Ocultar después de quitar las clases
+                pagosDiv.style.opacity = '0'; // Transparente después de quitar las clases
+                document.body.style.overflow = ''; // Habilitar scroll
+            }, 500); // Tiempo de la transición (0.5s)
+        });
+    });
             </script>
         </div>
 
@@ -610,28 +620,17 @@
 
                                         </div>
                                     </div>
-                                    <!-- <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
-                                                <img src="./assets/placeholder.webp" loading="lazy" alt="Sarah Lee"
+                                                <img src="./assets/drHeber.jpg" loading="lazy" alt="Sarah Lee"
                                                     class="speaker-image img-fluid" />
                                             </div>
                                             <div class="speaker-content-wrapper">
                                                 <div class="heading-style-h4 title-dr">Dr. Heber Roberto León Salazar</div>
-                                                <div class="text-size-medium">Titulo</div>
+                                                <div class="text-size-medium">C.D E.P.I CB.</div>
                                                 <div class="speaker-bio-content">
-                                                    <p class="text-bio">Dr. Néstor Schejtman Plotnik es un
-                                                        cirujano dentista especializado en prostodoncia, graduado de la
-                                                        UNAM
-                                                        en 1995 y con especialidad en el Centro Dental Eastman de la
-                                                        Universidad de Rochester. Desde 2002, mantiene una
-                                                        práctica privada en prostodoncia y es miembro activo de la
-                                                        Asociación Dental Mexicana, el American Prosthodontist Society
-                                                        (Vicepresidente), y el International College of Dentist.
-                                                        Ha sido presidente del Consejo Mexicano de Rehabilitación Oral y
-                                                        Maxilofacial a.c. y participa en la Asociación Unidos por la
-                                                        Prostodoncia. Además, es profesor de posgrado en la UNAM y
-                                                        conferencista a nivel nacional e internacional.</p>
+                                                    <p class="text-bio">Dr. Heber Roberto León Salazar es un destacado odontólogo especializado en Periodoncia, Implantología y Cirugía Bucal. Además de su práctica clínica, se desempeña como Coordinador de la especialidad de Periodoncia en CME Veracruz y como profesor colaborador en el Máster de Periodoncia, Implantología y Cirugía Bucal de la misma institución. También es un instructor especializado en diversas marcas de implantes.</p>
                                                         <div class="redes-c ">
                                                     <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8c96-547d8c7d"
                                     class="w-layout-grid footer-social-list">
@@ -658,7 +657,7 @@
                                             </div>
 
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div role="listitem" class="speaker-collection-item w-dyn-item">
                                         <div class="speaker-item">
                                             <div class="speaker-image-wrapper">
@@ -1724,7 +1723,7 @@
                         <nav id="nav-up" class="nav-footer">
                             <a href="#conferencistas" class="navbar-link w-nav-link">Conferencistas</a>
                             <a href="#agenda" class="navbar-link w-nav-link">Itinerario</a>
-                            <a href="#location" class="navbar-link w-nav-link">Información</a>
+                            <a href="#location" class="navbar-link w-nav-link">Ubicación</a>
                             <a href="#section-home-partner" class="navbar-link w-nav-link">Organizadores</a>
                             <a href="#faq" class="navbar-link w-nav-link">FAQs</a>
 
