@@ -2010,7 +2010,6 @@ body
   margin-top: 10px;
 }
 
-
 .slide-in {
   animation: 0.5s forwards slideIn;
 }
@@ -2048,13 +2047,13 @@ body
 }
 
 .ticket-option.selected {
-    background-color: #4D869C;
-  }
-  
-  .ticket-option.selected .ticket-text,
-  .ticket-option.selected .ticket-price {
-    color: #fff;
-  }
+  background-color: #4d869c;
+}
+
+.ticket-option.selected .ticket-text,
+.ticket-option.selected .ticket-price {
+  color: #fff;
+}
 
 @media (max-width: 550px) {
   .faq-collection-list,
@@ -2197,72 +2196,92 @@ body
   width: 100%;
 }
 
-
 .cta-wrapper {
-    display: flex;
-    justify-content: flex-end; /* Alinear el contenedor al lado derecho */
-    width: 100%; /* Ancho completo del contenedor padre */
+  display: flex;
+  justify-content: flex-end; /* Alinear el contenedor al lado derecho */
+  width: 100%; /* Ancho completo del contenedor padre */
 }
 
 .cta-container {
-    background-color: #4D869C; /* Fondo negro */
-    color: #fff; /* Texto blanco */
-    padding: 100px 50px; /* Ajuste de padding */
-    text-align: left; /* Alineación del texto a la izquierda */
-    border-radius: 20px; /* Borde redondeado */
-    position: relative;
-    width: 60%; /* Ancho del contenedor */
-    margin: 50px; /* Margen para separación */
+  background-color: #4d869c; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  padding: 100px 50px; /* Ajuste de padding */
+  text-align: left; /* Alineación del texto a la izquierda */
+  border-radius: 20px 0px 0px 20px; /* Borde redondeado */
+  position: relative;
+  width: 60%; /* Ancho del contenedor */
+  margin: 50px 0px 50px 50px; /* Margen para separación */
 }
 .cta-container h1 {
-    color: #fff;
-    font-size: 3rem; /* Tamaño de fuente más grande */
-    margin-bottom: 20px;
+  color: #fff;
+  font-size: 3rem; /* Tamaño de fuente más grande */
+  margin-bottom: 20px;
 }
 .cta-container p {
-    font-size: 1.5rem; /* Tamaño de fuente más grande */
-    margin-bottom: 40px;
-    max-width: 600px; /* Máximo ancho del párrafo */
+  font-size: 1rem; /* Tamaño de fuente más grande */
+  margin-bottom: 40px;
+  max-width: 600px; /* Máximo ancho del párrafo */
 }
 .cta-container a {
-    display: inline-block;
-    padding: 10px 20px; /* Ajuste de padding */
-    font-size: 2rem; /* Tamaño de fuente más grande */
-    color: #fff; /* Color blanco */
-    background-color: transparent;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+  padding: 10px 20px; /* Ajuste de padding */
+  font-size: 2rem; /* Tamaño de fuente más grande */
+  color: #fff; /* Color blanco */
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 .cta-container .arrow {
-    font-size: 2.5rem; /* Tamaño de fuente más grande */
-    color: #fff; /* Color blanco */
+  font-size: 5rem; /* Tamaño de fuente más grande */
+  color: #fff; /* Color blanco */
 }
 .cta-container a:hover {
-    color: #ddd; /* Texto gris al pasar el ratón */
+  color: #ddd; /* Texto gris al pasar el ratón */
 }
-
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-    .cta-wrapper {
-        justify-content: center; /* Centrar el contenedor en móviles */
-    }
-    .cta-container {
-        width: 90%; /* Ancho casi completo en móviles */
-        padding: 50px 20px; /* Reducir padding en móviles */
-        margin: 20px; /* Reducir margen en móviles */
-    }
-    .cta-container h1 {
-        font-size: 2rem; /* Reducir tamaño de fuente en móviles */
-    }
-    .cta-container p {
-        font-size: 1rem; /* Reducir tamaño de fuente en móviles */
-    }
-    .cta-container a {
-        font-size: 1.5rem; /* Reducir tamaño de fuente en móviles */
-    }
-    .cta-container .arrow {
-        font-size: 2rem; /* Reducir tamaño de fuente en móviles */
-    }
+  .cta-wrapper {
+    justify-content: center; /* Centrar el contenedor en móviles */
+  }
+  .cta-container {
+    width: 90%; /* Ancho casi completo en móviles */
+    padding: 50px 20px; /* Reducir padding en móviles */
+    margin: 20px; /* Reducir margen en móviles */
+  }
+  .cta-container h1 {
+    font-size: 2rem; /* Reducir tamaño de fuente en móviles */
+  }
+  .cta-container p {
+    font-size: 1rem; /* Reducir tamaño de fuente en móviles */
+  }
+  .cta-container a {
+    font-size: 1.5rem; /* Reducir tamaño de fuente en móviles */
+  }
+  .cta-container .arrow {
+    font-size: 2rem; /* Reducir tamaño de fuente en móviles */
+  }
+}
+
+/* seccion de comprar boletos */
+.boletos-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-left: 10px;
+  border-left: 2px solid #fff;
+}
+.flechita {
+  justify-content: end;
+}
+
+@media (max-width: 700px) {
+  .boletos-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flechita {
+    justify-content: start;
+  }
 }
