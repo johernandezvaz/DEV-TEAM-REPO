@@ -2207,10 +2207,10 @@ body
   color: #fff; /* Texto blanco */
   padding: 100px 50px; /* Ajuste de padding */
   text-align: left; /* Alineación del texto a la izquierda */
-  border-radius: 20px 0px 0px 20px; /* Borde redondeado */
+  border-radius: 20px 0px 0px 20px !important; /* Borde redondeado */
   position: relative;
   width: 60%; /* Ancho del contenedor */
-  margin: 50px 0px 50px 50px; /* Margen para separación */
+  margin: 50px 0px 50px 50px !important; /* Margen para separación */
 }
 .cta-container h1 {
   color: #fff;
