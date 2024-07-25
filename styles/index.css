@@ -1605,8 +1605,8 @@ button:disabled {
 }
 @media (min-width: 1200px) {
   .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 4.5rem;
-    padding-left: 4.5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
   }
   .dr-fermin,
   .speaker-item {
@@ -2284,4 +2284,12 @@ body
   .flechita {
     justify-content: start;
   }
+}
+
+.icon-redes {
+  max-width: 24px !important;
+}
+
+.footer-social-list {
+  display: inline-block;
 }
