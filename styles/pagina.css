@@ -1638,12 +1638,12 @@ button:disabled {
     height: 100%;
   }
   .text-bio {
-    padding: 2px;
-    font-size: 16px;
+    padding: 1.5px;
+    font-size: 14px;
   }
   .title-dr {
-    padding: 2px;
-    font-size: 24px;
+    padding: 1.5px;
+    font-size: 16px;
   }
 }
 .organizadores2 {
@@ -2145,7 +2145,7 @@ body
   }
   .text-bio {
     padding: 2px;
-    font-size: 14px;
+    font-size: 12.5px;
   }
   #w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca4-547d8c7d > a > img {
     max-width: 35%;
