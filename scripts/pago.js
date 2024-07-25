@@ -33,15 +33,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         
             if (error) {
-                console.error('Error confirmando el pago:', error);
-                showMessage(error.message);
+                showErrorPopper(document.getElementById('payment-form'),"Su pago no pudo ser procesado, favor de volver a intentarlo");
                 setLoading(false);
             } else {
                 if (paymentIntent.status === 'succeeded') {
                     showMessage("Pago exitoso!");
                     await handleSuccessfulPayment(config);
                 } else {
-                    showMessage("Error en el pago. Estado: " + paymentIntent.status);
+                    showErrorPopper(document.getElementById('payment-form'),+ paymentIntent.status);
                 }
                 setLoading(false);
             }
@@ -132,10 +131,10 @@ async function checkStatus(config) {
             await handleSuccessfulPayment(config);
             break;
         case "processing":
-            showMessage("Your payment is processing.");
+            showErrorPopper(document.querySelector(".modal-body"),"Su pago esta procesandose.");
             break;
         case "requires_payment_method":
-            showMessage("Your payment was not successful, please try again.");
+            showErrorPopper(document.getElementById('pago-section'), "Su pago no pudo ser procesado, favor de volver a intentarlo");
             break;
         default:
             showMessage("Something went wrong.");

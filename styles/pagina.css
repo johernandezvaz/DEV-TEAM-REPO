@@ -2021,9 +2021,24 @@ body
     transform: translateX(0);
   }
 }
+
 .input-error {
   border-color: red;
+  align-items: center;
 }
+
+.error-popover {
+  align-items: center;
+  background-color: red;
+  color: white;
+  width: 26%;
+  text-align: center;
+  padding: 4px 100px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1000;
+}
+
 .pagos.active {
   visibility: visible;
   opacity: 1;
