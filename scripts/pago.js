@@ -303,6 +303,8 @@ async function handleSuccessfulPayment(config) {
         // Redirigir después de 5 segundos
         setTimeout(function () {
             pagosDiv.classList.remove('active', 'closing');
+            pagosDiv.style.visibility = 'hidden'; // Ocultar después de quitar las clases
+            pagosDiv.style.opacity = '0'; // Transparente después de quitar las clases
             document.body.style.overflow = ''; // Habilitar scroll
         }, 5000);
         switchSection("#pago-section", "#success-section");
