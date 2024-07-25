@@ -53,19 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
     popup = document.querySelector(".popup"),
     btnCerrarPopup = document.getElementById("btn-cerrar-popup");
 
-  btnsAbrirPopup.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      overlay.classList.add("active");
-      popup.classList.add("active");
-    });
-  });
-
-  btnCerrarPopup.addEventListener("click", function (e) {
-    e.preventDefault();
-    overlay.classList.remove("active");
-    popup.classList.remove("active");
-  });
-
   /* VALIDACION DE FORMULARIO */
   // validacion input
   const email = {

@@ -95,6 +95,9 @@ img {
   max-width: 100%;
   display: inline-block;
 }
+.showAnswer {
+  display: block;
+}
 .w-button {
   color: #fff;
   line-height: inherit;
@@ -676,33 +679,56 @@ label {
   right: 0;
   overflow: hidden;
 }
+
 .faq-accordion {
-  color: #fff;
+  color: white;
   background-color: #4d869c;
   border-radius: 0.6rem;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
 }
+
 .icono-faq {
   font-size: 1.4rem;
   font-weight: 500;
 }
+
+.faq-accordion {
+  color: white;
+  background-color: #4d869c;
+  border-radius: 0.6rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.icono-faq {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
 .faq-question {
   cursor: pointer;
   justify-content: space-between;
   align-items: center;
-  padding: 0.2rem 1rem;
+  padding: 0.8rem 1.4rem;
   display: flex;
 }
+
 .faq-answer {
   padding-left: 2rem;
   padding-right: 2rem;
-  max-height: 0;
+  max-height: 0; /* Inicialmente oculto */
   overflow: hidden;
-  opacity: 0;
-  transition: max-height 1s ease, opacity 1s ease;
-  display: block;
+  opacity: 0; /* Inicialmente transparente */
+  transition: max-height 1s ease, opacity 1s ease; /* Transición suave */
+  display: block; /* Asegura que el contenido sea bloqueado para aplicar la transición */
+}
+
+.showAnswer {
+  max-height: 200px; /* Ajusta según el tamaño máximo esperado */
+  opacity: 1; /* Visible */
 }
 .faq-collection-list {
   grid-column-gap: 1rem;
