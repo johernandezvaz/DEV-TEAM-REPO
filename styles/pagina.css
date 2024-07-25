@@ -529,10 +529,7 @@ label {
   filter: grayscale(100%);
 }
 .navbar-logo-link {
-  padding-left: 0;
-}
-.navbar-logo {
-  height: 5rem;
+  text-decoration: none;
 }
 .navbar-link {
   padding: 0.5rem 1rem;
@@ -2299,4 +2296,8 @@ body
   .flechita {
     justify-content: start;
   }
+}
+
+.logo-text{
+  text-decoration: none; 
 }
