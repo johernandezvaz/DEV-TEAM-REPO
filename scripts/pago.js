@@ -188,7 +188,6 @@ async function handleSuccessfulPayment(config) {
     }
 
     const participanteId = data.id;
-    console.log(participanteId);
     const { error: ingresoErrorDiaUno } = await sb
         .from('ingreso_participantes_dia_uno')
         .insert([{ id_participante: participanteId, ingreso: false }]);
@@ -197,7 +196,6 @@ async function handleSuccessfulPayment(config) {
         alert('Error al guardar los datos en la tabla de ingreso para el día uno.');
         return;
     }
-    console.log(participanteId);
 
     const { error: ingresoErrorDiaDos } = await sb
         .from('ingreso_participantes_dia_dos')
@@ -211,69 +209,70 @@ async function handleSuccessfulPayment(config) {
     try {
         const qrCanvasDiaUno = document.createElement('canvas');
         await QRCode.toCanvas(qrCanvasDiaUno, qrDataDiaUno, { scale: 3 });
-
+        
         const qrCanvasDiaDos = document.createElement('canvas');
         await QRCode.toCanvas(qrCanvasDiaDos, qrDataDiaDos, { scale: 3 });
-
+        
         const pdfDoc = await PDFLib.PDFDocument.create();
 
-        // Página para el Día Uno
-        const pageDiaUno = pdfDoc.addPage([1004, 650]);
+        // Cargar y embeber la imagen del logo
         const logoUrl = '../assets/logos.png';
         const logoImageBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
         const logoImage = await pdfDoc.embedPng(logoImageBytes);
         const logoDims = logoImage.scale(0.5);
-
-        pageDiaUno.drawImage(logoImage, {
-            x: 20,
-            y: pageDiaUno.getHeight() - logoDims.height - 20,
-            width: logoDims.width,
-            height: logoDims.height,
-        });
         
-        pageDiaUno.drawText(`Día: Uno`, { x: 50, y: pageDiaUno.getHeight() - logoDims.height - 60, size: 25 });
-        pageDiaUno.drawText(`Nombre: ${nombre}`, { x: 50, y: pageDiaUno.getHeight() - logoDims.height - 90, size: 25 });
-        pageDiaUno.drawText(`Apellido: ${apellido}`, { x: 50, y: pageDiaUno.getHeight() - logoDims.height - 120, size: 25 });
-        pageDiaUno.drawText(`Correo: ${correo}`, { x: 50, y: pageDiaUno.getHeight() - logoDims.height - 150, size: 25 });
-        pageDiaUno.drawText(`Teléfono: ${telefono}`, { x: 50, y: pageDiaUno.getHeight() - logoDims.height - 180, size: 25 });
-        pageDiaUno.drawText(`Evento Rompe Hielos: ${asistira}`, { x: 50, y: pageDiaUno.getHeight() - logoDims.height - 210, size: 25 });
-        pageDiaUno.drawText(`Tipo de Boleto: ${ticketType}`, { x: 50, y: pageDiaUno.getHeight() - logoDims.height - 240, size: 25 });
-
+        // Función para dibujar el contenido común en ambas páginas
+        const drawCommonContent = (page, day) => {
+            // Dibujar marcador de "LOGO" en la parte superior
+            page.drawText("LOGO", {
+                x: 20,
+                y: page.getHeight() - 50, // Ajusta la posición según sea necesario
+                size: 25
+            });
+            
+            // Dibujar el logo en la parte inferior
+            page.drawImage(logoImage, {
+                x: 20,
+                y: 20, // Ajusta la posición según sea necesario
+                width: logoDims.width,
+                height: logoDims.height,
+            });
+            
+            // Dibujar los datos del boleto
+            page.drawText(`Día: ${day}`, { x: 50, y: page.getHeight() - 100, size: 25 });
+            page.drawText(`Nombre: ${nombre}`, { x: 50, y: page.getHeight() - 130, size: 25 });
+            page.drawText(`Apellido: ${apellido}`, { x: 50, y: page.getHeight() - 160, size: 25 });
+            page.drawText(`Correo: ${correo}`, { x: 50, y: page.getHeight() - 190, size: 25 });
+            page.drawText(`Teléfono: ${telefono}`, { x: 50, y: page.getHeight() - 220, size: 25 });
+            page.drawText(`Evento Rompe Hielos: ${asistira}`, { x: 50, y: page.getHeight() - 250, size: 25 });
+            page.drawText(`Tipo de Boleto: ${ticketType}`, { x: 50, y: page.getHeight() - 280, size: 25 });
+        };
+        
+        // Página para el Día Uno
+        const pageDiaUno = pdfDoc.addPage([1004, 650]);
+        drawCommonContent(pageDiaUno, 'Uno');
+        
         const qrImageDiaUno = await pdfDoc.embedPng(qrCanvasDiaUno.toDataURL('image/png'));
         const qrSize = 250;
         pageDiaUno.drawImage(qrImageDiaUno, {
             x: (pageDiaUno.getWidth() - qrSize) - 50,
-            y: pageDiaUno.getHeight() - logoDims.height - 220,
+            y: pageDiaUno.getHeight() - 310, // Ajusta la posición según sea necesario
             width: qrSize,
             height: qrSize,
         });
-
+        
         // Página para el Día Dos
         const pageDiaDos = pdfDoc.addPage([1004, 650]);
-
-        pageDiaDos.drawImage(logoImage, {
-            x: 20,
-            y: pageDiaDos.getHeight() - logoDims.height - 20,
-            width: logoDims.width,
-            height: logoDims.height,
-        });
-
-        pageDiaDos.drawText(`Día: Dos`, { x: 50, y: pageDiaDos.getHeight() - logoDims.height - 60, size: 25 });
-        pageDiaDos.drawText(`Nombre: ${nombre}`, { x: 50, y: pageDiaDos.getHeight() - logoDims.height - 90, size: 25 });
-        pageDiaDos.drawText(`Apellido: ${apellido}`, { x: 50, y: pageDiaDos.getHeight() - logoDims.height - 120, size: 25 });
-        pageDiaDos.drawText(`Correo: ${correo}`, { x: 50, y: pageDiaDos.getHeight() - logoDims.height - 150, size: 25 });
-        pageDiaDos.drawText(`Teléfono: ${telefono}`, { x: 50, y: pageDiaDos.getHeight() - logoDims.height - 180, size: 25 });
-        pageDiaDos.drawText(`Evento Rompe Hielos: ${asistira}`, { x: 50, y: pageDiaDos.getHeight() - logoDims.height - 210, size: 25 });
-        pageDiaDos.drawText(`Tipo de Boleto: ${ticketType}`, { x: 50, y: pageDiaDos.getHeight() - logoDims.height - 240, size: 25 });
-
+        drawCommonContent(pageDiaDos, 'Dos');
+        
         const qrImageDiaDos = await pdfDoc.embedPng(qrCanvasDiaDos.toDataURL('image/png'));
         pageDiaDos.drawImage(qrImageDiaDos, {
             x: (pageDiaDos.getWidth() - qrSize) - 50,
-            y: pageDiaDos.getHeight() - logoDims.height - 220,
+            y: pageDiaDos.getHeight() - 310, // Ajusta la posición según sea necesario
             width: qrSize,
             height: qrSize,
         });
-
+        
         const pdfBytes = await pdfDoc.save();
         const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
 
@@ -294,23 +293,20 @@ async function handleSuccessfulPayment(config) {
                 message: 'Aquí está tu código QR en formato PDF.',
                 file: base64data
             }).then(function(response) {
-                showPopup('Correo enviado exitosamente!');
+                console.log('Correo enviado exitosamente!');
             }, function(error) {
-                showPopup('Error al enviar el correo.');
+                console.log('Error al enviar el correo.');
             });
         };
         
         // Redirigir después de 5 segundos
         setTimeout(function () {
-            pagosDiv.classList.remove('active', 'closing');
-            pagosDiv.style.visibility = 'hidden'; // Ocultar después de quitar las clases
-            pagosDiv.style.opacity = '0'; // Transparente después de quitar las clases
-            document.body.style.overflow = ''; // Habilitar scroll
+            cerrarPagos();
         }, 5000);
         switchSection("#pago-section", "#success-section");
 
     } catch (error) {
-        showPopup('Error al manejar el pago exitoso.');
+        console.log('Error al manejar el pago exitoso.' + error);
     }
 }
 
@@ -323,6 +319,17 @@ function showMessage(messageText) {
         messageContainer.classList.add("hidden");
         messageContainer.textContent = "";
     }, 4000);
+}
+
+
+function cerrarPagos() {
+    pagosDiv.classList.add('closing');
+    setTimeout(() => {
+        pagosDiv.classList.remove('active', 'closing');
+        pagosDiv.style.visibility = 'hidden'; // Ocultar después de quitar las clases
+        pagosDiv.style.opacity = '0'; // Transparente después de quitar las clases
+        document.body.style.overflow = ''; // Habilitar scroll
+    }, 1000); // Tiempo de la transición (0.5s)
 }
 
 function validateTicketSelection() {
@@ -380,16 +387,7 @@ function showErrorPopper(element, message) {
 }
 
 
-function showPopup(messageText) {
-    const popup = document.getElementById("popup");
-    popup.classList.remove("hidden");
-    popup.textContent = messageText;
 
-    setTimeout(function () {
-        popup.classList.add("hidden");
-        window.location.href = "https://www.codecuu.com/";
-    }, 5000);
-}
 
 function setLoading(isLoading) {
     if (isLoading) {

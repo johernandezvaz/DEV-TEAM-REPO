@@ -16,7 +16,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <link rel="preload" href="styles/custom.css" as="style">
-    <link rel="stylesheet" href="styles/custom.css">
+    <link rel="stylesheet" href="styles/index.css">
     <style>
         @media (min-width: 992px) {
             html.w-mod-js:not(.w-mod-ix) [data-w-id="7790c7f5-e606-0e16-7ece-290f34840e59"] {
@@ -1784,11 +1784,43 @@
                             </div>
                         </div>
                     </section>
-
-
-
-
                 </div>
+
+                <div class="cta-wrapper">
+                    <div class="cta-container">
+                        <h1>Compra tus Boletos</h1>
+                        <p>No te pierdas ser parte de esta experiencia de la cual te llevaras gran conocimientode expertos en la industria dental.</p>
+                        <a href="#" class="arrow">&rarr;</a>
+                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const btnAbrirPopup = document.querySelector('.arrow');
+                            const pagosDiv = document.querySelector('.pagos');
+                            const closeButton = document.querySelector('.close-button');
+                
+                            btnAbrirPopup.addEventListener('click', function (event) {
+                                event.preventDefault();
+                                pagosDiv.style.visibility = 'visible';
+                                pagosDiv.style.opacity = '1';
+                                setTimeout(() => {
+                                    pagosDiv.classList.add('active');
+                                }, 10);
+                                document.body.style.overflow = 'hidden';
+                            });
+                
+                            closeButton.addEventListener('click', function () {
+                                pagosDiv.classList.add('closing');
+                                setTimeout(() => {
+                                    pagosDiv.classList.remove('active', 'closing');
+                                    pagosDiv.style.visibility = 'hidden';
+                                    pagosDiv.style.opacity = '0';
+                                    document.body.style.overflow = '';
+                                }, 1000);
+                            });
+                        });
+                    </script>
+                </div>
+                
 
             </main>
 
