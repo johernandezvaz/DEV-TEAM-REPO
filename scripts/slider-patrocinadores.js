@@ -9,41 +9,37 @@ document.addEventListener("DOMContentLoaded", () => {
     "patrocinador5.png",
   ];
 
-  patrocinadores.forEach((src) => {
+  // Función para crear un slide
+  const createSlide = (src) => {
     const slide = document.createElement("div");
     slide.className = "slider-patrocinadores__slide";
     const img = document.createElement("img");
-    img.src = src;
+    img.src = `assets/${src}`;
     img.alt = `Patrocinador ${src.match(/\d+/)[0]}`;
     slide.appendChild(img);
-    slider.appendChild(slide);
+    return slide;
+  };
+
+  // Crear los elementos de patrocinadores originales y duplicados
+  patrocinadores.forEach((src) => {
+    slider.appendChild(createSlide(src));
   });
 
   patrocinadores.forEach((src) => {
-    const slide = document.createElement("div");
-    slide.className = "slider-patrocinadores__slide";
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = `Patrocinador ${src.match(/\d+/)[0]}`;
-    slide.appendChild(img);
-    slider.appendChild(slide);
+    slider.appendChild(createSlide(src));
   });
 
+  // Ajustar la animación para el deslizamiento continuo
   const cloneSlides = () => {
     patrocinadores.forEach((src) => {
-      const slide = document.createElement("div");
-      slide.className = "slider-patrocinadores__slide";
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = `Patrocinador ${src.match(/\d+/)[0]}`;
-      slide.appendChild(img);
-      slider.appendChild(slide);
+      slider.appendChild(createSlide(src));
     });
   };
 
+  // Clonar las slides continuamente para mantener el bucle infinito
   setInterval(() => {
     cloneSlides();
-  }, 20000); // duración de la animación
+  }, 20000); // Ajustar el tiempo según la duración de la animación
 
   slider.addEventListener("animationiteration", () => {
     slider.style.animation = "none";
