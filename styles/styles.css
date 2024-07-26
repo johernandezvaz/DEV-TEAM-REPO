@@ -2478,9 +2478,7 @@ body
 .slider-patrocinadores__wrapper {
   display: flex;
   gap: 30px;
-  width: calc(
-    100% * 10
-  ); /* Ajustar el ancho para acomodar todos los elementos duplicados */
+  width: calc(100% * 10); /*e lementos duplicados */
   animation: scroll 80s linear infinite;
 }
 
@@ -2490,11 +2488,11 @@ body
   }
   100% {
     transform: translateX(calc(-100% / 2));
-  } /* Moverse a la mitad del contenedor */
+  }
 }
 
 .slider-patrocinadores__slide {
-  min-width: calc(100% / 50); /* Ajustar el ancho de cada slide */
+  min-width: calc(100% / 50); /* ancho de cada slider */
   transition: transform 1s ease-in-out;
 }
 

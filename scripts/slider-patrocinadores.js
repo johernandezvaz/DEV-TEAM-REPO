@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "patrocinador5.png",
   ];
 
-  // Crear los elementos de patrocinadores originales y duplicados
   patrocinadores.forEach((src) => {
     const slide = document.createElement("div");
     slide.className = "slider-patrocinadores__slide";
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     slider.appendChild(slide);
   });
 
-  // Ajustar la animación para el deslizamiento continuo
   const cloneSlides = () => {
     patrocinadores.forEach((src) => {
       const slide = document.createElement("div");
@@ -43,10 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Clonar las slides continuamente para mantener el bucle infinito
   setInterval(() => {
     cloneSlides();
-  }, 20000); // Ajustar el tiempo según la duración de la animación
+  }, 20000); // duración de la animación
 
   slider.addEventListener("animationiteration", () => {
     slider.style.animation = "none";
