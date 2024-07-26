@@ -1421,11 +1421,17 @@
                             margin: 0;
                         }
 
+                        @media (max-width: 767px) {
+                            #arrow {
+                                display: flex;
+                                align-items: center;
+                                margin-left: auto; /* Asegura que la flecha esté en el extremo derecho */
+                                font-size: 1.5em; /* Ajusta el tamaño de la flecha si es necesario */
+                            }
+                            
+                        }
                         #arrow {
-                            display: flex;
-                            align-items: center;
-                            margin-left: auto; /* Asegura que la flecha esté en el extremo derecho */
-                            font-size: 1.5em; /* Ajusta el tamaño de la flecha si es necesario */
+                            display: none;
                         }
                     </style>
                 </section>
