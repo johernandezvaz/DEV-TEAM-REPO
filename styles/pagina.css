@@ -599,7 +599,7 @@ label {
   grid-column-gap: 0.7rem;
   grid-row-gap: 0.7rem;
   grid-template-rows: auto auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
 }
