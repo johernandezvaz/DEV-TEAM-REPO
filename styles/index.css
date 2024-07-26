@@ -1777,7 +1777,7 @@ body
   justify-content: center;
 }
 .section01 {
-  padding: 3rem 0.5rem;
+  padding: 0 0.5rem;
 }
 .ticket-selection {
   display: flex;
@@ -2272,7 +2272,7 @@ body
     text-align: left;
   }
   .footer-link-list {
-    padding-top: 153px;
+    padding-top: 80px;
     display: flex;
     justify-content: flex-end;
   }
@@ -2395,4 +2395,16 @@ body
 
 .footer-social-list {
   display: inline-block;
+}
+
+body
+  > div
+  > div
+  > footer
+  > div.padding-global
+  > div.section-grid
+  > div.padding-section-medium.section01
+  > div.footer-bottom-wrapper2
+  > div.disclaimer {
+  text-align: start;
 }
