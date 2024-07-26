@@ -5,7 +5,7 @@ img {
 [type="button"],
 button,
 input.w-button {
-  -webkit-appearance: button;
+  --webkit-appearance: button;
 }
 .home-header-component,
 .w-layout-grid {
@@ -132,7 +132,7 @@ body {
 }
 button,
 html input[type="button"] {
-  -webkit-appearance: button;
+  --webkit-appearance: button;
   cursor: pointer;
 }
 button::-moz-focus-inner,
@@ -2436,7 +2436,7 @@ body
 }
 
 .partner-carousel {
-  display: inline-block;
+  display: flex;
   width: 100%; /* Duplica el ancho para el efecto de bucle */
   animation: 35s slide infinite linear;
 }
