@@ -2490,3 +2490,21 @@ body
       transform: translateX(-100%);
   }
 }
+
+
+/* Media Queries para móviles */
+@media (max-width: 1024px) {
+  .partner-carousel {
+      width: 100%; /* Restablece el ancho en móviles */
+      animation: scroll-mobile 30s linear infinite;
+  }
+
+  @keyframes scroll-mobile {
+      0% {
+          transform: translateX(0);
+      }
+      100% {
+          transform: translateX(-100%);
+      }
+  }
+}
