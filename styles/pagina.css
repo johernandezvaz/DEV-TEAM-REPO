@@ -1587,7 +1587,7 @@ button:disabled {
 }
 @media (min-width: 769px) and (max-width: 814px) {
   .speaker-item {
-    height: 400px;
+    height: 430px;
   }
   .title-dr {
     padding: 5px;
@@ -1600,13 +1600,13 @@ button:disabled {
 }
 @media (min-width: 815px) and (max-width: 1024px) {
   .speaker-item {
-    height: 435px;
+    height: 470px;
   }
 }
 @media (min-width: 1025px) and (max-width: 1199px) {
   .dr-fermin,
   .speaker-item {
-    height: 500px;
+    height: 550px;
   }
   .title-dr {
     padding: 5px;
@@ -1624,10 +1624,7 @@ button:disabled {
   }
   .dr-fermin,
   .speaker-item {
-    height: 435px;
-  }
-  .dr-fermin {
-    min-height: 435px;
+    height: 500px;
   }
 }
 @media (max-width: 610px) {
