@@ -20,7 +20,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <link rel="preload" href="styles/pagina.css" as="style">
-    <link rel="stylesheet" href="styles/pagina.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <style>
         @media (min-width: 992px) {
             html.w-mod-js:not(.w-mod-ix) [data-w-id="7790c7f5-e606-0e16-7ece-290f34840e59"] {
@@ -1628,90 +1628,7 @@
                             </div>
                         </div>
                     </div>
-                    <style>
-                        /* styles.css */
-.carousel-container {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.partner-carousel {
-  display: flex;
-  width: 100%; /* Duplica el ancho para el efecto de bucle */
-  animation: 35s slide infinite linear;
-}
-
-.partner-carousel img {
-  margin: 0 40px;
-}
-
-.partner-item {
-  flex: 0 0 auto;
-  margin-right: 10px; /* Ajusta el margen según sea necesario */
-}
-
-.partner-logo {
-  overflow: hidden;
-  padding: 60px 0;
-  background: white;
-  white-space: nowrap;
-  position: relative;
-  width: 100px;
-}
-
-.partner-logo:before,
-.partner-logo:after {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  content: "";
-  z-index: 2;
-}
-
-.partner-logo:before {
-  left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-}
-
-.partner-logo:after {
-  right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-}
-
-.partner-logo:hover .partner-carousel {
-  animation-play-state: paused;
-}
-
-@keyframes slide {
-  0% {
-      transform: translateX(0);
-  }
-  100% {
-      transform: translateX(-100%);
-  }
-}
-
-
-/* Media Queries para móviles */
-@media (max-width: 1024px) {
-  .partner-carousel {
-      width: 100%; /* Restablece el ancho en móviles */
-      animation: scroll-mobile 30s linear infinite;
-  }
-
-  @keyframes scroll-mobile {
-      0% {
-          transform: translateX(0);
-      }
-      100% {
-          transform: translateX(-100%);
-      }
-  }
-}
-                    </style>
+                    
                 </section>
 
 
