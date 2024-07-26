@@ -6,12 +6,16 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Congreso Dental Chihuahuense (CODEC)</title>
     <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./scripts/carrousel.js"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
@@ -1611,47 +1615,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div data-w-id="c82bcae3-9bd7-50c4-334e-bfa59cde03b4"
-                                    class="w-layout-grid partner-list">
-                                    <div id="w-node-c82bcae3-9bd7-50c4-334e-bfa59cde03b5-3863c98b" class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
-                                    </div>
-                                    <div id="w-node-add40afc-57e3-9cc6-32d9-7cd8ce366bb8-3863c98b" class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
-                                    </div>
-                                    <div id="w-node-f64eec6a-f324-adcf-e1d0-adce6c64ee50-3863c98b" class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
-                                    </div>
-                                    <div id="w-node-_8d78c574-1e7e-ba41-d972-66d505baf4d2-3863c98b"
-                                        class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
-                                    </div>
-                                    <div id="w-node-_523ec151-8434-4a16-5ad0-20176ab668ef-3863c98b"
-                                        class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
-                                    </div>
-                                    <div id="w-node-_3c45b279-d9ab-1a15-0f7f-d733ea803001-3863c98b"
-                                        class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
-                                    </div>
-                                    <div id="w-node-b9ecbf80-b71e-0e2e-8df2-939eadadaefd-3863c98b" class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
-                                    </div>
-                                    <div id="w-node-b05e3600-53bd-eeaa-87fd-191ef3eb826d-3863c98b" class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
-                                    </div>
-                                    <div id="w-node-_51c44b97-d0e6-1cfa-dd36-733c2a96de76-3863c98b"
-                                        class="partner-item">
-                                        <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
-                                            loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                <div class="caroussel-container">
+                                    <div class="partner-carousel">
+                                        <div class="partner-item">
+                                            <img src="./assets/patrocinador-1.png" loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                        </div>
+                                        <div class="partner-item">
+                                            <img src="./assets/patrocinador-2.png" loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1826,16 +1797,12 @@
                                 <div role="listitem" class="faq-collection-item w-dyn-item">
                                     <div class="faq-accordion">
                                         <div class="faq-question">
-                                            <div class="heading-style-h6">¿Qué debo llevar al congreso?</div>
+                                            <div class="heading-style-h6">¿Venderan boletos el día del evento?</div>
                                             <span class="icono-faq">+</span>
                                         </div>
                                         <div class="faq-answer">
                                             <div class="margin-bottom margin-small answer">
-                                                <p>Te recomendamos llevar tu identificación, cualquier confirmación
-                                                    de
-                                                    registro que hayas recibido, tarjetas de presentación para
-                                                    networking, una libreta o dispositivo para tomar notas, y ropa
-                                                    cómoda. </p>
+                                                <p>El día del evento se puede realizar el pago pero está a disponibilidad de espacio.</p>
                                             </div>
                                         </div>
                                     </div>

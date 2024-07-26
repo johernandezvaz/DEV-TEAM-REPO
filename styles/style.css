@@ -327,7 +327,6 @@ label {
 }
 .agenda-item,
 .partner-item {
-  background-color: #f4f4f6;
   border-radius: 0.6rem;
 }
 .button:hover {
@@ -472,7 +471,7 @@ body
   object-fit: cover;
   border-radius: 0.6rem;
 }
-.partner-list {
+/* .partner-list {
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   grid-template-rows: auto;
@@ -487,7 +486,7 @@ body
 }
 .partner-logo {
   max-height: 2rem;
-}
+} */
 .blurred-circle {
   z-index: -2;
   width: 50vw;
@@ -908,12 +907,12 @@ body
   .header-infos-item {
     border-right-style: none;
   }
-  .partner-list {
+  /* .partner-list {
     grid-template-columns: 1fr 1fr;
   }
   .partner-item {
     padding: 1.5rem 1rem;
-  }
+  } */
   .speaker-image-wrapper {
     height: 100%;
   }
@@ -1012,10 +1011,10 @@ body
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.5rem;
   }
-  .partner-item {
+  /* .partner-item {
     justify-content: center;
     align-items: flex-start;
-  }
+  } */
   .speaker-collection-list {
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
@@ -2426,4 +2425,68 @@ body
   > div.footer-bottom-wrapper2
   > div.disclaimer {
   text-align: start;
+}
+
+/* styles.css */
+.carousel-container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.partner-carousel {
+  display: flex;
+  width: 100%; /* Duplica el ancho para el efecto de bucle */
+  animation: 35s slide infinite linear;
+}
+
+.partner-carousel img {
+  margin: 0 40px;
+}
+
+.partner-item {
+  flex: 0 0 auto;
+  margin-right: 10px; /* Ajusta el margen según sea necesario */
+}
+
+.partner-logo {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+  width: 100px;
+}
+
+.partner-logo:before,
+.partner-logo:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.partner-logo:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.partner-logo:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.partner-logo:hover .partner-carousel {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
 }
