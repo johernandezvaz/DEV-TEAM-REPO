@@ -27,7 +27,7 @@ const updateCountdown = () => {
   const updateProgressCircle = (circle, value, max) => {
     const percentage = (value / max) * 100;
     const degree = (percentage / 100) * 360;
-    circle.style.background = `conic-gradient(#4d869c ${degree}deg, #e6e6e6 ${degree}deg)`;
+    circle.style.background = `conic-gradient(#1E3A44 ${degree}deg, #e6e6e6 ${degree}deg)`;
   };
 
   updateProgressCircle(
