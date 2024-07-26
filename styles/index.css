@@ -2436,7 +2436,7 @@ body
 }
 
 .partner-carousel {
-  display: flex;
+  display: inline-block;
   width: 100%; /* Duplica el ancho para el efecto de bucle */
   animation: 35s slide infinite linear;
 }
