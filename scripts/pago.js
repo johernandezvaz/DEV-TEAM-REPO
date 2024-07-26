@@ -223,7 +223,7 @@ async function handleSuccessfulPayment(config) {
         // Función para dibujar el contenido común en ambas páginas
         const drawCommonContent = (page, day) => {
             // Dibujar marcador de "LOGO" en la parte superior
-            page.drawText("LOGO", {
+            page.drawText("CODEC", {
                 x: 20,
                 y: page.getHeight() - 50, // Ajusta la posición según sea necesario
                 size: 25
