@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const originalItems = Array.from(carousel.children);
     
     // Clona el contenido varias veces para asegurar un bucle infinito
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 1000; i++) {
         originalItems.forEach(item => {
             const clone = item.cloneNode(true);
             carousel.appendChild(clone);
