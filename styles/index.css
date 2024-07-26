@@ -528,6 +528,10 @@ label {
   position: relative;
   filter: grayscale(100%);
 }
+.navbar-logo {
+  color: #1e3a44;
+  font-weight: 500;
+}
 .navbar-logo-link {
   text-decoration: none;
 }
