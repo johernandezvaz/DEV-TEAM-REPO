@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "patrocinador1.png",
     "patrocinador2.png",
     "patrocinador3.png",
-    "patrocinador4.png",
+    "patrocinador4.webp",
     "patrocinador5.png",
   ];
 

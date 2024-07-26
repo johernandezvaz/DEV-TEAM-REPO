@@ -2497,6 +2497,7 @@ body
 }
 
 .slider-patrocinadores__slide img {
+  vertical-align: center;
   width: 150px;
   object-fit: contain;
   border: 10px solid #f4f4f6;
