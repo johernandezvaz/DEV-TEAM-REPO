@@ -214,7 +214,7 @@ h3 {
 }
 .navbar-link:hover,
 a:hover {
-  color: #4d869c;
+  color: #1E3A44;
 }
 label {
   margin-bottom: 0.25rem;
@@ -319,7 +319,7 @@ label {
 }
 .button {
   color: #fff;
-  background-color: #4d869c;
+  background-color: #1E3A44;
   border-radius: 0.6rem;
   padding: 0.75rem 2rem;
   font-weight: 500;
@@ -331,8 +331,8 @@ label {
   border-radius: 0.6rem;
 }
 .button:hover {
-  color: #1b2021;
-  background-color: #aad9eb;
+  color: #fff;
+  background-color: #4D869C;
   overflow: visible;
 }
 .text-size-medium {
@@ -627,7 +627,7 @@ label {
 /* animacion faqs */
 .faq-accordion {
   color: white;
-  background-color: #4d869c;
+  background-color: #1E3A44;
   border-radius: 0.6rem;
   flex-direction: column;
   justify-content: flex-start;
@@ -684,7 +684,7 @@ label {
   right: 0;
 }
 .subheading {
-  color: #4d869c;
+  color: #1E3A44;
   font-size: 1.125rem;
   font-weight: 500;
 }
@@ -1330,7 +1330,7 @@ form {
 button {
   overflow: visible;
   text-transform: none;
-  background: #4d869c;
+  background: #1E3A44;
   color: #fff;
   border-radius: 4px;
   border: 0;
@@ -1392,7 +1392,7 @@ button:disabled {
 .spinner:after {
   width: 10.4px;
   height: 10.2px;
-  background: #4d869c;
+  background: #1E3A44;
   border-radius: 0 10.2px 10.2px 0;
   top: -0.1px;
   left: 10.2px;
@@ -1465,7 +1465,7 @@ button:disabled {
   position: relative;
   width: 90px;
   height: 90px;
-  background: conic-gradient(#4d869c 0deg 0deg, #e6e6e6 0deg);
+  background: conic-gradient(#1E3A44 0deg 0deg, #e6e6e6 0deg);
 }
 .inside-circle {
   position: absolute;
@@ -1725,7 +1725,7 @@ body
   border-radius: 5px;
 }
 .ticket-option:hover {
-  border-color: #4d869c;
+  border-color: #1E3A44;
 }
 .ticket-option .ticket-content {
   display: flex;
@@ -1915,7 +1915,7 @@ body
 }
 .nav-button:hover {
   color: #fff;
-  background-color: #4d869c;
+  background-color: #1E3A44;
 }
 @media (min-width: 400px) {
   .slide img {
@@ -1991,7 +1991,7 @@ body
   left: 33.3%;
   transform: translate(-50%, -50%);
   background: #fff;
-  border: 2px solid #4d869c;
+  border: 2px solid #1E3A44;
   border-radius: 5px;
 }
 .pagos {
@@ -2076,7 +2076,7 @@ body
 }
 
 .ticket-option.selected {
-  background-color: #4d869c;
+  background-color: #1E3A44;
 }
 
 .ticket-option.selected .ticket-text,
@@ -2232,7 +2232,7 @@ body
 }
 
 .cta-container {
-  background-color: #4d869c; /* Fondo negro */
+  background-color: #1E3A44; /* Fondo negro */
   color: #fff; /* Texto blanco */
   padding: 100px 50px; /* Ajuste de padding */
   text-align: left; /* Alineación del texto a la izquierda */
