@@ -2504,7 +2504,7 @@ body
   display: flex;
   gap: 200px;
   width: calc(100% * 10); /* elementos duplicados */
-  animation: scroll 50s linear infinite;
+  animation: scroll 25s linear infinite;
 }
 
 @keyframes scroll {
