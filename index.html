@@ -76,7 +76,7 @@
                         display: block;
                         width: 10px;
                         height: 10px;
-                        background: #222;
+                        background: #fff;
                         position: absolute;
                         border-radius: 50%;
                         top: 3px;
@@ -181,12 +181,12 @@
                                         de no
                                         confirmar se le negará el acceso durante esa sección del evento. Si no sabe en
                                         qué
-                                        consiste, puede consultar el <a class="" href="#agenda">Itinierario.</a></p>
-                                    <label class="radio mt-2">
+                                        consiste, puede consultar el <a class="" href="#agenda" style="color: #fff;">Itinierario.</a></p>
+                                    <label class="radio mt-2" style="color: #fff;">
                                         <input name="asistencia_rompehielos" type="radio" value="si" checked>
                                         <span class="fs-6">Si</span>
                                     </label>
-                                    <label class="radio">
+                                    <label class="radio" style="color: #fff;">
                                         <input name="asistencia_rompehielos" type="radio" value="no">
                                         <span class="fs-6">No</span>
                                     </label>
@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="row justify-content-center mt-4">
                                     <div class="col-md-8">
-                                        <button type="submit" id="submit">
+                                        <button class="boton pago" type="submit">
                                             <div class="spinner hidden" id="spinner"></div>
                                             <span id="button-text">Pagar</span>
                                         </button>
@@ -244,7 +244,7 @@
                                 <div id="payment-element">
                                     <!-- Stripe.js injects the Payment Element -->
                                 </div>
-                                <button id="submit-payment" type="submit">
+                                <button class="boton pago" id="submit-payment" type="submit">
                                     <div class="spinner hidden" id="spinner"></div>
                                     <span id="button-text">Confirmar Pago</span>
                                 </button>

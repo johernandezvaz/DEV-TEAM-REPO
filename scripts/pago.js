@@ -99,6 +99,7 @@ async function initializePayment(config) {
                     boxShadow: '0 0 0 1.5px var(--colorPrimaryText), 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)'
                 },
                 '.Label': {
+                    color: '#fff',
                     fontWeight: '500'
                 }
             }

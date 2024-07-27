@@ -1,3 +1,4 @@
+
 .w-inline-block,
 img {
   max-width: 100%;
@@ -5,7 +6,7 @@ img {
 [type="button"],
 button,
 input.w-button {
-  -webkit-appearance: button;
+  --webkit-appearance: button;
 }
 .home-header-component,
 .w-layout-grid {
@@ -1379,7 +1380,7 @@ button:disabled {
   box-shadow: none;
 }
 .spinner {
-  color: #fff;
+  color: #1e3a44;
   font-size: 22px;
   text-indent: -99999px;
   position: relative;
@@ -1410,7 +1411,7 @@ button:disabled {
 .spinner:after {
   width: 10.4px;
   height: 10.2px;
-  background: #1e3a44;
+  background: #fff  ;
   border-radius: 0 10.2px 10.2px 0;
   top: -0.1px;
   left: 10.2px;
@@ -1446,6 +1447,8 @@ button:disabled {
   }
 }
 .modal-content {
+  color: #fff;
+  background-color: #0D1E24;
   margin: 0 auto;
   min-width: fit-content;
   left: 50%;
@@ -1817,7 +1820,7 @@ body
   border-radius: 5px;
 }
 .ticket-option:hover {
-  border-color: #1e3a44;
+  border-color: #fff;
 }
 .ticket-option .ticket-content {
   display: flex;
@@ -1825,18 +1828,20 @@ body
   align-items: center;
 }
 .ticket-text {
+  color: #fff;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 .ticket-price {
   font-size: 16px;
-  color: #666;
+  color: #fff;
 }
 #registro-section {
   padding: 20px;
 }
 #registro-section h3 {
+  color: #fff;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -1846,19 +1851,24 @@ body
   gap: 15px;
 }
 #registroForm .form-label {
+  color: #fff;
   font-weight: 700;
   text-align: start;
   font-size: 1rem;
 }
 #pago-section #submit-payment,
 #registroForm #submit {
+  background-color: #fff;
   display: flex;
-  color: #fff;
+  color: #1e3a44;
   border: none;
   padding: 10px 20px;
   transition: background-color 0.3s;
   cursor: pointer;
 }
+
+
+
 #registroForm .radio {
   display: flex;
   align-items: center;
@@ -1899,12 +1909,14 @@ body
   color: red;
 }
 #pago-section {
+  background-color: #0D1E24;
   margin-top: 40px;
   padding: 20px;
   border-radius: 5px;
 }
 #pago-section .modal-header {
   align-items: center;
+  color: #fff;
 }
 #pago-section .modal-title {
   font-size: 1.25rem;
@@ -1913,6 +1925,7 @@ body
 }
 #pago-section #payment-element,
 #pago-section .modal-body {
+  color: #fff;
   margin-top: 20px;
 }
 #pago-section .ticket-option input {
@@ -1924,10 +1937,21 @@ body
   width: 100%;
 }
 #pago-section #submit-payment {
+  border-color: #fff;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   margin-top: 20px;
+}
+
+#submit-payment{
+  border-color: #fff;
+}
+
+#pago-section #submit-payment:hover {
+  background-color: transparent;
+  color: #fff;
+  border: #fff;
 }
 .slider,
 .slider-container {
@@ -2093,13 +2117,14 @@ body
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #0D1E24;
   overflow-y: auto;
   transform: translateY(-100%);
   transition: transform 1s ease-in-out;
   opacity: 0;
 }
 #success-section {
+  color: #fff;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -2162,18 +2187,18 @@ body
   position: absolute;
   top: 10px;
   font-size: 24px;
-  border-color: #000;
+  border-color: #fff;
   background: none;
-  color: #000;
+  color: #fff;
 }
 
 .ticket-option.selected {
-  background-color: #1e3a44;
+  background-color: #fff;
 }
 
 .ticket-option.selected .ticket-text,
 .ticket-option.selected .ticket-price {
-  color: #fff;
+  color: #1e3a44;
 }
 
 @media (max-width: 550px) {
@@ -2506,4 +2531,23 @@ body
   width: 150px;
   /* object-fit: contain;
   border-radius: 10px; */
+}
+
+.boton{
+  border: 2px solid black;
+  background-color: white;
+  color: #1e3a44;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pago{
+  border-color: #fff;
+  color: #1e3a44;
+}
+
+.pago:hover{
+  background-color: transparent;
+  color: #fff;
 }
