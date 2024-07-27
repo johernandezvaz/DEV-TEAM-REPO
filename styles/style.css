@@ -2480,7 +2480,7 @@ body
 
 .slider-patrocinadores__wrapper {
   display: flex;
-  gap: 100px;
+  gap: 150px;
   width: calc(100% * 10); /* elementos duplicados */
   animation: scroll 80s linear infinite;
 }
@@ -2504,6 +2504,6 @@ body
 .slider-patrocinadores__slide img {
   vertical-align: center;
   width: 150px;
-  object-fit: contain;
-  border-radius: 10px;
+  /* object-fit: contain;
+  border-radius: 10px; */
 }

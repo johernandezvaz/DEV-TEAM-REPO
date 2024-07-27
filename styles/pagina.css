@@ -710,7 +710,7 @@ body
   grid-column-gap: 0.75rem;
   grid-row-gap: 0;
   grid-template-rows: auto;
-  grid-template-columns: max-content;
+  grid-template-columns: max-tent;
   grid-auto-columns: max-content;
   align-items: start;
   justify-items: start;
