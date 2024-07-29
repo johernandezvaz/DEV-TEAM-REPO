@@ -2562,3 +2562,50 @@ body
   background-color: transparent;
   color: #fff;
 }
+
+.header {
+  background-color: #f8f9fa;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-toggler {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.navbar-collapse {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 2s ease-in-out;
+}
+
+.navbar-collapse.show {
+  max-height: 1000px; /* Asegúrate de que sea suficiente para mostrar todo el contenido */
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin: 10px 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.25em;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.botonHeader {
+  margin-left: 20px;
+}
