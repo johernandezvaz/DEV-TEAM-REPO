@@ -1482,40 +1482,40 @@ button:disabled {
   .header {
     background-color: #f8f9fa;
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .navbar-toggler {
     background: none;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
   }
-  
+
   .navbar-collapse.show {
     transition: max-height 2s ease-in-out;
   }
-  
+
   .navbar-nav {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
+
   .nav-item {
     margin: 10px 0;
   }
-  
+
   .nav-link {
     text-decoration: none;
     color: #000;
     font-size: 1.25em;
   }
-  
+
   .nav-link:hover {
     text-decoration: underline;
   }
-  
+
   .botonHeader {
     margin-left: 20px;
   }
@@ -2587,6 +2587,17 @@ body
 
   /* object-fit: contain;
   border-radius: 10px; */
+}
+
+@media (max-width: 768px) {
+  .slider-patrocinadores__slide img {
+    min-width: 100px;
+    max-width: 150px;
+    width: 100px;
+
+    /* object-fit: contain;
+    border-radius: 10px; */
+  }
 }
 
 .boton {
