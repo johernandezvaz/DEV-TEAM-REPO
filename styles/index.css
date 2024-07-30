@@ -2216,6 +2216,8 @@ body
 }
 
 .error-popover {
+  display: flex;
+  justify-content: center;
   align-items: center;
   background-color: red;
   color: white;
@@ -2225,12 +2227,61 @@ body
   border-radius: 4px;
   font-size: 20px;
   z-index: 1000;
+  animation: fadeIn 3s forwards, fadeOut 3s forwards 6s;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) and(max-width: 1030px){
   .error-popover {
-      width: 26%;
-      padding: 4px 100px;
+    width: 48%;
+    padding: 4px 100px;
+  }
+}
+
+
+@media (min-width: 756px) and (max-width: 1024px) {
+  .error-popover {
+    width: 43%;
+    padding: 4px 100px;
+  }
+}
+
+
+@media (min-width: 756px) and (max-width: 1024px) {
+  .error-popover {
+    width: 68%;
+    padding: 4px 100px;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 755px) {
+  .error-popover {
+    width: 70%;
+    padding: 4px 100px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 680px) {
+  .error-popover {
+    width: 76%;
+    padding: 4px 100px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
