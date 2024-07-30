@@ -1464,7 +1464,7 @@ button:disabled {
     left: 0;
     width: 50%;
     transform: translateY(20%) translateX(-40%);
-    transition: transform 3s ease-in-out;
+    transition: transform 1s ease-in-out;
   }
   .navbar-toggler-icon {
     float: none;
