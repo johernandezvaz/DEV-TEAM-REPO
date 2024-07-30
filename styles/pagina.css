@@ -1475,7 +1475,7 @@ button:disabled {
   .navbar-collapse {
     overflow: hidden;
     max-height: 0;
-    transition: max-height 2s ease-in-out;
+    transition: max-height 1s ease-in-out;
     padding-bottom: 20px;
   }
 
@@ -1493,7 +1493,7 @@ button:disabled {
   }
 
   .navbar-collapse.show {
-    transition: max-height 2s ease-in-out;
+    transition: max-height 1s ease-in-out;
   }
 
   .navbar-nav {
