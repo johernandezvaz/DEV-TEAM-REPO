@@ -2726,38 +2726,153 @@ body
 .evento-carteles a:hover {
     text-decoration: underline;
 }
-
-.popup {
+/* Popup */
+.popop {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.25);
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
     overflow-y: auto; /* Para que el contenido sea desplazable */
 }
 
-.popup-content {
+.popop-content {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 24px 32px 51px;
+    border-radius: 16px;
     width: 80%;
-    max-width: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
     position: relative;
     overflow-y: auto;
-    max-height: 80vh; /* Limita la altura máxima del contenido y permite el desplazamiento */
+    max-height: 90vh; /* Limita la altura máxima del contenido y permite el desplazamiento */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .popop-content {
+        width: 90%;
+    }
 }
 
 .close {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 16px;
+    right: 32px;
     font-size: 1.5em;
     cursor: pointer;
     color: #000;
+}
+
+/* Clase para deshabilitar el desplazamiento en la página principal */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Header del Popup */
+.popop-header {
+    padding: 16px 32px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Título del Popup */
+.popop-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+/* Cuerpo del Popup */
+.popop-body {
+    padding: 24px 32px 51px;
+    overflow-y: auto;
+}
+
+/* Footer del Popup */
+.popop-footer {
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #ddd;
+    gap: 12px;
+    position: relative;
+}
+
+.popop-footer:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -51px;
+    left: 24px;
+    right: 24px;
+    height: 50px;
+    flex-shrink: 0;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.75), transparent);
+    pointer-events: none;
+}
+
+/* Botón */
+/* .button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.15s ease;
+} */
+
+.button.is-ghost:hover,
+.button.is-ghost:focus {
+    background-color: #dfdad7;
+}
+
+.button.is-primary {
+    background-color: #1E3A44;
+    color: #fff;
+}
+
+.button.is-primary:hover,
+.button.is-primary:focus {
+    background-color: #4d869c;
+}
+
+/* Botón de ícono */
+.icon-button {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.15s ease;
+}
+
+.icon-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-button:hover,
+.icon-button:focus {
+    background-color: #dfdad7;
 }
