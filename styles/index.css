@@ -2871,8 +2871,16 @@ body
     width: 24px;
     height: 24px;
 }
+.presentacion-font {
+  font-weight: 600;
+}
 
 .icon-button:hover,
 .icon-button:focus {
     background-color: #dfdad7;
+}
+
+.grid-presentacion {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
