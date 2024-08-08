@@ -30,13 +30,13 @@ app.post("/create-payment-intent", async (req, res) => {
   // Asignar el monto basado en el tipo de boleto
   switch (ticketType) {
     case "general":
-      amount = 2000;
+      amount = 20;
       break;
     case "instituto":
-      amount = 1500;
+      amount = 15;
       break;
     case "estudiante":
-      amount = 1000;
+      amount = 10;
       break;
     default:
       return res.status(400).send({ error: "Invalid ticket type" });
@@ -44,7 +44,7 @@ app.post("/create-payment-intent", async (req, res) => {
 
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount * 10,  // Stripe maneja los montos en centavos
+      amount: amount,  // Stripe maneja los montos en centavos
       currency: "mxn",
       payment_method_types: ['card'],
     });
