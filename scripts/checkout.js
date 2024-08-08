@@ -190,7 +190,7 @@ async function handleSuccessfulPayment(config) {
     const participanteId = data.id;
 
     if (ticketType === 'estudiante') {
-        const participacionCarteles = document.querySelector('input[name="cartes-participation"]:checked')?.value;
+        const participacionCarteles = document.querySelector('input[name="asistencia_cartes"]:checked')?.value;
 
         const { error: estudianteError } = await sb
             .from('tabla_estudiantes')
