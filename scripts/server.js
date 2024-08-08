@@ -44,7 +44,7 @@ app.post("/create-payment-intent", async (req, res) => {
 
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount,  // Stripe maneja los montos en centavos
+      amount: amount * 10,  // Stripe maneja los montos en centavos
       currency: "mxn",
       payment_method_types: ['card'],
     });
