@@ -216,7 +216,7 @@
                                         consiste, puede consultar el <a class="" href="#agenda"
                                             style="color: #fff;">Itinerario.</a></p>
                                     <label class="radio mt-2" style="color: #fff;">
-                                        <input name="asistencia_rompehielos" type="radio" value="si" checked>
+                                        <input name="asistencia_rompehielos" type="radio" value="si" >
                                         <span class="fs-6">Si</span>
                                     </label>
                                     <label class="radio" style="color: #fff;">
@@ -252,6 +252,19 @@
                                         </div>
                                     </label>
                                 </div>
+                                 <!-- Opción de participación en evento de cartes -->
+                                 <div id="cartes-event" style="display: none;">
+                                     <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su participación en el evento de cartes?
+                                    </p>
+                                    <label class="radio mt-2" style="color: #fff;">
+                                        <input name="asistencia_cartes" type="radio" value="si">
+                                        <span class="fs-6">Si</span>
+                                    </label>
+                                    <label class="radio" style="color: #fff;">
+                                        <input name="asistencia_cartes" type="radio" value="no">
+                                        <span class="fs-6">No</span>
+                                    </label>
+                                </div>
                                 <div class="row justify-content-center mt-4">
                                     <div class="col-md-8">
                                         <button class="boton pago" type="submit">
@@ -265,6 +278,23 @@
 
                         </form>
                     </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const ticketOptions = document.querySelectorAll('input[name="ticket-type"]');
+                            const cartesEventDiv = document.getElementById('cartes-event');
+                            
+                            ticketOptions.forEach(option => {
+                                option.addEventListener('click', function () {
+                                    if (this.value === 'estudiante') {
+                                        cartesEventDiv.style.display = 'block';
+                                    } else {
+                                        cartesEventDiv.style.display = 'none';
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                    
                 </section>
 
                 <section id="pago-section" class="section hidden">

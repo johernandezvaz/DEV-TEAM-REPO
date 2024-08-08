@@ -178,7 +178,7 @@ async function handleSuccessfulPayment(config) {
 
     const { data, error } = await sb
         .from('participantes')
-        .insert([{ nombre, apellido, email: correo, telefono, asistencia_rompehielos: asistira }])
+        .insert([{ nombre, apellido, email: correo, telefono, asistencia_rompehielos: asistira, tipo_boleto: ticketType }])
         .select('id')
         .single();
 
@@ -188,6 +188,20 @@ async function handleSuccessfulPayment(config) {
     }
 
     const participanteId = data.id;
+
+    if (ticketType === 'estudiante') {
+        const participacionCarteles = document.querySelector('input[name="cartes-participation"]:checked')?.value;
+
+        const { error: estudianteError } = await sb
+            .from('tabla_estudiantes')
+            .insert([{ id_usuario: participanteId, participacion_carteles: participacionCarteles }]);
+
+        if (estudianteError) {
+            alert('Error al guardar los datos en la tabla de estudiantes.');
+            return;
+        }
+    }
+
     const { error: ingresoErrorDiaUno } = await sb
         .from('ingreso_participantes_dia_uno')
         .insert([{ id_participante: participanteId, ingreso: false }]);
