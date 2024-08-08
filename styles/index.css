@@ -2718,13 +2718,18 @@ body
 }
 
 .evento-carteles a {
-    color: #4d869c;
+    font-size: 18px;
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
     text-decoration: none;
     font-weight: bold;
 }
 
 .evento-carteles a:hover {
-    text-decoration: underline;
+    color: white;
+    background-color: #4d879c;
 }
 /* Popup */
 .popop {
