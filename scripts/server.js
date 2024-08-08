@@ -30,13 +30,13 @@ app.post("/create-payment-intent", async (req, res) => {
   // Asignar el monto basado en el tipo de boleto
   switch (ticketType) {
     case "general":
-      amount = 20;
+      amount = 2000;
       break;
     case "instituto":
-      amount = 15;
+      amount = 1500;
       break;
     case "estudiante":
-      amount = 10;
+      amount = 1000;
       break;
     default:
       return res.status(400).send({ error: "Invalid ticket type" });
