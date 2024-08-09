@@ -227,39 +227,103 @@ async function handleSuccessfulPayment(config) {
         const qrCanvasDiaDos = document.createElement('canvas');
         await QRCode.toCanvas(qrCanvasDiaDos, qrDataDiaDos, { scale: 3 });
         
+        // Registrar fontkit
+        if (!window.fontkit) {
+            console.error('Fontkit no se cargó correctamente.');
+            return;
+        }
         const pdfDoc = await PDFLib.PDFDocument.create();
+        
+        pdfDoc.registerFontkit(window.fontkit);
+        
+        // Cargar y embeber las fuentes ClashDisplay-Regular, ClashDisplay-Semibold y ClashDisplay-Medium
+        const fontUrl = '../assets/fonts/ClashDisplay-Regular.otf';
+        const semiboldFontUrl = '../assets/fonts/ClashDisplay-Semibold.otf';
+        const mediumFontUrl = '../assets/fonts/ClashDisplay-Medium.otf';
+        
+        const [fontBytes, semiboldFontBytes, mediumFontBytes] = await Promise.all([
+            fetch(fontUrl).then(res => res.arrayBuffer()),
+            fetch(semiboldFontUrl).then(res => res.arrayBuffer()),
+            fetch(mediumFontUrl).then(res => res.arrayBuffer())
+        ]);
+        
+        const clashDisplayFont = await pdfDoc.embedFont(fontBytes);
+        const clashDisplaySemiboldFont = await pdfDoc.embedFont(semiboldFontBytes);
+        const clashDisplayMediumFont = await pdfDoc.embedFont(mediumFontBytes);
 
-        // Cargar y embeber la imagen del logo
-        const logoUrl = '../assets/logos.png';
-        const logoImageBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
-        const logoImage = await pdfDoc.embedPng(logoImageBytes);
-        const logoDims = logoImage.scale(0.5);
         
         // Función para dibujar el contenido común en ambas páginas
         const drawCommonContent = (page, day) => {
-            // Dibujar marcador de "LOGO" en la parte superior
-            page.drawText("CODEC", {
-                x: 20,
-                y: page.getHeight() - 50, // Ajusta la posición según sea necesario
-                size: 25
+            const { width, height } = page.getSize();
+            
+            // Fondo blanco
+            page.drawRectangle({
+                x: 0,
+                y: 0,
+                width: width,
+                height: height,
+                color: rgb(1, 1, 1),
             });
             
-            // Dibujar el logo en la parte inferior
-            page.drawImage(logoImage, {
-                x: 20,
-                y: 20, // Ajusta la posición según sea necesario
-                width: logoDims.width,
-                height: logoDims.height,
+            // Texto superior "CODEC"
+            page.drawText('CODEC', {
+                x: 150,
+                y: height - 80,
+                size: 50,
+                font: clashDisplaySemiboldFont,
+                color: rgb(0, 0, 0),
             });
             
-            // Dibujar los datos del boleto
-            page.drawText(`Día: ${day}`, { x: 50, y: page.getHeight() - 100, size: 25 });
-            page.drawText(`Nombre: ${nombre}`, { x: 50, y: page.getHeight() - 130, size: 25 });
-            page.drawText(`Apellido: ${apellido}`, { x: 50, y: page.getHeight() - 160, size: 25 });
-            page.drawText(`Correo: ${correo}`, { x: 50, y: page.getHeight() - 190, size: 25 });
-            page.drawText(`Teléfono: ${telefono}`, { x: 50, y: page.getHeight() - 220, size: 25 });
-            page.drawText(`Evento Rompe Hielos: ${asistira}`, { x: 50, y: page.getHeight() - 250, size: 25 });
-            page.drawText(`Tipo de Boleto: ${ticketType}`, { x: 50, y: page.getHeight() - 280, size: 25 });
+            // Texto indicando el día debajo de "CODEC"
+            page.drawText(`Día: ${day}`, {
+                x: 60,
+                y: height - 200,
+                size: 25,
+                font: clashDisplayMediumFontFont,
+                color: rgb(0, 0, 0),
+            });
+            
+            // Línea divisoria
+            page.drawLine({
+                start: { x: width / 2, y: height - 40 },
+                end: { x: width / 2, y: 40 },
+                thickness: 2,
+                color: rgb(0, 0, 0),
+            });
+            
+            // Datos del usuario alineados justo a la derecha de cada label
+            const userInfo = [
+                { label: 'Nombre:', value: `${nombre}` },
+                { label: 'Apellido:', value: `${apellido}` },
+                { label: 'Correo:', value: `${correo}` },
+                { label: 'Teléfono:', value: `${telefono}` },
+                { label: 'Tipo de Boleto:', value: `${ticketType}` },
+                { label: 'Evento Rompe Hielos:', value: `${asistira}` },
+            ];
+            
+            const labelX = 60; // Posición X para los labels
+            
+            userInfo.forEach((info, index) => {
+                const yPosition = height - 240 - (index * 40);
+                const textWidth = clashDisplayMediumFont.widthOfTextAtSize(info.label, 20); // Ancho del label
+                const valueX = labelX + textWidth + 10; // Posición X para los valores justo a la derecha del label
+                
+                page.drawText(`${info.label}`, {
+                    x: labelX,
+                    y: yPosition,
+                    size: 20,
+                    font: clashDisplayMediumFont,
+                    color: rgb(0, 0, 0),
+                });
+                
+                page.drawText(`${info.value}`, {
+                    x: valueX,
+                    y: yPosition,
+                    size: 20,
+                    font: clashDisplayFont,
+                    color: rgb(0, 0, 0),
+                });
+            });
         };
         
         // Página para el Día Uno
@@ -267,10 +331,10 @@ async function handleSuccessfulPayment(config) {
         drawCommonContent(pageDiaUno, 'Uno');
         
         const qrImageDiaUno = await pdfDoc.embedPng(qrCanvasDiaUno.toDataURL('image/png'));
-        const qrSize = 250;
+        const qrSize = 300;
         pageDiaUno.drawImage(qrImageDiaUno, {
-            x: (pageDiaUno.getWidth() - qrSize) - 50,
-            y: pageDiaUno.getHeight() - 310, // Ajusta la posición según sea necesario
+            x: (pageDiaUno.getWidth() - qrSize) - 60,
+            y: (pageDiaUno.getHeight() - qrSize) / 2,
             width: qrSize,
             height: qrSize,
         });
@@ -281,14 +345,15 @@ async function handleSuccessfulPayment(config) {
         
         const qrImageDiaDos = await pdfDoc.embedPng(qrCanvasDiaDos.toDataURL('image/png'));
         pageDiaDos.drawImage(qrImageDiaDos, {
-            x: (pageDiaDos.getWidth() - qrSize) - 50,
-            y: pageDiaDos.getHeight() - 310, // Ajusta la posición según sea necesario
+            x: (pageDiaDos.getWidth() - qrSize) - 60,
+            y: (pageDiaDos.getHeight() - qrSize) / 2,
             width: qrSize,
             height: qrSize,
         });
         
         const pdfBytes = await pdfDoc.save();
         const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+
 
         if (pdfBlob.size > 5000000) {
             alert('El PDF generado es demasiado grande para ser enviado por correo.');
