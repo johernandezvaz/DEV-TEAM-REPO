@@ -45,59 +45,47 @@
     </style>
 
     <style>
-        .radio {
-            display: block;
+        /* Estilo para los radio buttons */
+        input[type="radio"] {
+            appearance: none;
+            /* Remueve el estilo por defecto del radio button */
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            /* Borde blanco */
+            border-radius: 50%;
+            /* Hacerlo circular */
+            background-color: transparent;
+            /* Fondo transparente cuando no está seleccionado */
+            outline: none;
             cursor: pointer;
-            user-select: none;
-            text-align: left;
+            position: relative;
+        }
 
-            &+.radio {
-                margin-top: 12px;
-            }
+        input[type="radio"]:checked {
+            background-color: #fff;
+            /* Fondo blanco cuando está seleccionado */
+        }
 
-            input {
-                display: none;
+        input[type="radio"]:before {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 50%;
+            background-color: #fff;
+            /* Color del círculo interno cuando está seleccionado */
+            border-radius: 50%;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            opacity: 0;
+            /* Ocultar círculo cuando no está seleccionado */
+            transition: opacity 0.2s ease-in-out;
+        }
 
-                &+span {
-                    display: inline-block;
-                    position: relative;
-                    padding-left: 30px;
-                    content: '';
-
-                    &:before {
-                        display: block;
-                        position: absolute;
-                        top: 0px;
-                        left: 0px;
-                        border-radius: 50%;
-                        margin-right: 5px;
-                        width: 16px;
-                        height: 16px;
-                        border: 1px solid #ccc;
-                        background: #fff;
-                    }
-
-                    &:after {
-                        content: '';
-                        display: block;
-                        width: 10px;
-                        height: 10px;
-                        background: #fff;
-                        position: absolute;
-                        border-radius: 50%;
-                        top: 3px;
-                        left: 3px;
-                        opacity: 0;
-                        transform: scale(0, 0);
-                        transition: all .2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
-                    }
-                }
-
-                &:checked+span:after {
-                    opacity: 1;
-                    transform: scale(1, 1);
-                }
-            }
+        input[type="radio"]:checked:before {
+            opacity: 1;
+            /* Mostrar círculo cuando está seleccionado */
         }
 
         /* END CHECKBOX STYLE */
@@ -216,7 +204,7 @@
                                         consiste, puede consultar el <a class="" href="#agenda"
                                             style="color: #fff;">Itinerario.</a></p>
                                     <label class="radio mt-2" style="color: #fff;">
-                                        <input name="asistencia_rompehielos" type="radio" value="si" >
+                                        <input name="asistencia_rompehielos" type="radio" value="si">
                                         <span class="fs-6">Si</span>
                                     </label>
                                     <label class="radio" style="color: #fff;">
@@ -252,9 +240,10 @@
                                         </div>
                                     </label>
                                 </div>
-                                 <!-- Opción de participación en evento de cartes -->
-                                 <div id="cartes-event" style="display: none;">
-                                     <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su participación en el evento de carteless?
+                                <!-- Opción de participación en evento de cartes -->
+                                <div id="cartes-event" style="display: none;">
+                                    <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su participación en el
+                                        evento de carteless?
                                     </p>
                                     <label class="radio mt-2" style="color: #fff;">
                                         <input name="asistencia_cartes" type="radio" value="si">
@@ -267,7 +256,7 @@
                                 </div>
                                 <div class="row justify-content-center mt-4">
                                     <div class="col-md-8">
-                                        <button class="boton pago" type="submit">
+                                        <button disabled class="boton pago" type="submit">
                                             <div class="spinner hidden" id="spinner"></div>
                                             <span id="button-text">Pagar</span>
                                         </button>
@@ -282,8 +271,8 @@
                         document.addEventListener('DOMContentLoaded', function () {
                             const ticketOptions = document.querySelectorAll('input[name="ticket-type"]');
                             const cartesEventDiv = document.getElementById('cartes-event');
-                 
-                            
+
+
                             ticketOptions.forEach(option => {
                                 option.addEventListener('click', function () {
                                     if (this.value === 'estudiante') {
@@ -295,7 +284,7 @@
                             });
                         });
                     </script>
-                    
+
                 </section>
 
                 <section id="pago-section" class="section hidden">
@@ -1583,7 +1572,7 @@
                     <p class="m-0">Invitamos a todos los estudiantes a participar en nuestro emocionante evento de
                         carteles. </p>
                     <p class="pb-3">Este es tu momento para mostrar tu creatividad y talento.</p>
-                    <a href="" id="openPopop">Conoce las bases para participar</a>
+                    <a class="btn btn-white" href="" id="openPopop">Conoce las bases para participar</a>
                 </div>
 
                 <div id="popop" class="popop">
