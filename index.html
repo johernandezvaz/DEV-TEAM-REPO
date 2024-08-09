@@ -171,6 +171,7 @@
                     <h3>Registro de Usuario</h3>
                     <div class="row justify-content-center">
                         <form id="registroForm" class="col-md-8">
+
                             <div class="contenedor-inputs">
                                 <div>
                                     <label for="nombre"
@@ -287,10 +288,17 @@
 
                 </section>
 
+                <!-- Sección de Pago -->
                 <section id="pago-section" class="section hidden">
                     <div class="modal-content" style="min-width: fit-content;">
                         <div class="modal-header">
                             <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
+                        </div>
+                        <!-- Botón para volver atrás -->
+                        <div class="d-flex justify-content-start mb-3">
+                            <button type="button" class="btn btn-link" id="volverBtn">
+                                &larr; Volver
+                            </button>
                         </div>
                         <div class="modal-body">
                             <form id="payment-form">
@@ -306,6 +314,29 @@
                         </div>
                     </div>
                 </section>
+
+                <script>
+                    // Cuando el formulario de registro se envía, muestra la sección de pago
+                    document.getElementById('registroForm').addEventListener('submit', function (event) {
+                        event.preventDefault(); // Evita el envío automático del formulario
+                        document.getElementById('registro-section').classList.add('hidden');
+                        document.getElementById('pago-section').classList.remove('hidden');
+                    });
+
+                    // Volver al formulario de registro desde la sección de pago
+                    document.getElementById('volverBtn').addEventListener('click', function () {
+                        document.getElementById('pago-section').classList.add('hidden');
+                        document.getElementById('registro-section').classList.remove('hidden');
+                    });
+                </script>
+
+                <style>
+                    .hidden {
+                        display: none;
+                    }
+                </style>
+
+
                 <section id="success-section" class="section hidden">
                     <h3>Tu pago ha sido procesado de manera exitosa</h3>
                     <p>Revisa tu correo para más información relacionada al evento. ¡Esperamos verte pronto!</p>
@@ -1586,7 +1617,7 @@
                             <p>Congreso Dental Chihuahuense invita a los estudiantes de Odontología de licenciatura y
                                 posgrado a participar en el Concurso de Carteles a celebrarse en los días 3 y 4 de
                                 Octubre 2024, durante el evento CODEC.</p>
-                            <h3 class="pt-4 pb-2">REQUISITOS:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">REQUISITOS:</h3>
 
                             <ul>
                                 <li>
@@ -1658,7 +1689,7 @@
                                 </li>
                             </ul>
 
-                            <h3 class="pt-4 pb-2">INSCRIPCIÓN:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">INSCRIPCIÓN:</h3>
 
                             <ul>
                                 <li>
@@ -1682,7 +1713,7 @@
                                         resolución o a buena resolución en menor tamaño. </p>
                                 </li>
                             </ul>
-                            <h3 class="pt-4 pb-2">FORMATO Y PRESENTACIÓN:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">FORMATO Y PRESENTACIÓN:</h3>
                             <ul>
                                 <li>
                                     <p>
@@ -1840,7 +1871,7 @@
                                 </li>
 
                             </ul>
-                            <h3 class="pt-4 pb-2">EXPOSICIÓN DE CARTELES:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">EXPOSICIÓN DE CARTELES:</h3>
                             <ul>
                                 <li>
                                     <p>Los carteles participantes se colocarán desde el día 3 de Octubre hasta el día 4
@@ -1864,7 +1895,7 @@
                                 </li>
 
                             </ul>
-                            <h3 class="pt-4 pb-2">CONCURSO:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">CONCURSO:</h3>
 
                             <ul>
                                 <li>
@@ -1898,7 +1929,7 @@
                                 </li>
 
                             </ul>
-                            <h3 class="pt-4 pb-2">GANADORES:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">GANADORES:</h3>
                             <p>Se premiarán los tres finalistas de las dos diferentes categorías, el resultado se dará a
                                 conocer durante la clausura del evento el día 4 de octubre.</p>
                         </div>
