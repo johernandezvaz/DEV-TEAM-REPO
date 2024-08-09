@@ -1372,6 +1372,7 @@ button {
 }
 
 #volverBtn {
+  text-align: start !important;
   color: white !important;
 }
 .inside-circle,
