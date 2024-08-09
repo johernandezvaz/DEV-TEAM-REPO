@@ -633,9 +633,6 @@ body
   justify-content: center;
 } */
 
-
-
-
 @media (max-width: 530px) {
   .text-bio {
     font-size: 0.8rem;
@@ -1346,9 +1343,6 @@ form {
 form {
   width: 20vw;
   min-width: 500px;
-  box-shadow: 0 0 0 0.5px rgba(81, 81, 82, 0.1),
-    0 2px 5px 0 rgba(50, 50, 93, 0.1), 0 1px 1.5px 0 rgba(0, 0, 0, 0.07);
-  border-radius: 7px;
   padding: 10px;
 }
 #payment-message {
@@ -1375,6 +1369,11 @@ button {
   transition: 0.2s;
   box-shadow: 0 4px 5.5px 0 rgba(0, 0, 0, 0.07);
   width: 100%;
+}
+
+#volverBtn {
+  text-align: start !important;
+  color: white !important;
 }
 .inside-circle,
 .spinner,
@@ -2230,13 +2229,12 @@ body
   animation: fadeIn 3s forwards, fadeOut 3s forwards 6s;
 }
 
-@media (min-width: 1025px) and(max-width: 1030px){
+@media (min-width: 1025px) and(max-width: 1030px) {
   .error-popover {
     width: 48%;
     padding: 4px 100px;
   }
 }
-
 
 @media (min-width: 756px) and (max-width: 1024px) {
   .error-popover {
@@ -2244,7 +2242,6 @@ body
     padding: 4px 100px;
   }
 }
-
 
 @media (min-width: 756px) and (max-width: 1024px) {
   .error-popover {
@@ -2284,7 +2281,6 @@ body
     opacity: 0;
   }
 }
-
 
 .pagos.active {
   visibility: visible;
@@ -2693,141 +2689,144 @@ body
   color: #fff;
 }
 
-
 .evento-carteles {
-    width: 80%;
-    background-color: #1E3A44;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(1, 1, 1, 0.1);
-    margin: 20px auto;
-    border-radius: 10px;
+  width: 80%;
+  background-color: #1e3a44;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(1, 1, 1, 0.1);
+  margin: 20px auto;
+  border-radius: 10px;
 }
 
 .evento-carteles h1 {
-    color: #fff;
-    margin-top: 20px;
-    font-size: 2em;
-    margin-bottom: 10px;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 .evento-carteles p {
-    color: #fff;
-    font-size: 1em;
-    margin-bottom: 20px;
+  color: #fff;
+  font-size: 1em;
+  margin-bottom: 20px;
 }
 
 .evento-carteles a {
-    font-size: 18px;
-    color: black;
-    background-color: white;
-    border-radius: 20px;
-    padding: 10px;
-    text-decoration: none;
-    font-weight: bold;
+  font-size: 18px;
+  color: black;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .evento-carteles a:hover {
-    color: white;
-    background-color: #4d879c;
+  color: white;
+  background-color: #4d879c;
 }
 /* Popup */
 .popop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-    overflow-y: auto; /* Para que el contenido sea desplazable */
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  overflow-y: auto; /* Para que el contenido sea desplazable */
 }
 
 .popop-content {
-    background-color: #fff;
-    padding: 32px 32px 0 32px;
-    border-radius: 16px;
-    width: 80%;
-    max-width: 800px;
-    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
-    position: relative;
-    overflow-y: auto;
-    max-height: 90vh; /* Limita la altura máxima del contenido y permite el desplazamiento */
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+  background-color: #fff;
+  padding: 32px 32px 0 32px;
+  border-radius: 16px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh; /* Limita la altura máxima del contenido y permite el desplazamiento */
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 @media (max-width: 600px) {
-    .popop-content {
-        width: 90%;
-    }
+  .popop-content {
+    width: 90%;
+  }
 }
 
 .close {
-    position: absolute;
-    top: 16px;
-    right: 32px;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #000;
+  position: absolute;
+  top: 16px;
+  right: 32px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #000;
 }
 
 /* Clase para deshabilitar el desplazamiento en la página principal */
 .no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* Header del Popup */
 .popop-header {
-    padding: 16px 32px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 16px 32px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Título del Popup */
 .popop-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    line-height: 1;
-    font-weight: 700;
-    font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  font-weight: 700;
+  font-size: 1.125rem;
 }
 
 /* Cuerpo del Popup */
 .popop-body {
-    padding: 24px 32px 51px;
-    overflow-y: auto;
+  padding: 24px 32px 51px;
+  overflow-y: auto;
 }
 
 /* Footer del Popup */
 .popop-footer {
-    padding: 20px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid #ddd;
-    gap: 12px;
-    position: relative;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+  gap: 12px;
+  position: relative;
 }
 
 .popop-footer:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -51px;
-    left: 24px;
-    right: 24px;
-    height: 50px;
-    flex-shrink: 0;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.75), transparent);
-    pointer-events: none;
+  content: "";
+  display: block;
+  position: absolute;
+  top: -51px;
+  left: 24px;
+  right: 24px;
+  height: 50px;
+  flex-shrink: 0;
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.75),
+    transparent
+  );
+  pointer-events: none;
 }
 
 /* Botón */
@@ -2843,38 +2842,38 @@ body
 
 .button.is-ghost:hover,
 .button.is-ghost:focus {
-    background-color: #dfdad7;
+  background-color: #dfdad7;
 }
 
 .button.is-primary {
-    background-color: #1E3A44;
-    color: #fff;
+  background-color: #1e3a44;
+  color: #fff;
 }
 
 .button.is-primary:hover,
 .button.is-primary:focus {
-    background-color: #4d869c;
+  background-color: #4d869c;
 }
 
 /* Botón de ícono */
 .icon-button {
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.15s ease;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.15s ease;
 }
 
 .icon-button svg {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 .presentacion-font {
   font-weight: 600;
@@ -2882,10 +2881,14 @@ body
 
 .icon-button:hover,
 .icon-button:focus {
-    background-color: #dfdad7;
+  background-color: #dfdad7;
 }
 
 .grid-presentacion {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.alerta-form {
+  color: white;
 }

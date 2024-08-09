@@ -45,59 +45,47 @@
     </style>
 
     <style>
-        .radio {
-            display: block;
+        /* Estilo para los radio buttons */
+        input[type="radio"] {
+            appearance: none;
+            /* Remueve el estilo por defecto del radio button */
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            /* Borde blanco */
+            border-radius: 50%;
+            /* Hacerlo circular */
+            background-color: transparent;
+            /* Fondo transparente cuando no está seleccionado */
+            outline: none;
             cursor: pointer;
-            user-select: none;
-            text-align: left;
+            position: relative;
+        }
 
-            &+.radio {
-                margin-top: 12px;
-            }
+        input[type="radio"]:checked {
+            background-color: #fff;
+            /* Fondo blanco cuando está seleccionado */
+        }
 
-            input {
-                display: none;
+        input[type="radio"]:before {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 50%;
+            background-color: #fff;
+            /* Color del círculo interno cuando está seleccionado */
+            border-radius: 50%;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            opacity: 0;
+            /* Ocultar círculo cuando no está seleccionado */
+            transition: opacity 0.2s ease-in-out;
+        }
 
-                &+span {
-                    display: inline-block;
-                    position: relative;
-                    padding-left: 30px;
-                    content: '';
-
-                    &:before {
-                        display: block;
-                        position: absolute;
-                        top: 0px;
-                        left: 0px;
-                        border-radius: 50%;
-                        margin-right: 5px;
-                        width: 16px;
-                        height: 16px;
-                        border: 1px solid #ccc;
-                        background: #fff;
-                    }
-
-                    &:after {
-                        content: '';
-                        display: block;
-                        width: 10px;
-                        height: 10px;
-                        background: #fff;
-                        position: absolute;
-                        border-radius: 50%;
-                        top: 3px;
-                        left: 3px;
-                        opacity: 0;
-                        transform: scale(0, 0);
-                        transition: all .2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
-                    }
-                }
-
-                &:checked+span:after {
-                    opacity: 1;
-                    transform: scale(1, 1);
-                }
-            }
+        input[type="radio"]:checked:before {
+            opacity: 1;
+            /* Mostrar círculo cuando está seleccionado */
         }
 
         /* END CHECKBOX STYLE */
@@ -183,6 +171,7 @@
                     <h3>Registro de Usuario</h3>
                     <div class="row justify-content-center">
                         <form id="registroForm" class="col-md-8">
+
                             <div class="contenedor-inputs">
                                 <div>
                                     <label for="nombre"
@@ -216,7 +205,7 @@
                                         consiste, puede consultar el <a class="" href="#agenda"
                                             style="color: #fff;">Itinerario.</a></p>
                                     <label class="radio mt-2" style="color: #fff;">
-                                        <input name="asistencia_rompehielos" type="radio" value="si" >
+                                        <input name="asistencia_rompehielos" type="radio" value="si">
                                         <span class="fs-6">Si</span>
                                     </label>
                                     <label class="radio" style="color: #fff;">
@@ -252,9 +241,10 @@
                                         </div>
                                     </label>
                                 </div>
-                                 <!-- Opción de participación en evento de cartes -->
-                                 <div id="cartes-event" style="display: none;">
-                                     <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su participación en el evento de carteless?
+                                <!-- Opción de participación en evento de cartes -->
+                                <div id="cartes-event" style="display: none;">
+                                    <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su participación en el
+                                        evento de carteless?
                                     </p>
                                     <label class="radio mt-2" style="color: #fff;">
                                         <input name="asistencia_cartes" type="radio" value="si">
@@ -267,7 +257,7 @@
                                 </div>
                                 <div class="row justify-content-center mt-4">
                                     <div class="col-md-8">
-                                        <button class="boton pago" type="submit">
+                                        <button disabled class="boton pago" type="submit">
                                             <div class="spinner hidden" id="spinner"></div>
                                             <span id="button-text">Pagar</span>
                                         </button>
@@ -282,8 +272,8 @@
                         document.addEventListener('DOMContentLoaded', function () {
                             const ticketOptions = document.querySelectorAll('input[name="ticket-type"]');
                             const cartesEventDiv = document.getElementById('cartes-event');
-                 
-                            
+
+
                             ticketOptions.forEach(option => {
                                 option.addEventListener('click', function () {
                                     if (this.value === 'estudiante') {
@@ -295,13 +285,20 @@
                             });
                         });
                     </script>
-                    
+
                 </section>
 
+                <!-- Sección de Pago -->
                 <section id="pago-section" class="section hidden">
                     <div class="modal-content" style="min-width: fit-content;">
                         <div class="modal-header">
                             <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
+                        </div>
+                        <!-- Botón para volver atrás -->
+                        <div class="d-flex justify-content-start mb-3">
+                            <button type="button" class="btn btn-link text-align-start" id="volverBtn">
+                                &larr; Volver
+                            </button>
                         </div>
                         <div class="modal-body">
                             <form id="payment-form">
@@ -317,6 +314,29 @@
                         </div>
                     </div>
                 </section>
+
+                <script>
+                    // Cuando el formulario de registro se envía, muestra la sección de pago
+                    document.getElementById('registroForm').addEventListener('submit', function (event) {
+                        event.preventDefault(); // Evita el envío automático del formulario
+                        document.getElementById('registro-section').classList.add('hidden');
+                        document.getElementById('pago-section').classList.remove('hidden');
+                    });
+
+                    // Volver al formulario de registro desde la sección de pago
+                    document.getElementById('volverBtn').addEventListener('click', function () {
+                        document.getElementById('pago-section').classList.add('hidden');
+                        document.getElementById('registro-section').classList.remove('hidden');
+                    });
+                </script>
+
+                <style>
+                    .hidden {
+                        display: none;
+                    }
+                </style>
+
+
                 <section id="success-section" class="section hidden">
                     <h3>Tu pago ha sido procesado de manera exitosa</h3>
                     <p>Revisa tu correo para más información relacionada al evento. ¡Esperamos verte pronto!</p>
@@ -1583,7 +1603,7 @@
                     <p class="m-0">Invitamos a todos los estudiantes a participar en nuestro emocionante evento de
                         carteles. </p>
                     <p class="pb-3">Este es tu momento para mostrar tu creatividad y talento.</p>
-                    <a href="" id="openPopop">Conoce las bases para participar</a>
+                    <a class="btn btn-white" href="" id="openPopop">Conoce las bases para participar</a>
                 </div>
 
                 <div id="popop" class="popop">
@@ -1597,7 +1617,7 @@
                             <p>Congreso Dental Chihuahuense invita a los estudiantes de Odontología de licenciatura y
                                 posgrado a participar en el Concurso de Carteles a celebrarse en los días 3 y 4 de
                                 Octubre 2024, durante el evento CODEC.</p>
-                            <h3 class="pt-4 pb-2">REQUISITOS:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">REQUISITOS:</h3>
 
                             <ul>
                                 <li>
@@ -1669,7 +1689,7 @@
                                 </li>
                             </ul>
 
-                            <h3 class="pt-4 pb-2">INSCRIPCIÓN:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">INSCRIPCIÓN:</h3>
 
                             <ul>
                                 <li>
@@ -1693,7 +1713,7 @@
                                         resolución o a buena resolución en menor tamaño. </p>
                                 </li>
                             </ul>
-                            <h3 class="pt-4 pb-2">FORMATO Y PRESENTACIÓN:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">FORMATO Y PRESENTACIÓN:</h3>
                             <ul>
                                 <li>
                                     <p>
@@ -1851,7 +1871,7 @@
                                 </li>
 
                             </ul>
-                            <h3 class="pt-4 pb-2">EXPOSICIÓN DE CARTELES:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">EXPOSICIÓN DE CARTELES:</h3>
                             <ul>
                                 <li>
                                     <p>Los carteles participantes se colocarán desde el día 3 de Octubre hasta el día 4
@@ -1875,7 +1895,7 @@
                                 </li>
 
                             </ul>
-                            <h3 class="pt-4 pb-2">CONCURSO:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">CONCURSO:</h3>
 
                             <ul>
                                 <li>
@@ -1909,7 +1929,7 @@
                                 </li>
 
                             </ul>
-                            <h3 class="pt-4 pb-2">GANADORES:</h3>
+                            <h3 class="fs-5 pt-4 pb-2">GANADORES:</h3>
                             <p>Se premiarán los tres finalistas de las dos diferentes categorías, el resultado se dará a
                                 conocer durante la clausura del evento el día 4 de octubre.</p>
                         </div>
