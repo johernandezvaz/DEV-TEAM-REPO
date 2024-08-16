@@ -6,6 +6,11 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="description" content="Página simple para Congreso Dental Chihuahuense (CODEC)">
     <title>Congreso Dental Chihuahuense (CODEC)</title>
+    <script>
+        if (window.location.protocol !== "https:" || window.location.hostname !== "www.codecuu.com") {
+            window.location.href = "https://www.codecuu.com" + window.location.pathname + window.location.search;
+        }
+    </script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
@@ -2420,7 +2425,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="./scripts/checkout.js"></script>
     <script src="./scripts/boletos.js"></script>
-    <script src="./scripts/redirects.js"></script>
 </body>
 
 </html>
