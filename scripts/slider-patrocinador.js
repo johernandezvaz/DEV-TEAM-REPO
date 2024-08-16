@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "patrocinador3.png",
     "patrocinador4.webp",
     "patrocinador5.png",
+    "patrocinador6.png",
+    "patrocinador7.jpg",
+    "patrocinador8.png",
   ];
 
   // Función para crear un slide
