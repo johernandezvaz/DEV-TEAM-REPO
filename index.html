@@ -6,11 +6,11 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="description" content="Página simple para Congreso Dental Chihuahuense (CODEC)">
     <title>Congreso Dental Chihuahuense (CODEC)</title>
-    <script>
+    <!-- <script>
         if (window.location.protocol !== "https:" || window.location.hostname !== "www.codecuu.com") {
             window.location.href = "https://www.codecuu.com" + window.location.pathname + window.location.search;
         }
-    </script>
+    </script> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
@@ -203,22 +203,41 @@
                                 </div>
                                 <div>
                                     <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al evento
-                                        rompehielos (evento con costo) dentro del itinerario? Es muy importante saber si asistirá, ya que
-                                        de no
-                                        confirmar se le negará el acceso durante esa sección del evento. Si no sabe en
-                                        qué
-                                        consiste, puede consultar el <a class="" href="#agenda"
-                                            style="color: #fff;">Itinerario.</a></p>
+                                        rompehielos dentro del itinerario? Es muy importante saber si asistirá, ya que de no
+                                        confirmar se le negará el acceso durante esa sección del evento. Si no sabe en qué
+                                        consiste, puede consultar el <a class="" href="#agenda" style="color: #fff;">Itinerario.</a></p>
                                     <label class="radio mt-2" style="color: #fff;">
-                                        <input name="asistencia_rompehielos" type="radio" value="si">
+                                        <input name="asistencia_rompehielos" type="radio" value="si" id="asistenciaSi">
                                         <span class="fs-6">Si</span>
                                     </label>
                                     <label class="radio" style="color: #fff;">
-                                        <input name="asistencia_rompehielos" type="radio" value="no">
+                                        <input name="asistencia_rompehielos" type="radio" value="no" id="asistenciaNo">
                                         <span class="fs-6">No</span>
                                     </label>
+                                    <div id="advertencia" style="display: none; color: #ffcc00; margin-top: 10px;">
+                                        <p><strong>Advertencia:</strong> Este evento tiene un costo adicional.</p>
+                                    </div>
                                     <div id="asistencia-error"></div>
                                 </div>
+                                <script>
+                                    // Obtener los elementos de radio y la advertencia
+    const asistenciaSi = document.getElementById('asistenciaSi');
+    const asistenciaNo = document.getElementById('asistenciaNo');
+    const advertencia = document.getElementById('advertencia');
+
+    // Escuchar cambios en los radios
+    asistenciaSi.addEventListener('change', function () {
+        if (asistenciaSi.checked) {
+            advertencia.style.display = 'block'; // Mostrar advertencia
+        }
+    });
+
+    asistenciaNo.addEventListener('change', function () {
+        if (asistenciaNo.checked) {
+            advertencia.style.display = 'none'; // Ocultar advertencia
+        }
+    });
+                                </script>
                             </div>
                             <div>
                                 <label for="boleto" class="form-label fw-bold text-align-start fs-6">Seleccione su
