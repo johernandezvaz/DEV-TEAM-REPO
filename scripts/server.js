@@ -32,7 +32,7 @@ app.post("/create-payment-intent", async (req, res) => {
     case "general":
       amount = 2000;
       break;
-    case "instituto":
+    case "Colegios e Instituciones":
       amount = 1500;
       break;
     case "estudiante":
