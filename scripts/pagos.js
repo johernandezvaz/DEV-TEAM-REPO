@@ -232,7 +232,10 @@ async function handleSuccessfulPayment(config) {
             console.error('Fontkit no se cargó correctamente.');
             return;
         }
-        const pdfDoc = await PDFLib.PDFDocument.create();
+
+        const { PDFDocument, rgb } = PDFLib;
+
+        const pdfDoc = await PDFDocument.create();
         
         pdfDoc.registerFontkit(window.fontkit);
         
@@ -279,7 +282,7 @@ async function handleSuccessfulPayment(config) {
                 x: 60,
                 y: height - 200,
                 size: 25,
-                font: clashDisplayMediumFontFont,
+                font: clashDisplayMediumFont,
                 color: rgb(0, 0, 0),
             });
             
