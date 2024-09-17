@@ -6,11 +6,11 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="description" content="Página simple para Congreso Dental Chihuahuense (CODEC)">
     <title>Congreso Dental Chihuahuense (CODEC)</title>
-    <!-- <script>
+    <script>
         if (window.location.protocol !== "https:" || window.location.hostname !== "www.codecuu.com") {
             window.location.href = "https://www.codecuu.com" + window.location.pathname + window.location.search;
         }
-    </script> -->
+    </script>
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -39,6 +39,7 @@
     <link rel="preload" href="styles/index.css" as="style">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/fix.css">
+    <!-- <link rel="stylesheet" href="styles/video.css"> -->
     <style>
         @media (min-width: 992px) {
             html.w-mod-js:not(.w-mod-ix) [data-w-id="7790c7f5-e606-0e16-7ece-290f34840e59"] {
@@ -123,6 +124,64 @@
 </head>
 
 <body>
+
+    <!-- <div id="video-popup" class="video-popup">
+        <div class="video-container" id="video-container">
+            <video id="video" controls>
+                <source src="./assets/video_codec_movil.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var popup = document.getElementById('video-popup');
+                var video = document.getElementById('video');
+                var videoContainer = document.getElementById('video-container');
+                var informativeVideoLink = document.getElementById('informative-video-link');
+                
+                // Mostrar el popup automáticamente después de 5 segundos
+                setTimeout(function () {
+                    showVideoPopup();
+                }, 5000);
+              
+                // Función para mostrar el popup
+                function showVideoPopup() {
+                    popup.style.display = 'flex'; // Mostrar la ventana emergente
+                    video.play(); // Reproducir el video
+                    document.body.classList.add('block-scroll'); // Bloquear el fondo
+                }
+              
+                // Función para cerrar el popup
+                function closeVideoPopup() {
+                    popup.style.display = 'none'; // Ocultar la ventana emergente
+                    video.pause(); // Pausar el video
+                    video.currentTime = 0; // Reiniciar el video
+                    document.body.classList.remove('block-scroll'); // Permitir scroll de nuevo
+                }
+              
+                // Cerrar el popup cuando el video termine, 2 segundos después
+                video.addEventListener('ended', function() {
+                    setTimeout(closeVideoPopup, 2000); // Cierra después de 2 segundos
+                });
+    
+                // Cerrar el popup cuando se hace clic fuera del video
+                popup.addEventListener('click', function(e) {
+                    if (!videoContainer.contains(e.target)) {
+                        closeVideoPopup(); // Si el clic no está dentro del contenedor del video, cierra
+                    }
+                });
+
+                informativeVideoLink.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  showVideoPopup();
+                });
+              
+              
+            });
+        </script>
+    </div> -->
+    
+
     <div class="page-wrapper">
         <div class="page-wrapper">
 
@@ -144,14 +203,12 @@
                     <div class="navbar-collapse" id="navbarNav">
                         <div class="navegacion d-flex mt-5 mt-md-0 ms-auto justify-content-center">
                             <nav id="nav-up" class="nav-footer navbar-nav">
-                                <a href="#conferencistas"
-                                    class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
+                                <a href="#conferencistas" class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
                                 <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
                                 <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Ubicación</a>
-                                <a href="#section-home-partner"
-                                    class="navbar-link w-nav-link nav-item nav-link fs-5">Nosotros</a>
+                                <a href="#section-home-partner" class="navbar-link w-nav-link nav-item nav-link fs-5">Nosotros</a>
                                 <a href="#faq" class="navbar-link w-nav-link nav-item nav-link fs-5">FAQs</a>
-                            </nav>
+                              </nav>
                         </div>
                         <div class="ml-5 registro botonHeader d-flex justify-content-center align-items-center ms-auto">
                             <a href="#" class="button w-button btn-abrir-popup">Comprar Entrada</a>
@@ -2414,6 +2471,7 @@
                                 <a href="#section-home-partner"
                                     class="navbar-link w-nav-link links-footer">Organizadores</a>
                                 <a href="#faq" class="navbar-link w-nav-link links-footer">FAQs</a>
+                                <a href="#" id="informative-video-link" class="navbar-link w-nav-link nav-item nav-link fs-5 links-footer">Video Informativo</a>
 
                             </nav>
                             <!-- </div>
