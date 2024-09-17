@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "patrocinador10.png",
   ];
 
+  console.log("");
+
   // Función para crear un slide
   const createSlide = (src) => {
     const slide = document.createElement("div");
