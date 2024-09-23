@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "patrocinador8.png",
     "patrocinador9.png",
     "patrocinador11.png",
+    "patrocinador12.png",
   ];
 
   console.log("");
