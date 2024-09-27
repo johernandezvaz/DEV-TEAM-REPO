@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "patrocinador9.png",
     "patrocinador11.png",
     "patrocinador12.png",
+    "patrocinador13.png",
   ];
 
   // Función para crear un slide
