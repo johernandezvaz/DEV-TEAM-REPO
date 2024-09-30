@@ -219,7 +219,7 @@ async function handleSuccessfulPayment(config) {
         alert('Error al guardar los datos en la tabla de ingreso para el día dos.');
         return;
     }
-
+    console.log("");
     try {
         const qrCanvasDiaUno = document.createElement('canvas');
         await QRCode.toCanvas(qrCanvasDiaUno, qrDataDiaUno, { scale: 3 });
